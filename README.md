@@ -11,6 +11,7 @@ Used technologies:
 Used applications:
 - WebStorm
 - Google Chrome
+- Adobe Photoshop
 
 Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend layer created in Java 17 with Spring Boot framework.
 
