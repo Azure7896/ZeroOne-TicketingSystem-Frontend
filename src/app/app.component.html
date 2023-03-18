@@ -1,1 +1,8 @@
+<div *ngIf="router.url == '/'; else homepage">
 <app-login></app-login>
+</div>
+<ng-template #homepage>
+  <app-home></app-home>
+</ng-template>
+
+
