@@ -1,0 +1,52 @@
+.mat-toolbar {
+  background-color: #232931;
+  /*animation: color-change 5s infinite;*/
+}
+
+img {
+  display: block;
+  max-width:270px;
+  max-height:135px;
+  width: auto;
+  height: auto;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot {
+  animation: blink 2s infinite;
+}
+
+p {
+  margin-right: 10px;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p, dot {
+  width: auto;
+  height: auto;
+}
+
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+/*@keyframes color-change {*/
+/*  0% { background-color: #232931 }*/
+/*  50% { background-color: #ffffff*/
+/*  }*/
+/*  100% { background-color: #232931 }*/
+/*}*/
+

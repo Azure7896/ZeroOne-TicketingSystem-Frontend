@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,6 +8,11 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'ZeroOne';
-  constructor(public router: Router) {}
+  constructor(public router: Router,
+              private elementRef: ElementRef) {}
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument
+      .body.style.backgroundColor = '#393E46';
+  }
 
 }
