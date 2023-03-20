@@ -21,11 +21,11 @@ video {
 }
 
 img {
-  margin-bottom: -70px;
+  margin-bottom: -30px;
 }
 
 
-.example-card {
+.card {
   padding: 2%;
   width: 50vh;
   background-color: #232931;

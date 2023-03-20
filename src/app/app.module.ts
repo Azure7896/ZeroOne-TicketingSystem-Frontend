@@ -11,13 +11,15 @@ import {MatIconModule} from "@angular/material/icon";
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { ChartsComponent } from './charts/charts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
