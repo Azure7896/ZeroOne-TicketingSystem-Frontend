@@ -1,0 +1,16 @@
+mat-card {
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, 0%);
+  margin-top: 2%;
+  background-color: #232931;
+  border: 5px #EEEEEE;
+}
+
+mat-card mat-card-title {
+  font-size: 30px;
+}
+
+mat-card * {
+  color: #EEEEEE;
+}

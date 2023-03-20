@@ -42,6 +42,18 @@ p, dot {
   100% { opacity: 0; }
 }
 
+button {
+  background-color: #4ECCA3;
+  text-transform: uppercase;
+}
+
+.logout {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+
 
 /*@keyframes color-change {*/
 /*  0% { background-color: #232931 }*/
