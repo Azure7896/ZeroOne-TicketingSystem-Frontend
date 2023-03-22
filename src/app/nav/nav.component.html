@@ -1,17 +1,25 @@
 <nav>
   <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button (click)="openNavbar()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
     <img src="assets/logowithoutbackground.png"/>
     <p>Na żywo</p>
     <span class="dot"></span>
     <span class="example-spacer"></span>
-    <div class="logout">
+    <div class="logout" fxShow="true" fxHide.lt-md>
       <button mat-button>
         <mat-icon>exit_to_app</mat-icon>
         Wyloguj
       </button>
     </div>
   </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav opened="{{isNavbarOpen}}">
+      <mat-sidenav-content>
+        <button>Test</button>
+      </mat-sidenav-content>
+    </mat-sidenav>
+  </mat-sidenav-container>
 </nav>

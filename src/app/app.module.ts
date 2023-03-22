@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ChartsComponent } from './charts/charts.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ChartsComponent } from './charts/charts.component';
     LoginComponent,
     HomeComponent,
     NavComponent,
-    ChartsComponent
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ import { ChartsComponent } from './charts/charts.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

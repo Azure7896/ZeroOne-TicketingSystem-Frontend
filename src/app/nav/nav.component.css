@@ -1,6 +1,5 @@
 .mat-toolbar {
   background-color: #232931;
-  /*animation: color-change 5s infinite;*/
 }
 
 img {
@@ -48,10 +47,27 @@ button {
 }
 
 .logout {
-  display: block;
   margin-left: auto;
   margin-right: 0;
 }
+
+mat-sidenav-container{
+  width: 100px;
+  border: 0;
+  margin: 0;
+  position: unset;
+}
+
+mat-sidenav {
+  width: 170px;
+  background-color: #4ECCA3;
+  height: 30vh;
+  border-bottom-right-radius: 10px;
+}
+
+
+
+
 
 
 
