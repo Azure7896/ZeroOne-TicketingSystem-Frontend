@@ -13,6 +13,10 @@ import { NavComponent } from './nav/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ChartsComponent } from './charts/charts.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { TicketsComponent } from './tickets/tickets.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -21,6 +25,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     HomeComponent,
     NavComponent,
     ChartsComponent,
+    TicketsComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,11 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
