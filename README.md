@@ -4,9 +4,9 @@
 </p>
 
 <p align="center"><b>ZeroOne is an application that provides ticketing system functionalities for IT helpdesk department.</b></p>
-
+<p align="center">Work in progress!</b></p>
 Used technologies:
-- Angular (with Angular Material UI)
+- Angular (with Material UI)
 
 Used applications:
 - WebStorm
@@ -17,7 +17,5 @@ Check also ZeroOne-TicketingSystem-Backend repository for more informations abou
 
 
 
-Login preview (from 15.03.2023):
-
-https://user-images.githubusercontent.com/95986791/225425985-4df632c5-b219-4856-bfd8-83521d72ca40.mp4
+Preview video (from 03.04.2023): 
 
