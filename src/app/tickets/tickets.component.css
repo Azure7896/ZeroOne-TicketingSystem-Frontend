@@ -1,6 +1,11 @@
+.container {
+  width: 100%;
+  overflow-x: auto;
+}
 table {
   margin-top: 2%;
   background-color: #232931;
+  width: 100vw;
 }
 
 
@@ -8,5 +13,13 @@ th, td {
   color: #EEEEEE;
   text-align: center;
 }
+
+mat-paginator {
+  background-color: #232931;
+  color: #EEEEEE;
+}
+
+
+
 
 
