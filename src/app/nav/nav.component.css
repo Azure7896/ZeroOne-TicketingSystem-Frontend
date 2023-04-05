@@ -2,6 +2,7 @@
   background-color: #232931;
 }
 
+
 img {
   display: block;
   max-width:270px;
@@ -15,7 +16,6 @@ img {
   width: 15px;
   background-color: red;
   border-radius: 50%;
-  display: inline-block;
 }
 
 .dot {
@@ -80,6 +80,10 @@ mat-sidenav button {
 
 mat-sidenav p {
   text-align: center;
+}
+
+mat-toolbar {
+  width: 100vw;
 }
 
 
