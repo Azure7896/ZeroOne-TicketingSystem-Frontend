@@ -5,10 +5,13 @@
 
 <p align="center"><b>ZeroOne is an application that provides ticketing system functionalities for IT helpdesk department.</b></p>
 <p align="center">Work in progress!</b></p>
+
 Used technologies:
+
 - Angular (with Material UI)
 
 Used applications:
+
 - WebStorm
 - Google Chrome
 - Adobe Photoshop
