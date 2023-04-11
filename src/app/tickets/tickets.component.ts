@@ -2,28 +2,27 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
+import {TicketService} from "../ticket.service";
+import {Ticket} from "../ticket";
+import {map, Observable} from "rxjs";
 
 export interface PeriodicElement {
   // position: number;
-  ticketnumber: string;
+  ticketNumber: string;
   name: string;
   ticketStatus: string;
   user: string;
-  createddate: string;
+  createdDate: string;
   timeToEnd: string;
+
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {ticketnumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createddate: "03.04.2023, 14:58", timeToEnd: "Pozostało: 23:45"},
-  {ticketnumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createddate: "03.04.2023, 14:58", timeToEnd: "Pozostało: 23:45"},
-  {ticketnumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createddate: "03.04.2023, 14:58", timeToEnd: "Pozostało: 23:45"},
-  {ticketnumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createddate: "03.04.2023, 14:58", timeToEnd: "Pozostało: 23:45"},
-  {ticketnumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createddate: "03.04.2023, 14:58", timeToEnd: "Pozostało: 23:45"},
-  {ticketnumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createddate: "03.04.2023, 14:58", timeToEnd: "Pozostało: 23:45"},
-  {ticketnumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createddate: "03.04.2023, 14:58", timeToEnd: "Pozostało: 23:45"},
-
-
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "W toku", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"}
 ];
+
 
 
 @Component({
@@ -33,9 +32,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TicketsComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['select', 'ticketnumber', 'name', 'ticketStatus', 'user', 'createddate', "timeToEnd"];
+  displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "timeToEnd"];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
+
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -65,7 +66,7 @@ export class TicketsComponent implements AfterViewInit {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.ticketnumber + 1}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.ticketNumber + 1}`;
   }
 
 
