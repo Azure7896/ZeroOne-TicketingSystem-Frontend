@@ -1,0 +1,12 @@
+mat-toolbar {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: #232931;
+  justify-content: center;
+}
+
+mat-toolbar p {
+  color: #EEEEEE;
+}

@@ -17,6 +17,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     NavComponent,
     ChartsComponent,
     TicketsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
