@@ -18,6 +18,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { FooterComponent } from './footer/footer.component';
+import { AddticketformComponent } from './addticketform/addticketform.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
     ChartsComponent,
     TicketsComponent,
     FooterComponent,
+    AddticketformComponent,
   ],
   imports: [
     BrowserModule,

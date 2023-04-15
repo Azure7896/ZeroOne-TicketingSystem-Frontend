@@ -3,7 +3,7 @@
     <button (click)="openNavbar()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <img src="assets/logowithoutbackground.png"/>
+    <img src="assets/logowithoutbackground.png" (click)="goToPage('Home')" />
     <p>Na żywo</p>
     <span class="dot"></span>
     <span class="example-spacer"></span>
@@ -25,9 +25,9 @@
           <mat-icon>accessibility</mat-icon>
           Sprawdź użytkownika
         </button>
-        <button mat-button>
-          <mat-icon>exit_to_app</mat-icon>
-          Wyloguj
+        <button mat-button (click)="goToPage('addticket')">
+          <mat-icon>add</mat-icon>
+          Dodaj zgłoszenie
         </button>
         <button mat-button>
           <mat-icon>exit_to_app</mat-icon>

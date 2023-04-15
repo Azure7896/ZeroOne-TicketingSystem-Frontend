@@ -35,9 +35,6 @@ export class TicketsComponent implements AfterViewInit {
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "timeToEnd"];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
-
-
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngAfterViewInit() {
@@ -70,8 +67,5 @@ export class TicketsComponent implements AfterViewInit {
   }
 
 
-  // changeColorStatus(): string {
-  //   if
-  // }
 
 }
