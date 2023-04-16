@@ -4,11 +4,7 @@
 
 
 img {
-  display: block;
-  max-width:270px;
-  max-height:135px;
-  width: auto;
-  height: auto;
+  margin: 15px;
   cursor: pointer;
 }
 
@@ -29,12 +25,6 @@ p {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
-p, dot {
-  width: auto;
-  height: auto;
-}
-
 
 @keyframes blink {
   0% { opacity: 0; }
@@ -60,9 +50,9 @@ mat-sidenav-container{
 }
 
 mat-sidenav {
-  width: 250px;
+  width: 20vh;
   background-color: #232931;
-  height: 400px;
+  height: 50vh;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   top: 25%;
@@ -70,32 +60,11 @@ mat-sidenav {
 }
 
 mat-sidenav button {
-  justify-content: center;
-  align-items: center;
   width: 90%;
-  margin-top: 3%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5% 5% 0 5%;
+  background-color: #EEEEEE;
 }
 
 mat-sidenav p {
   text-align: center;
 }
-
-mat-toolbar {
-  width: 100vw;
-}
-
-
-
-
-
-
-
-/*@keyframes color-change {*/
-/*  0% { background-color: #232931 }*/
-/*  50% { background-color: #ffffff*/
-/*  }*/
-/*  100% { background-color: #232931 }*/
-/*}*/
-
