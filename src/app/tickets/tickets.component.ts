@@ -20,7 +20,21 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Nowy", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
   {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "W toku", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
-  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"}
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
+  {ticketNumber: "ZO-123", name: 'Coś nie działa', user: "Jan Kowalski", ticketStatus: "Zamknięty", createdDate: "03.04.2023, 14:58", timeToEnd: "23:45"},
 ];
 
 
