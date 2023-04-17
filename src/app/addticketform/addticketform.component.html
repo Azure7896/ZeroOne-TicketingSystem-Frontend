@@ -1,10 +1,17 @@
+
 <mat-card class="ticket-form-container">
   <mat-card-header>
     <mat-card-title>Wyślij zgłoszenie wewnętrzne</mat-card-title>
   </mat-card-header>
   <mat-card-content>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Dodaj</button>
-  </mat-card-actions>
+  <form [formGroup]="ticketForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Podaj imię:</mat-label>
+          <input formControlName="name" matInput placeholder="Nazwa zgłoszenia" required>
+          <mat-error>{{getErrorMessage(ticketForm.get('name'))}}</mat-error>
+        </mat-form-field>
+      <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+      <button mat-button>Dodaj</button>
+  </form>
 </mat-card>

@@ -4,13 +4,15 @@ mat-card {
   transform: translate(-50%, 0%);
   margin-top: 2%;
   background-color: #232931;
-  border: 5px #EEEEEE;
+  padding: 10px;
 }
 
 mat-card mat-card-title {
   font-size: 30px;
+  color: #EEEEEE;
 }
 
-mat-card * {
-  color: #EEEEEE;
+mat-form-field {
+  width: 100%;
+  margin-top: 20px;
 }
