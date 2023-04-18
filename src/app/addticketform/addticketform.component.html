@@ -11,7 +11,7 @@
           <input formControlName="name" matInput placeholder="Nazwa zgłoszenia" required>
           <mat-error>{{getErrorMessage(ticketForm.get('name'))}}</mat-error>
         </mat-form-field>
-      <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+      <ckeditor [editor]="editor" data="<p>Hello, world!</p>"></ckeditor>
       <button mat-button>Dodaj</button>
   </form>
 </mat-card>

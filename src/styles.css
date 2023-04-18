@@ -2,3 +2,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*CKEditor*/
+.ck-editor__editable_inline {
+  min-height: 500px;
+  background-color: #4ECCA3;
+}
+
+
