@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
-  constructor(public router: Router,) {
+  constructor(public router: Router, private titleService:Title) {
+    this.titleService.setTitle("ZeroOne Ticketing System");
   }
 
 }
