@@ -1,6 +1,7 @@
 <app-nav></app-nav>
 <app-charts></app-charts>
 <div *ngIf="router.url == '/Home'; else addticketform">
+  <app-sort></app-sort>
   <app-tickets></app-tickets>
 </div>
 <ng-template #addticketform>

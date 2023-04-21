@@ -23,6 +23,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
     ReactiveFormsModule,
     MatInputModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    MatMenuModule,
 
   ],
   providers: [],
