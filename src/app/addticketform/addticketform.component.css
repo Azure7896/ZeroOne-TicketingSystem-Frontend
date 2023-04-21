@@ -7,10 +7,15 @@ mat-card {
   padding: 10px;
 }
 
-mat-card mat-card-title {
-  font-size: 30px;
+mat-card mat-card-subtitle {
   color: #EEEEEE;
 }
+
+mat-card mat-card-title {
+  font-size: 30px;
+  color: #4ECCA3;
+}
+
 
 mat-form-field {
   width: 100%;
@@ -19,4 +24,10 @@ mat-form-field {
 
 .ck-editor__editable {
   min-height: 500px !important;
+}
+
+button {
+  background-color: #4ECCA3;
+  margin-top: 20px;
+  width: 10%;
 }

@@ -8,14 +8,11 @@ import {Ticket} from "./ticket";
 })
 export class TicketService {
 
-  url: string;
-
   constructor(private http: HttpClient) {
-    this.url='http://localhost:8080/';
   }
 
   getAllTickets(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.url);
+    return this.http.get<Ticket[]>('http://localhost:8080/tickets');
   }
 
 }
