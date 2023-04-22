@@ -8,7 +8,9 @@
 
 Used technologies:
 
-- Angular (with Material UI)
+  - Angular
+    - Material UI
+    - CKEditor
 
 Used applications:
 
