@@ -1,5 +1,6 @@
 import {User} from "./user";
 
+
 export class Ticket {
 
   ticketNumber: string;
@@ -7,6 +8,7 @@ export class Ticket {
   ticketStatus: string;
   user: User;
   createdDate: string;
-  attendant: string;
+  attendant: User;
   timeToEnd: string;
+
 }
