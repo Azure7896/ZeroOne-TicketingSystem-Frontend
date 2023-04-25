@@ -6,9 +6,10 @@
     <img src="assets/smallerlogo.png" (click)="goToPage('Home')" />
     <p>Na żywo</p>
     <span class="dot"></span>
-
-    <div class="logout" fxShow="true">
-      <button mat-button>
+    <input class="search-input" type="text" placeholder="Wyszukaj...">
+    <div class="spacer"></div>
+    <div fxShow="true">
+      <button mat-button class="logout-button">
         <mat-icon>exit_to_app</mat-icon>
         Wyloguj
       </button>
