@@ -4,6 +4,7 @@ import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../ticket";
 import {TicketService} from "../ticket.service";
+import {interval, Observable, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-tickets',
@@ -17,16 +18,15 @@ export class TicketsComponent implements AfterViewInit {
   dataSource: any;
 
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<Ticket>(true, []);
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private ticketService: TicketService) {
-
   }
 
   ngOnInit() {
     this.fetchTickets();
+    // setInterval(() => { this.fetchTickets(); }, 5000);
   }
 
   ngAfterViewInit() {
@@ -35,12 +35,20 @@ export class TicketsComponent implements AfterViewInit {
 
   fetchTickets() {
     this.ticketService.getAllTickets().subscribe(data => {
-
       this.ticketList = data
-      this.dataSource = new MatTableDataSource(this.ticketList)
-      console.log('list of tickets', this.ticketList)
+        this.dataSource = new MatTableDataSource(this.ticketList)
     })
   }
+
+  calculateTime(date) {
+    var firstDate = new Date(new Date().toISOString()),
+      secondDate = new Date(date),
+      firstDateInSeconds = firstDate.getTime() / 1000,
+      secondDateInSeconds = secondDate.getTime() / 1000,
+      difference = Math.abs(firstDateInSeconds - secondDateInSeconds);
+    return difference;
+  }
+
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
@@ -63,6 +71,4 @@ export class TicketsComponent implements AfterViewInit {
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.ticketNumber + 1}`;
   }
-
-
 }

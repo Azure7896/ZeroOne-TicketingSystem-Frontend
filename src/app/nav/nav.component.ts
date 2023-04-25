@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 @Component({
   selector: 'app-nav',
@@ -19,8 +20,8 @@ export class NavComponent {
   public openNavbar(): void {
     if(this.isNavbarOpen == false) {
       this.isNavbarOpen = true;
-    } else {
-      this.isNavbarOpen = false;
     }
   }
+
+    protected readonly ClassicEditor = ClassicEditor;
 }
