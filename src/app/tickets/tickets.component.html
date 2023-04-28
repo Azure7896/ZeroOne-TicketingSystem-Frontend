@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" >
   <div class="sort-menu">
     <mat-card>
       <mat-card-content>
@@ -77,7 +77,7 @@
 
     <ng-container matColumnDef="timeToEnd">
       <th *matHeaderCellDef mat-header-cell> Pozostały czas</th>
-      <td *matCellDef="let element" mat-cell> {{calculateTime(element.createdDate)}} </td>
+      <td *matCellDef="let element" mat-cell> {{element.timeToEnd}} </td>
     </ng-container>
 
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
