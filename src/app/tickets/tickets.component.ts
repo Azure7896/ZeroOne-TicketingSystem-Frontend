@@ -4,7 +4,6 @@ import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../ticket";
 import {TicketService} from "../ticket.service";
-import {interval, Observable, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-tickets',
@@ -16,6 +15,8 @@ export class TicketsComponent implements AfterViewInit {
   ticketList: Ticket[];
 
   dataSource: any;
+
+  ticketsDisabled: boolean = false;
 
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
   selection = new SelectionModel<Ticket>(true, []);
@@ -35,20 +36,15 @@ export class TicketsComponent implements AfterViewInit {
 
   fetchTickets() {
     this.ticketService.getAllTickets().subscribe(data => {
-      this.ticketList = data
+
+      if (data == null) {
+        this.ticketsDisabled = true;
+      } else {
+        this.ticketList = data
         this.dataSource = new MatTableDataSource(this.ticketList)
+      }
     })
   }
-
-  calculateTime(date) {
-    var firstDate = new Date(new Date().toISOString()),
-      secondDate = new Date(date),
-      firstDateInSeconds = firstDate.getTime() / 1000,
-      secondDateInSeconds = secondDate.getTime() / 1000,
-      difference = Math.abs(firstDateInSeconds - secondDateInSeconds);
-    return difference;
-  }
-
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
