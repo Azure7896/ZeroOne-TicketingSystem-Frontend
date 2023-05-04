@@ -12,7 +12,7 @@
           <input formControlName="name" matInput placeholder="Nazwa zgłoszenia" required>
           <mat-error>{{getErrorMessage(ticketForm.get('name'))}}</mat-error>
         </mat-form-field>
-      <ckeditor [editor]="editor" [config]="{placeholder: 'Wpisz treść zgłoszenia... (Maksymalnie 2000 znaków)'}"></ckeditor>
-      <button mat-button>Dodaj</button>
+      <ckeditor formControlName="ticketBody" [editor]="editor" [config]="{placeholder: 'Wpisz treść zgłoszenia... (Maksymalnie 2000 znaków)'}"></ckeditor>
+      <button mat-button (click)="createNewTicket()">Dodaj</button>
   </form>
 </mat-card>
