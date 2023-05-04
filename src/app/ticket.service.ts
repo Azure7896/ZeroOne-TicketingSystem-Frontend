@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Ticket} from "./ticket";
 import {TicketsComponent} from "./tickets/tickets.component";
+import {FormGroup} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,10 @@ export class TicketService {
 
   getAllTickets(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>('http://localhost:8080/tickets');
+  }
+
+  public saveTicket(form: FormGroup)  {
+    return this.http.post("http://localhost:8080/tickets", form.value, {observe: 'response'})
   }
 
 }
