@@ -4,7 +4,8 @@
 </p>
 
 <p align="center"><b>ZeroOne is an application that provides ticketing system functionalities for IT helpdesk department.</b></p>
-<p align="center">Work in progress!</b></p>
+<p align="center">⚠️⚠️⚠️Work in progress! But respository will be updated after complete the project, beacuse of own copyright reasons.⚠️⚠️⚠️</b></p>
+
 
 Used technologies:
 
