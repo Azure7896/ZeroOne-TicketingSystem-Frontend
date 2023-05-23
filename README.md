@@ -24,6 +24,8 @@ Check also ZeroOne-TicketingSystem-Backend repository for more informations abou
 
 Preview image (from 08.05.2023):
 
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/1d256d9a-5083-43b2-937c-c2439fc4b5c9)
+
 ![image](https://user-images.githubusercontent.com/95986791/236924460-5245d7c6-61c7-46db-b78a-c50b1d88bcd2.png)
 
 Preview video (from 19.04.2023): 
