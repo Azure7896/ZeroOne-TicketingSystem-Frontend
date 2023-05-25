@@ -26,6 +26,9 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import {MatMenuModule} from "@angular/material/menu";
 import {HttpClientModule} from "@angular/common/http";
 import { AddticketbyuserformComponent } from './addticketbyuserform/addticketbyuserform.component';
+import { LoadingComponent } from './loading/loading.component';
+import {MatBadgeModule} from "@angular/material/badge";
+import {NgChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { AddticketbyuserformComponent } from './addticketbyuserform/addticketbyu
     FooterComponent,
     AddticketformComponent,
     AddticketbyuserformComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { AddticketbyuserformComponent } from './addticketbyuserform/addticketbyu
     FormsModule,
     CKEditorModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    MatBadgeModule,
+    NgChartsModule,
 
   ],
   providers: [],

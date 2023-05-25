@@ -14,3 +14,16 @@ mat-card mat-card-title {
 mat-card * {
   color: #EEEEEE;
 }
+
+.chart {
+  width: 25%;
+  height: 20%;
+  text-align: center;
+}
+
+.chart mat-card-content {
+  margin: 5px;
+  color: #4ECCA3;
+}
+
+

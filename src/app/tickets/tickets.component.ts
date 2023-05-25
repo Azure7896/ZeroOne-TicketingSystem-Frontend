@@ -16,7 +16,7 @@ export class TicketsComponent implements AfterViewInit {
 
   dataSource: any;
 
-  ticketsDisabled: boolean = false;
+  showLoading: boolean = true;
 
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
   selection = new SelectionModel<Ticket>(true, []);
@@ -35,15 +35,19 @@ export class TicketsComponent implements AfterViewInit {
   }
 
   fetchTickets() {
-    this.ticketService.getAllTickets().subscribe(data => {
 
-      if (data == null) {
-        this.ticketsDisabled = true;
-      } else {
-        this.ticketList = data
-        this.dataSource = new MatTableDataSource(this.ticketList)
-      }
-    })
+      this.ticketService.getAllTickets().subscribe(data => {
+
+        if (data != null) {
+          setTimeout(() => {
+            this.showLoading = false;
+            this.ticketList = data
+            this.dataSource = new MatTableDataSource(this.ticketList)
+          }, 1500);
+        } else {
+          // this.fetchTickets() to do
+        }
+      })
   }
 
   isAllSelected() {
