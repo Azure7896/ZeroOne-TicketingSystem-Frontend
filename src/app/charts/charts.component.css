@@ -16,14 +16,17 @@ mat-card * {
 }
 
 .chart {
-  width: 25%;
-  height: 20%;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chart * {
+  margin: 10px;
 }
 
 .chart mat-card-content {
   margin: 5px;
-  color: #4ECCA3;
 }
 
 

@@ -29,6 +29,7 @@ import { AddticketbyuserformComponent } from './addticketbyuserform/addticketbyu
 import { LoadingComponent } from './loading/loading.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {NgChartsModule} from "ng2-charts";
+import {Colors} from "chart.js";
 
 @NgModule({
   declarations: [
@@ -64,7 +65,6 @@ import {NgChartsModule} from "ng2-charts";
     HttpClientModule,
     MatBadgeModule,
     NgChartsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
