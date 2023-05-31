@@ -1,7 +1,8 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Statystyki</mat-card-title>
+    <mat-card-title>Statistics</mat-card-title>
   </mat-card-header>
+  <mat-card-content>(Last 7 days)</mat-card-content>
   <div class="chart">
     <div class="numberofticketsperdaychart">
       <canvas [datasets]="lineChartData"
@@ -11,21 +12,26 @@
               baseChart>
       </canvas>
     </div>
-    <div class="numberofticketswithstatuschart">
-      <canvas [datasets]="doughnutChartData"
-              [labels]="doughnutChartLabels"
-              [options]="options"
-              [type]="doughnutChartType"
-              baseChart>
-      </canvas>
-    </div>
-    <div class="numberofticketspermonthschart">
-      <canvas [datasets]="barChartData"
-              [labels]="barChartLabels"
-              [options]="options"
-              [type]="barChartType"
-              baseChart>
-      </canvas>
-    </div>
+<!--    <div class="numberofticketswithstatuschart">-->
+<!--      <canvas [datasets]="doughnutChartData"-->
+<!--              [labels]="doughnutChartLabels"-->
+<!--              [options]="options"-->
+<!--              [type]="doughnutChartType"-->
+<!--              baseChart>-->
+<!--      </canvas>-->
+<!--    </div>-->
+<!--    <div class="numberofticketspermonthschart">-->
+<!--      <canvas [datasets]="barChartData"-->
+<!--              [labels]="barChartLabels"-->
+<!--              [options]="options"-->
+<!--              [type]="barChartType"-->
+<!--              baseChart>-->
+<!--      </canvas>-->
+<!--    </div>-->
   </div>
+<!--  <p class="morecharts">More charts</p>-->
+  <button mat-button>
+    <mat-icon>bar_chart</mat-icon>
+    <p>More charts</p>
+  </button>
 </mat-card>
