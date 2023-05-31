@@ -39,11 +39,9 @@ export class TicketsComponent implements AfterViewInit {
       this.ticketService.getAllTickets().subscribe(data => {
 
         if (data != null) {
-          setTimeout(() => {
             this.showLoading = false;
             this.ticketList = data
             this.dataSource = new MatTableDataSource(this.ticketList)
-          }, 1500);
         } else {
           // this.fetchTickets() to do
         }
