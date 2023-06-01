@@ -23,7 +23,7 @@ Used applications:
 
 Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend layer created in Java 17 with Spring Boot framework.
 
-Preview image (from 30.05.2023), size of these charts will be changed:
+Preview image (from 30.05.2023):
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/685d5e32-8c07-46c1-8882-f439f3fc8cca)
 
