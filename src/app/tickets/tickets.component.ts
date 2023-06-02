@@ -2,8 +2,8 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
-import {Ticket} from "../ticket";
-import {TicketService} from "../ticket.service";
+import {Ticket} from "../classes/ticket";
+import {TicketService} from "./ticketservice/ticket.service";
 
 @Component({
   selector: 'app-tickets',

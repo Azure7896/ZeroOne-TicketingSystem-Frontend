@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Ticket} from "./ticket";
-import {TicketsComponent} from "./tickets/tickets.component";
+import {Ticket} from "../../classes/ticket";
+import {TicketsComponent} from "../tickets.component";
 import {FormGroup} from "@angular/forms";
 
 @Injectable({
