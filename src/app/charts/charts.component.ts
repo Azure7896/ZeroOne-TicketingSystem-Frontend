@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ChartService} from "./service/chart.service";
 
 @Component({
   selector: 'app-charts',
@@ -7,6 +8,19 @@ import { Component } from '@angular/core';
 })
 export class ChartsComponent {
 
+  constructor(private chartService: ChartService) {
+  }
+
+  ngOnInit() {
+    this.addDaysListToChart();
+  }
+
+  addDaysListToChart() {
+    this.chartService.getSortedDaysList().subscribe(data => {
+      this.lineChartLabels = data;
+    })
+  }
+
   lineChartData = [
     { data: [12, 5, 42, 18, 36, 45, 47],
       label: 'Number of tickets per day',
@@ -14,7 +28,7 @@ export class ChartsComponent {
       borderColor: "rgba(10,150,132,1)",
       pointBackgroundColor: '#FFFFFF'}];
 
-  lineChartLabels=['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  lineChartLabels;
   lineChartType = 'line';
 
   // doughnutChartLabels = ['New', 'Open', 'Closed'];
