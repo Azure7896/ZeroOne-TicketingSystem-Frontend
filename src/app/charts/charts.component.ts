@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {ChartService} from "./service/chart.service";
 
 @Component({
@@ -11,9 +11,12 @@ export class ChartsComponent {
   constructor(private chartService: ChartService) {
   }
 
+  chartEnabled = false;
+
   ngOnInit() {
     this.addDaysListToChart();
   }
+
 
   addDaysListToChart() {
     this.chartService.getSortedDaysList().subscribe(data => {
