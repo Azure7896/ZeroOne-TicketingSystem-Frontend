@@ -26,11 +26,11 @@ export class TicketsComponent implements AfterViewInit {
   }
 
   ngOnInit() {
-    this.fetchTickets();
     // setInterval(() => { this.fetchTickets(); }, 5000);
   }
 
   ngAfterViewInit() {
+    this.fetchTickets();
     this.dataSource.paginator = this.paginator;
   }
 
