@@ -30,24 +30,17 @@ export class TicketsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.fetchTickets();
     this.dataSource.paginator = this.paginator;
   }
 
   fetchTickets() {
 
       this.ticketService.getAllTickets().subscribe(data => {
-
-        if (data != null) {
             this.showLoading = false;
             this.ticketList = data
-            this.dataSource = new MatTableDataSource(this.ticketList)
-        } else {
-          // this.fetchTickets() to do
-        }
+            this.dataSource = new MatTableDataSource(this.ticketList);
       })
   }
-
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
