@@ -11,8 +11,6 @@ export class ChartsComponent {
   constructor(private chartService: ChartService) {
   }
 
-  chartEnabled = false;
-
   ngOnInit() {
     this.addDaysListToChart();
   }

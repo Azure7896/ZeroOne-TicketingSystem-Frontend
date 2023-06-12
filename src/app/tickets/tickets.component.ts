@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../classes/ticket";
 import {TicketService} from "./ticketservice/ticket.service";
+import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-tickets',
@@ -18,11 +19,14 @@ export class TicketsComponent implements AfterViewInit {
 
   showLoading: boolean = true;
 
+
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
   selection = new SelectionModel<Ticket>(true, []);
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   constructor(private ticketService: TicketService) {
+    this.fetchTickets()
   }
 
   ngOnInit() {
@@ -39,6 +43,7 @@ export class TicketsComponent implements AfterViewInit {
             this.showLoading = false;
             this.ticketList = data
             this.dataSource = new MatTableDataSource(this.ticketList);
+
       })
   }
   isAllSelected() {
