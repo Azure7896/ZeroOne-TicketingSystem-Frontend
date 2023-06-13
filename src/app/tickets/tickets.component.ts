@@ -1,10 +1,9 @@
-import {AfterViewInit, ChangeDetectorRef, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../classes/ticket";
 import {TicketService} from "./ticketservice/ticket.service";
-import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-tickets',
@@ -22,19 +21,23 @@ export class TicketsComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
   selection = new SelectionModel<Ticket>(true, []);
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
-
+  @ViewChild(MatPaginator, {static: false})
+  set paginator(value: MatPaginator) {
+    if (this.dataSource){
+      this.dataSource.paginator = value;
+    }
+  }
   constructor(private ticketService: TicketService) {
-    this.fetchTickets()
+
   }
 
   ngOnInit() {
     // setInterval(() => { this.fetchTickets(); }, 5000);
+    this.fetchTickets()
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+
   }
 
   fetchTickets() {
