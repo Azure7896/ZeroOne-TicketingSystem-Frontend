@@ -61,26 +61,4 @@ p {
   text-transform: uppercase;
 }
 
-mat-sidenav-container{
-  width: 100px;
-  border: 0;
-  margin: 0;
-  position: unset;
-}
-
-mat-sidenav {
-  width: 20vh;
-  background-color: #232931;
-  height: 50vh;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  top: 25%;
-  bottom: 25%;
-}
-
-mat-sidenav button {
-  width: 90%;
-  margin: 5% 5% 0 5%;
-  background-color: #EEEEEE;;
-}
 

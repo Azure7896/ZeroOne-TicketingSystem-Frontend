@@ -17,11 +17,4 @@ export class NavComponent {
     this.router.navigate([`${pageName}`]);
   }
 
-  public openNavbar(): void {
-    if(this.isNavbarOpen == false) {
-      this.isNavbarOpen = true;
-    }
-  }
-
-    protected readonly ClassicEditor = ClassicEditor;
 }
