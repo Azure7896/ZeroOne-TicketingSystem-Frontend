@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'addinternalticket', component: AddticketformComponent},
   {path: 'addticket', component: AddticketbyuserformComponent},
   {path: 'ticketcreated/:term', component: TicketcreatedComponent},
+  {path: 'menu', component: TicketcreatedComponent},
 ];
 
 @NgModule({

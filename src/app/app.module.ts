@@ -31,6 +31,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {NgChartsModule} from "ng2-charts";
 import {Colors} from "chart.js";
 import { TicketcreatedComponent } from './ticketcreated/ticketcreated.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TicketcreatedComponent } from './ticketcreated/ticketcreated.component'
     AddticketbyuserformComponent,
     LoadingComponent,
     TicketcreatedComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
