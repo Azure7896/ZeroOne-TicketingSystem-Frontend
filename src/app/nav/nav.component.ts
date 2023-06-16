@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 @Component({
   selector: 'app-nav',

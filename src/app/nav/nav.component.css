@@ -2,6 +2,10 @@
   background-color: #232931;
 }
 
+.menu-button {
+  color: #EEEEEE;
+}
+
 
 .spacer {
   flex: 1 1 auto;

@@ -8,7 +8,7 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(public router: Router, private titleService:Title) {
+  constructor(public router: Router, private titleService: Title) {
     this.titleService.setTitle("ZeroOne Ticketing System");
   }
 

@@ -41,12 +41,14 @@ export class TicketsComponent implements AfterViewInit {
   }
 
   fetchTickets() {
-
       this.ticketService.getAllTickets().subscribe(data => {
+        setTimeout(() =>
+          {
             this.showLoading = false;
             this.ticketList = data
             this.dataSource = new MatTableDataSource(this.ticketList);
-
+          },
+          1000);
       })
   }
   isAllSelected() {
