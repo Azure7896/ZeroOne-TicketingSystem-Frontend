@@ -26,8 +26,17 @@
   padding: 10px;
 }
 main {
-  background: #232931;
-  grid-area: main;;
+  background:url('/assets/statistics.jpg') no-repeat #232931;
+  background-size: cover;
+  filter: grayscale(80%);
+  transition-duration: 1s;
+  grid-area: main;
+
+}
+
+main:hover {
+  transition-duration: 1s;
+  filter: grayscale(25%);
 }
 
 #sidebar {
