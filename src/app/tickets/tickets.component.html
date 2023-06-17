@@ -47,41 +47,41 @@
 
 
       <ng-container matColumnDef="ticketNumber">
-        <th *matHeaderCellDef mat-header-cell> Numer zgłoszenia</th>
+        <th *matHeaderCellDef mat-header-cell>Ticket number</th>
         <td *matCellDef="let element" mat-cell> {{element.ticketNumber}} </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th *matHeaderCellDef mat-header-cell> Nazwa</th>
+        <th *matHeaderCellDef mat-header-cell>Ticket name</th>
         <td *matCellDef="let element" class="name" mat-cell><a
           href="http://localhost:4200/{{element.ticketNumber}}">{{element.name}}</a></td>
       </ng-container>
 
       <ng-container matColumnDef="ticketStatus">
-        <th *matHeaderCellDef mat-header-cell> Status</th>
+        <th *matHeaderCellDef mat-header-cell>Status</th>
         <td *matCellDef="let element" [ngStyle]="element.ticketStatus === 'Nowy' ? { color:'#FFA500' } : element.ticketStatus === 'W toku' ?
      {color: '#00D8FF'} : element.ticketStatus === 'Zamknięty' ? {color: '#4ECCA3'} : {color: ''}"
             mat-cell> {{element.ticketStatus}} </td>
       </ng-container>
 
       <ng-container matColumnDef="user">
-        <th *matHeaderCellDef mat-header-cell> Osoba zgłaszająca</th>
+        <th *matHeaderCellDef mat-header-cell>User</th>
         <td *matCellDef="let element" mat-cell> {{element.user.email}} </td>
       </ng-container>
 
       <ng-container matColumnDef="createdDate">
-        <th *matHeaderCellDef mat-header-cell> Utworzono</th>
+        <th *matHeaderCellDef mat-header-cell>Created</th>
         <td *matCellDef="let element" mat-cell> {{element.createdDate | date: 'dd.MM.yyyy HH:mm:ss '}} </td>
       </ng-container>
 
       <ng-container matColumnDef="attendant">
-        <th *matHeaderCellDef mat-header-cell> Osoba obsługująca</th>
+        <th *matHeaderCellDef mat-header-cell>Attendant</th>
         <td *matCellDef="let element" mat-cell> {{element.user.email}} </td>
       </ng-container>
 
       <ng-container matColumnDef="timeToEnd">
-        <th *matHeaderCellDef mat-header-cell> Pozostały czas</th>
-        <td *matCellDef="let element" mat-cell [ngStyle]="element.timeToEnd === 'Czas przekroczony!' ? { color:'#EE4B2B' } : {}"> {{element.timeToEnd}}</td>
+        <th *matHeaderCellDef mat-header-cell>Time remaining</th>
+        <td *matCellDef="let element" mat-cell [ngStyle]="element.timeToEnd === 'Pick-up time exceeded' ? { color:'#EE4B2B' } : {}"> {{element.timeToEnd}}</td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
