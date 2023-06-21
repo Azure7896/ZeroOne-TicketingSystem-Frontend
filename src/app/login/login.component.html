@@ -7,13 +7,35 @@
     <mat-card-header>
       <mat-card-title>ZeroOne jest systemem ticketowym wspomagającym pracę działu technicznego w organizacji.</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-      <p>Zaloguj się za pomocą swojego firmowego konta Microsoft.</p>
-    </mat-card-content>
+    <form class="login">
+      <mat-form-field class="email">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl"
+               placeholder="Ex. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="passwsord">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput [formControl]="emailFormControl">
+        <mat-error *ngIf="passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </form>
     <mat-card-actions>
       <button (click)="goToPage('home')" mat-button>
         <mat-icon>work</mat-icon>
-        Kliknij tutaj aby zalogować się swoim kontem Microsoft
+        Zaloguj się
       </button>
     </mat-card-actions>
   </mat-card>
