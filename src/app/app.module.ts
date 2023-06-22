@@ -32,6 +32,8 @@ import {NgChartsModule} from "ng2-charts";
 import {Colors} from "chart.js";
 import { TicketcreatedComponent } from './ticketcreated/ticketcreated.component';
 import { MenuComponent } from './menu/menu.component';
+import {MatSliderModule} from "@angular/material/slider";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { MenuComponent } from './menu/menu.component';
     HttpClientModule,
     MatBadgeModule,
     NgChartsModule,
+    MatSliderModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

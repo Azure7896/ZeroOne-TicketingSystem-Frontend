@@ -4,8 +4,9 @@
       <mat-icon>menu</mat-icon>
     </button>
     <img src="assets/smallerlogo.png" (click)="goToPage('home')" />
-    <p>ON LIVE</p>
-    <span class="dot"></span>
+    <p [hidden]="true">ON LIVE</p>
+    <span class="dot" [hidden]="true"></span>
+    <mat-slide-toggle color="primary" class="toggle"></mat-slide-toggle>
     <input class="search-input" type="text" placeholder="Search...">
     <div class="spacer"></div>
     <div fxShow="true">
