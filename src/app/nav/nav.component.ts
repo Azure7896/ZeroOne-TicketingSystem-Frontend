@@ -7,7 +7,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  isNavbarOpen: boolean = false;
+  isOnLive = true;
+
+
+
+  toggle(): void {
+    console.log(this.isOnLive);
+    // do more stuff
+  }
 
   constructor(private router:Router) {
 

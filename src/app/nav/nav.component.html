@@ -4,9 +4,9 @@
       <mat-icon>menu</mat-icon>
     </button>
     <img src="assets/smallerlogo.png" (click)="goToPage('home')" />
-    <p [hidden]="true">ON LIVE</p>
-    <span class="dot" [hidden]="true"></span>
-    <mat-slide-toggle color="primary" class="toggle"></mat-slide-toggle>
+    <p [hidden]="!isOnLive">ON LIVE</p>
+    <span [hidden]="!isOnLive" class="dot"></span>
+    <mat-slide-toggle [(ngModel)]="isOnLive" (ngModelChange)="toggle()" color="primary" class="toggle"></mat-slide-toggle>
     <input class="search-input" type="text" placeholder="Search...">
     <div class="spacer"></div>
     <div fxShow="true">
