@@ -17,7 +17,7 @@
   grid-gap: 1rem;
   font-weight: 800;
   font-size: 25px;
-  color: #4ECCA3;
+  color: #EEEEEE;
 }
 
 .container * {
@@ -31,12 +31,12 @@ main {
   filter: grayscale(80%);
   transition-duration: 1s;
   grid-area: main;
-
 }
 
 main:hover {
   transition-duration: 1s;
   filter: grayscale(25%);
+  color: #4ECCA3;
 }
 
 #sidebar {
@@ -50,6 +50,7 @@ main:hover {
 #sidebar:hover {
   transition-duration: 1s;
   filter: grayscale(25%);
+  color: #4ECCA3;
 }
 
 #content1 {
