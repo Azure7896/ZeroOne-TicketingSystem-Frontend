@@ -29,11 +29,11 @@ import { AddticketbyuserformComponent } from './addticketbyuserform/addticketbyu
 import { LoadingComponent } from './loading/loading.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {NgChartsModule} from "ng2-charts";
-import {Colors} from "chart.js";
 import { TicketcreatedComponent } from './ticketcreated/ticketcreated.component';
 import { MenuComponent } from './menu/menu.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { HomeclientComponent } from './homeclient/homeclient.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     LoadingComponent,
     TicketcreatedComponent,
     MenuComponent,
+    HomeclientComponent,
   ],
   imports: [
     BrowserModule,

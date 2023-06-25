@@ -4,12 +4,14 @@ import {HomeComponent} from '../home/home.component'
 import {AddticketformComponent} from "../addticketform/addticketform.component";
 import {AddticketbyuserformComponent} from "../addticketbyuserform/addticketbyuserform.component";
 import {TicketcreatedComponent} from "../ticketcreated/ticketcreated.component";
+import {HomeclientComponent} from "../homeclient/homeclient.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'addinternalticket', component: AddticketformComponent},
   {path: 'addticket', component: AddticketbyuserformComponent},
-  {path: 'ticketcreated/:term', component: TicketcreatedComponent}
+  {path: 'ticketcreated/:term', component: TicketcreatedComponent},
+  {path: 'client', component: HomeclientComponent}
 ];
 
 @NgModule({
