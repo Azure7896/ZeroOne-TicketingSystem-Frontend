@@ -1,8 +1,9 @@
 <app-nav></app-nav>
-<app-menu></app-menu>
-<!--<app-charts></app-charts>-->
+<!--<app-menu></app-menu>-->
+<app-charts></app-charts>
+<app-addticketform></app-addticketform>
 <div *ngIf="router.url == '/home'; else addticketform">
-<!--  <app-tickets></app-tickets>-->
+  <app-tickets></app-tickets>
 
 </div>
 <ng-template #addticketform>
