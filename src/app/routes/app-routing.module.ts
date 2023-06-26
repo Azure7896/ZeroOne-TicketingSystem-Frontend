@@ -9,7 +9,6 @@ import {HomeclientComponent} from "../homeclient/homeclient.component";
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'addinternalticket', component: AddticketformComponent},
-  {path: 'addticket', component: AddticketbyuserformComponent},
   {path: 'ticketcreated/:term', component: TicketcreatedComponent},
   {path: 'client', component: HomeclientComponent}
 ];
