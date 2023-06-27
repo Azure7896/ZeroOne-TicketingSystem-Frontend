@@ -11,6 +11,10 @@
   <app-addticketbyuserform></app-addticketbyuserform>
 </div>
 
+<div *ngIf="router.url == '/client';">
+  <app-homeclient></app-homeclient>
+</div>
+
 <div *ngIf="router.url.match('/ticketcreated/zo-[0-9]+');">
   <app-ticketcreated></app-ticketcreated>
 </div>
