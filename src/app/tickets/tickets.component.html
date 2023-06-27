@@ -1,3 +1,4 @@
+<app-charts *ngIf="!showLoading"></app-charts>
 <div *ngIf="showLoading == true; else showtickets">
   <app-loading></app-loading>
 </div>
@@ -59,8 +60,8 @@
 
       <ng-container matColumnDef="ticketStatus">
         <th *matHeaderCellDef mat-header-cell>Status</th>
-        <td *matCellDef="let element" [ngStyle]="element.ticketStatus === 'Nowy' ? { color:'#FFA500' } : element.ticketStatus === 'W toku' ?
-     {color: '#00D8FF'} : element.ticketStatus === 'Zamknięty' ? {color: '#4ECCA3'} : {color: ''}"
+        <td *matCellDef="let element" [ngStyle]="element.ticketStatus === 'New' ? { color:'#FFA500' } : element.ticketStatus === 'In progress' ?
+     {color: '#00D8FF'} : element.ticketStatus === 'Closed' ? {color: '#4ECCA3'} : {color: ''}"
             mat-cell> {{element.ticketStatus}} </td>
       </ng-container>
 
@@ -71,7 +72,7 @@
 
       <ng-container matColumnDef="createdDate">
         <th *matHeaderCellDef mat-header-cell>Created</th>
-        <td *matCellDef="let element" mat-cell> {{element.createdDate | date: 'dd.MM.yyyy HH:mm:ss '}} </td>
+        <td *matCellDef="let element" mat-cell> {{element.createdDate | date: 'dd.MM.yyyy HH:mm '}} </td>
       </ng-container>
 
       <ng-container matColumnDef="attendant">

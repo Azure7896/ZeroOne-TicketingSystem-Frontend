@@ -25,7 +25,6 @@ import {MatInputModule} from "@angular/material/input";
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import {MatMenuModule} from "@angular/material/menu";
 import {HttpClientModule} from "@angular/common/http";
-import { AddticketbyuserformComponent } from './addticketbyuserform/addticketbyuserform.component';
 import { LoadingComponent } from './loading/loading.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {NgChartsModule} from "ng2-charts";
@@ -34,6 +33,7 @@ import { MenuComponent } from './menu/menu.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { HomeclientComponent } from './homeclient/homeclient.component';
+import { ClientmenuComponent } from './clientmenu/clientmenu.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +45,11 @@ import { HomeclientComponent } from './homeclient/homeclient.component';
     TicketsComponent,
     FooterComponent,
     AddticketformComponent,
-    AddticketbyuserformComponent,
     LoadingComponent,
     TicketcreatedComponent,
     MenuComponent,
     HomeclientComponent,
+    ClientmenuComponent
   ],
   imports: [
     BrowserModule,
