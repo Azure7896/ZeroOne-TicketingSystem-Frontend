@@ -10,13 +10,19 @@ import {TicketService} from "./ticketservice/ticket.service";
   templateUrl: './tickets.component.html',
   styleUrls: ['./tickets.component.css'],
 })
-export class TicketsComponent implements AfterViewInit {
+export class TicketsComponent {
 
   ticketList: Ticket[];
 
   dataSource: any;
 
   showLoading: boolean = true;
+
+  timeLeft: number = 30;
+
+  interval;
+
+  wasRefreshed = false;
 
 
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
@@ -34,10 +40,7 @@ export class TicketsComponent implements AfterViewInit {
   ngOnInit() {
     // setInterval(() => { this.fetchTickets(); }, 5000);
     this.fetchTickets()
-  }
-
-  ngAfterViewInit() {
-
+    this.timer()
   }
 
   fetchTickets() {
@@ -57,6 +60,20 @@ export class TicketsComponent implements AfterViewInit {
     return numSelected === numRows;
   }
 
+  timer(): void {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 1) {
+        this.timeLeft--;
+      } else {
+        this.wasRefreshed = true;
+        setTimeout( () => {
+          this.wasRefreshed = false;
+        }, 2000)
+        this.timeLeft = 32;
+      }
+    },1000)
+  }
+
   toggleAllRows() {
     if (this.isAllSelected()) {
       this.selection.clear();
@@ -73,3 +90,4 @@ export class TicketsComponent implements AfterViewInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.ticketNumber + 1}`;
   }
 }
+
