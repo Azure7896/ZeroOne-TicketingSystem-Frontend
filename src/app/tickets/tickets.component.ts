@@ -54,6 +54,12 @@ export class TicketsComponent {
           1000);
       })
   }
+
+  refreshTickets() {
+    this.ticketService.getAllTickets().subscribe(data => {
+      this.dataSource.data = data;
+    })}
+
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -66,6 +72,7 @@ export class TicketsComponent {
         this.timeLeft--;
       } else {
         this.wasRefreshed = true;
+        this.refreshTickets()
         setTimeout( () => {
           this.wasRefreshed = false;
         }, 2000)
