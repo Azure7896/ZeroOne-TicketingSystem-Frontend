@@ -1,21 +1,35 @@
 <nav>
   <mat-toolbar>
-    <button mat-icon-button class="menu-button" aria-label="Open menu">
+    <button aria-label="Open menu" class="menu-button" mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
-    <img src="assets/smallerlogo.png" (click)="goToPage('home')" />
+    <img (click)="goToPage('home')" src="assets/smallerlogo.png"/>
     <p [hidden]="!isOnLive">ON LIVE</p>
     <span [hidden]="!isOnLive" class="dot"></span>
-    <mat-slide-toggle [(ngModel)]="isOnLive" (ngModelChange)="toggle()" color="primary" class="toggle"></mat-slide-toggle>
-    <input class="search-input" type="text" placeholder="Search...">
+    <mat-slide-toggle (ngModelChange)="toggle()" [(ngModel)]="isOnLive" class="toggle"
+                      color="primary"></mat-slide-toggle>
+    <form class="search_form">
+      <mat-form-field class="input">
+        <input [formControl]="myControl" [matAutocomplete]="auto" aria-label="Number" matInput placeholder="Search..."
+               type="text">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option (click)="goToPage(option.ticketNumber)"
+                      *ngFor="let option of filteredOptions | async | slice : 0 : 15 "
+                      [value]="option.name">
+            <div class="wrapper">
+              <span>{{option.name}}</span>
+              <span class="ticket">{{option.ticketNumber}}</span>
+            </div>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
     <div class="spacer"></div>
     <div fxShow="true">
-      <button mat-button class="logout-button">
+      <button class="logout-button" mat-button>
         <mat-icon>exit_to_app</mat-icon>
         LOGOUT
       </button>
     </div>
-
-
   </mat-toolbar>
 </nav>

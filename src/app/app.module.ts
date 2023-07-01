@@ -34,6 +34,7 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { HomeclientComponent } from './homeclient/homeclient.component';
 import { ClientmenuComponent } from './clientmenu/clientmenu.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ClientmenuComponent } from './clientmenu/clientmenu.component';
     MatBadgeModule,
     NgChartsModule,
     MatSliderModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
