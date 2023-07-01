@@ -1,4 +1,21 @@
 export class User {
-  private id;
-  private email;
+  private _id;
+  private _email;
+
+
+  get id() {
+    return this._id;
+  }
+
+  set id(value) {
+    this._id = value;
+  }
+
+  get email() {
+    return this._email;
+  }
+
+  set email(value) {
+    this._email = value;
+  }
 }

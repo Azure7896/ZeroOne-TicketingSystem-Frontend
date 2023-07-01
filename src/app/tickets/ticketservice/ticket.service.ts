@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Ticket} from "../../classes/ticket";
 import {TicketsComponent} from "../tickets.component";
 import {FormGroup} from "@angular/forms";
+import {TicketSearchDto} from "../../classes/ticket-search-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,12 @@ export class TicketService {
     return this.http.get<Ticket[]>('http://localhost:8080/tickets');
   }
 
-  public saveTicket(form: FormGroup)  {
+  saveTicket(form: FormGroup)  {
     return this.http.post("http://localhost:8080/tickets", form.value, {observe: 'response'})
+  }
+
+  getTicketsToSearch(): Observable<TicketSearchDto[]> {
+    return this.http.get<TicketSearchDto[]>('http://localhost:8080/search');
   }
 
 }

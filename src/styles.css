@@ -7,3 +7,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .ck-editor__editable_inline {
   min-height: 500px;
 }
+
+.not-empty-select.mat-selected {
+  color: green !important;
+}

@@ -2,14 +2,13 @@
 <app-login></app-login>
 </div>
 
-
 <div *ngIf="router.url == '/home'">
   <app-home></app-home>
 </div>
 
-<div *ngIf="router.url == '/addticket';">
-  <app-addticketbyuserform></app-addticketbyuserform>
-</div>
+<!--<div *ngIf="router.url == '/addticket';">-->
+<!--  <app-addticketbyuserform></app-addticketbyuserform>-->
+<!--</div>-->
 
 <div *ngIf="router.url == '/client';">
   <app-homeclient></app-homeclient>
@@ -19,6 +18,6 @@
   <app-ticketcreated></app-ticketcreated>
 </div>
 
-
-
-
+<div *ngIf="router.url.match('/zo-[0-9]+');">
+<!--  <app-ticketcreated></app-ticketcreated>-->
+</div>

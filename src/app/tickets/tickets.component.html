@@ -95,12 +95,13 @@
     aria-label="Select page of tickets">
   </mat-paginator>
 </ng-template>
-
+<div class="timer" [hidden]="showLoading">
 <div *ngIf="wasRefreshed == true; else addticketform">
   <p class="refreshed">Refreshed!</p>
 </div>
 <ng-template #addticketform>
   <p>Refresh in {{timeLeft}} seconds...</p>
 </ng-template>
+</div>
 
 
