@@ -1,9 +1,8 @@
 <app-nav></app-nav>
-<!--<app-menu></app-menu>-->
-<div *ngIf="router.url == '/home'; else addticketform">
-  <app-tickets></app-tickets>
+
+<div *ngIf="router.url == '/home'">
+  <app-tickets *ngIf="!sharedService.isMenuOpen"></app-tickets>
 </div>
-<ng-template #addticketform>
-  <app-addticketform></app-addticketform>
-</ng-template>
+
+<app-menu *ngIf="sharedService.isMenuOpen" ></app-menu>
 <app-footer></app-footer>

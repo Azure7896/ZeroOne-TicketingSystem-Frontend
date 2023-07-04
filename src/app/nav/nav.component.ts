@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {debounceTime, distinctUntilChanged, map, Observable, startWith, switchMap} from "rxjs";
+import {BehaviorSubject, debounceTime, distinctUntilChanged, map, Observable, startWith, switchMap} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {TicketService} from "../tickets/ticketservice/ticket.service";
+import {SharedService} from "../shared.service";
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +17,7 @@ export class NavComponent {
 
   myControl = new FormControl();
 
-  constructor(private router: Router, private ticketService: TicketService) {
+  constructor(private router: Router, private ticketService: TicketService, private service: SharedService) {
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -28,12 +29,19 @@ export class NavComponent {
     )
   }
 
+  openMenu() :void {
+    if (this.service.isMenuOpen) {
+      this.service.isMenuOpen = false;
+    } else {
+      this.service.isMenuOpen = true;
+    }
+  }
+
   toggle(): void {
     console.log(this.isOnLive);
   }
 
   filter(val: string): Observable<any[]> {
-    // call the service which makes the http-request
     return this.ticketService.getTicketsToSearch()
       .pipe(
         map(response => response.filter(option => {
