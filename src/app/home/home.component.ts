@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
+import {SharedService} from "../shared.service";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(public router: Router, private titleService: Title) {
+
+  constructor(public router: Router, private titleService: Title, public sharedService: SharedService) {
     this.titleService.setTitle("ZeroOne Ticketing System");
   }
 
