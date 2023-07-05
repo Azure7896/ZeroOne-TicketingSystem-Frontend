@@ -55,3 +55,7 @@ button {
 mat-icon {
   color: black;
 }
+
+.login {
+  margin-top: 10px;
+}

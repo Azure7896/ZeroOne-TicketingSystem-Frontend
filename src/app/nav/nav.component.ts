@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {BehaviorSubject, debounceTime, distinctUntilChanged, map, Observable, startWith, switchMap} from "rxjs";
+import {debounceTime, distinctUntilChanged, map, Observable, startWith, switchMap} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {TicketService} from "../tickets/ticketservice/ticket.service";
 import {SharedService} from "../shared.service";
@@ -38,7 +38,11 @@ export class NavComponent {
   }
 
   toggle(): void {
-    console.log(this.isOnLive);
+    if (this.service.refresh) {
+      this.service.refresh = false;
+    } else {
+      this.service.refresh = true;
+    }
   }
 
   filter(val: string): Observable<any[]> {
