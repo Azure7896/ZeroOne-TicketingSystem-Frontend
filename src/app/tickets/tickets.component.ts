@@ -4,6 +4,7 @@ import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../classes/ticket";
 import {TicketService} from "./ticketservice/ticket.service";
+import {SharedService} from "../shared.service";
 
 @Component({
   selector: 'app-tickets',
@@ -33,7 +34,7 @@ export class TicketsComponent {
       this.dataSource.paginator = value;
     }
   }
-  constructor(private ticketService: TicketService) {
+  constructor(private ticketService: TicketService, public sharedService: SharedService) {
 
   }
 

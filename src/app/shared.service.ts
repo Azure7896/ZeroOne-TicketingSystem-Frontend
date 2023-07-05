@@ -7,4 +7,6 @@ export class SharedService {
 
   public isMenuOpen = false;
 
+  public refresh = true;
+
 }
