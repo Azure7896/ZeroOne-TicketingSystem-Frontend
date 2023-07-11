@@ -39,7 +39,6 @@ export class TicketsComponent {
   }
 
   ngOnInit() {
-    // setInterval(() => { this.fetchTickets(); }, 5000);
     this.fetchTickets()
     this.timer()
   }
@@ -69,7 +68,7 @@ export class TicketsComponent {
 
   timer(): void {
     this.interval = setInterval(() => {
-      if(this.timeLeft > 1) {
+      if(this.timeLeft > 1 && this.sharedService.refresh) {
         this.timeLeft--;
       } else {
         this.wasRefreshed = true;
