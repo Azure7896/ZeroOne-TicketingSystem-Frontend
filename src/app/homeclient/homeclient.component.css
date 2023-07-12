@@ -1,0 +1,58 @@
+* {
+  text-align: center;
+}
+
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1%;
+}
+
+img {
+  margin-bottom: -30px;
+}
+
+
+.card {
+  width: 50vh;
+  background-color: #232931;
+  padding: 2%;
+}
+
+mat-card-header, mat-card-content, p {
+  color: #EEEEEE;
+  padding: 4%;
+}
+
+p {
+  margin: 10px;
+}
+
+.option {
+  background-color: #232931;
+  border: solid 1px #4ECCA3;
+  border-radius: 5px;
+  margin: 1%;
+}
+
+.option:hover {
+  animation-delay: 1s;
+  border-color: #EEEEEE
+}
+
+.option mat-card-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+

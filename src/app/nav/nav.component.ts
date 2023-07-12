@@ -17,7 +17,7 @@ export class NavComponent {
 
   myControl = new FormControl();
 
-  constructor(private router: Router, private ticketService: TicketService, private service: SharedService) {
+  constructor(private router: Router, private ticketService: TicketService, public service: SharedService) {
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -30,19 +30,11 @@ export class NavComponent {
   }
 
   openMenu() :void {
-    if (this.service.isMenuOpen) {
-      this.service.isMenuOpen = false;
-    } else {
-      this.service.isMenuOpen = true;
-    }
+    this.service.isMenuOpen = !this.service.isMenuOpen;
   }
 
   toggle(): void {
-    if (this.service.refresh) {
-      this.service.refresh = false;
-    } else {
-      this.service.refresh = true;
-    }
+    this.service.refresh = !this.service.refresh;
   }
 
   filter(val: string): Observable<any[]> {
