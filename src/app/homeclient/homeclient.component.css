@@ -1,6 +1,3 @@
-* {
-  text-align: center;
-}
 
 video {
   position: fixed;
@@ -15,44 +12,43 @@ video {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1%;
 }
 
 img {
-  margin-bottom: -30px;
+  margin-bottom: -80px;
 }
 
 
 .card {
-  width: 50vh;
-  background-color: #232931;
+  width: 60vh;
   padding: 2%;
-}
-
-mat-card-header, mat-card-content, p {
-  color: #EEEEEE;
-  padding: 4%;
+  background-color: #232931;
 }
 
 p {
-  margin: 10px;
+  color: #EEEEEE;
+}
+button {
+  background-color: white;
+  width: 100%;
+  height: 100%;
 }
 
-.option {
-  background-color: #232931;
-  border: solid 1px #4ECCA3;
-  border-radius: 5px;
-  margin: 1%;
+mat-icon {
+  color: black;
 }
 
-.option:hover {
-  animation-delay: 1s;
-  border-color: #EEEEEE
+.grid-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,2fr);
 }
 
-.option mat-card-title {
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
+.grid-item{
+  border: 2px solid black;
+  display: grid;
+  place-items: center;
 }
-
+.b5{
+  grid-column: 2/4;
+}
