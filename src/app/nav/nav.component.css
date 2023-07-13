@@ -68,6 +68,12 @@ p {
   margin-bottom: -1.25em;
 }
 
+input[type="text"]
+{
+  font-size: 28px;
+
+}
+
 @media screen and (max-width: 1200px) {
   .search_form {
     visibility: hidden;

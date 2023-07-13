@@ -10,7 +10,8 @@
                       color="primary"></mat-slide-toggle>
     <form class="search_form">
       <mat-form-field class="input">
-        <input [formControl]="myControl" [matAutocomplete]="auto" aria-label="Number" matInput placeholder="Search..."
+        <mat-icon>search</mat-icon>
+        <input [formControl]="myControl" [matAutocomplete]="auto" aria-label="Number" matInput placeholder="Search... "
                type="text">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option (click)="goToPage(option.ticketNumber)"
