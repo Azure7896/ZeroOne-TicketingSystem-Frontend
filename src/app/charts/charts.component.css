@@ -31,3 +31,7 @@ button:hover {
 button * {
   color: #4ECCA3;
 }
+
+mat-icon, mat-card-content {
+  color: #4ECCA3;
+}
