@@ -11,6 +11,9 @@ import {SharedService} from "../shared.service";
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent {
+
+  curDate= new Date().toDateString();
+
   isOnLive = true;
 
   filteredOptions: Observable<any[]>;

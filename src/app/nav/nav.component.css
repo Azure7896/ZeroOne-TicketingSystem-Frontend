@@ -89,3 +89,12 @@ input[type="text"]
 .ticket {
   color: #4ECCA3;
 }
+
+.today {
+  transition-duration: 0.5s;
+}
+
+.today:hover {
+  color: #4ECCA3;
+  transition-duration: 0.5s;
+}
