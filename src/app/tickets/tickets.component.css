@@ -29,20 +29,6 @@ mat-paginator {
   color: #EEEEEE;
 }
 
-.sort-menu {
-  margin: 30px;
-}
-
-mat-card {
-  background-color: #232931;
-  align-items: center;
-}
-.sort-menu button {
-  background-color: #4ECCA3;
-  color: black;
-  margin-right: 15px;
-}
-
 app-loading {
   position: absolute;
   top: 50%;

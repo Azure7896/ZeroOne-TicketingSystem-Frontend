@@ -35,6 +35,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { HomeclientComponent } from './homeclient/homeclient.component';
 import { ClientmenuComponent } from './clientmenu/clientmenu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { SortComponent } from './sort/sort.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     TicketcreatedComponent,
     MenuComponent,
     HomeclientComponent,
-    ClientmenuComponent
+    ClientmenuComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,
