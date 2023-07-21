@@ -3,8 +3,10 @@
   <app-loading></app-loading>
 </div>
 <ng-template #showtickets>
+  <app-sort></app-sort>
   <div class="container" >
     <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table style="overflow-x:auto">
+
       <ng-container matColumnDef="select">
         <th *matHeaderCellDef mat-header-cell>
           <mat-checkbox (change)="$event ? toggleAllRows() : null"
@@ -21,14 +23,10 @@
           </mat-checkbox>
         </td>
       </ng-container>
-
-      <app-sort></app-sort>
-
       <!--  <ng-container matColumnDef="position" >-->
       <!--    <th mat-header-cell *matHeaderCellDef> No. </th>-->
       <!--    <td mat-cell *matCellDef="let element"> {{element.position}} </td>-->
       <!--  </ng-container>-->
-
 
       <ng-container matColumnDef="ticketNumber">
         <th *matHeaderCellDef mat-header-cell>Ticket number</th>

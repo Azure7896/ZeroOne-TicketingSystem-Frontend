@@ -1,17 +1,8 @@
 <div class="sort-menu">
-    <mat-card>
-      <mat-card-content>
-        <button [matMenuTriggerFor]="menu" mat-button>Sortowanie</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>Od najstarszego</button>
-          <button mat-menu-item>Od najnowszego</button>
-        </mat-menu>
-
-        <button [matMenuTriggerFor]="menu" mat-button>Sortowanie</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
-      </mat-card-content>
-    </mat-card>
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option selected>By newest</mat-chip-option>
+    <mat-chip-option>By oldest</mat-chip-option>
+    <mat-chip-option >By user</mat-chip-option>
+<!--    <mat-chip-option color="warn"></mat-chip-option>-->
+  </mat-chip-listbox>
   </div>
