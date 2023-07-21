@@ -36,6 +36,7 @@ import { HomeclientComponent } from './homeclient/homeclient.component';
 import { ClientmenuComponent } from './clientmenu/clientmenu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { SortComponent } from './sort/sort.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -54,31 +55,32 @@ import { SortComponent } from './sort/sort.component';
     ClientmenuComponent,
     SortComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatCheckboxModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    FormsModule,
-    CKEditorModule,
-    MatMenuModule,
-    HttpClientModule,
-    MatBadgeModule,
-    NgChartsModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatAutocompleteModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatCheckboxModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        FormsModule,
+        CKEditorModule,
+        MatMenuModule,
+        HttpClientModule,
+        MatBadgeModule,
+        NgChartsModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        MatAutocompleteModule,
+        MatChipsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
