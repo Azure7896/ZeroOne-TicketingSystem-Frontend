@@ -1,0 +1,38 @@
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  font-size: 50px;
+  color: #4ECCA3;
+}
+
+span {
+  font-size: 150px;
+}
+
+.again {
+  font-size: 50px;
+  color: #EEEEEE;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
+.again:hover {
+  color: #4ECCA3;
+  transition-duration: 300ms;
+}
+
+.errormessage, .details {
+  font-size: 30px;
+  color: orange;
+}
+.details {
+  cursor: pointer;
+}
+
+.details:hover {
+  transition-duration: 1s;
+  color: dodgerblue;
+}

@@ -5,6 +5,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../classes/ticket";
 import {TicketService} from "./ticketservice/ticket.service";
 import {SharedService} from "../shared.service";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-tickets',
@@ -20,6 +21,9 @@ export class TicketsComponent {
   showLoading: boolean = true;
 
   timeLeft: number = 30;
+
+  loadingFailed = false;
+
 
   interval;
 
@@ -52,12 +56,22 @@ export class TicketsComponent {
             this.dataSource = new MatTableDataSource(this.ticketList);
           },
           1000);
-      })
+      },
+        err => {
+          this.showError()
+          this.sharedService.error = err;
+        })
   }
 
+  showError() {
+    this.loadingFailed = true;
+    this.showLoading = false;
+  }
   refreshTickets() {
     this.ticketService.getAllTickets().subscribe(data => {
       this.dataSource.data = data;
+    }, error => {
+      this.showError()
     })}
 
   isAllSelected() {

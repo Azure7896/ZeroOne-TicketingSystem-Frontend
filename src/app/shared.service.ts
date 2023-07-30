@@ -9,4 +9,8 @@ export class SharedService {
 
   public refresh = true;
 
+  public isOptionOpen = false;
+
+  public error;
+
 }

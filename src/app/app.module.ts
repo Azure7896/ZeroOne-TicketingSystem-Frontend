@@ -37,6 +37,7 @@ import { ClientmenuComponent } from './clientmenu/clientmenu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { SortComponent } from './sort/sort.component';
 import {MatChipsModule} from "@angular/material/chips";
+import { LoadingFailedComponent } from './loading-failed/loading-failed.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {MatChipsModule} from "@angular/material/chips";
     MenuComponent,
     HomeclientComponent,
     ClientmenuComponent,
-    SortComponent
+    SortComponent,
+    LoadingFailedComponent
   ],
     imports: [
         BrowserModule,
