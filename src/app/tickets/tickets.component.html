@@ -1,8 +1,15 @@
-<app-charts *ngIf="!showLoading"></app-charts>
-<div *ngIf="showLoading == true; else showtickets">
+
+<div *ngIf="showLoading">
   <app-loading></app-loading>
 </div>
-<ng-template #showtickets>
+
+<div *ngIf="loadingFailed && !showLoading">
+<app-loading-failed></app-loading-failed>
+  <p>{{errorInfo}}</p>
+</div>
+
+<div *ngIf="showLoading == false && loadingFailed == false">
+  <app-charts></app-charts>
   <app-sort></app-sort>
   <div class="container" >
     <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table style="overflow-x:auto">
@@ -77,7 +84,6 @@
                  aria-label="Select page">
     aria-label="Select page of tickets">
   </mat-paginator>
-</ng-template>
 <div class="timer" [hidden]="showLoading || !sharedService.refresh" >
 <div *ngIf="wasRefreshed == true; else addticketform">
   <p class="refreshed">Refreshed!</p>
@@ -86,5 +92,4 @@
   <p>Refresh in {{timeLeft}} seconds...</p>
 </ng-template>
 </div>
-
-
+</div>
