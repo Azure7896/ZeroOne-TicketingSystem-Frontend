@@ -18,11 +18,11 @@ export class NavComponent {
 
   filteredOptions: Observable<any[]>;
 
-  myControl = new FormControl();
+  search = new FormControl();
 
   constructor(private router: Router, private ticketService: TicketService, public service: SharedService) {
 
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredOptions = this.search.valueChanges.pipe(
       startWith(''),
       debounceTime(400),
       distinctUntilChanged(),

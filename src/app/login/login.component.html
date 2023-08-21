@@ -6,7 +6,7 @@
   <mat-card class="card">
     <img src='assets/zeroonelogo.png'>
     <mat-card-header>
-      <mat-card-title>ZeroOne jest systemem ticketowym wspomagającym pracę działu technicznego w organizacji.</mat-card-title>
+      <mat-card-title> <span id="arrow"> > </span>Welcome! ZeroOne is a modern ticketing system for the IT department.<span id="you"> And for you</span>.</mat-card-title>
     </mat-card-header>
     <form class="login">
       <mat-form-field class="email">
@@ -31,13 +31,13 @@
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-
     </form>
     <mat-card-actions>
       <button (click)="goToPage('home')" mat-button>
         <mat-icon>work</mat-icon>
-        Zaloguj się
+        Sign in
       </button>
     </mat-card-actions>
+    <p id="createaccount">> Do you have an account? Sign up.</p>
   </mat-card>
 </div>
