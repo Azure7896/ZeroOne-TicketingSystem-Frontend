@@ -1,5 +1,5 @@
 <div class="error">
-  <p>Something went wrong, tickets didn't load. <span class="again"><a (click)="reloadCurrentPage()">Try again.</a></span></p>
+  <p>Something went wrong. <span class="again"><a (click)="reloadCurrentPage()">Try again.</a></span></p>
   <p class="details" [hidden]="details"><a (click)="details = true">Show more details <mat-icon>error</mat-icon></a></p>
   <p class="errormessage" [hidden]="!details">{{sharedService.error.message}}</p>
 <span>😕</span>

@@ -11,7 +11,7 @@
     <form class="search_form">
       <mat-form-field class="input">
         <mat-icon>search</mat-icon>
-        <input [formControl]="myControl" [matAutocomplete]="auto" aria-label="Number" matInput placeholder="Search... "
+        <input [formControl]="search" [matAutocomplete]="auto" matInput placeholder="Search... "
                type="text">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option (click)="goToPage(option.ticketNumber)"
