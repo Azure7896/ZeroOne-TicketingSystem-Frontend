@@ -2,7 +2,7 @@
 <source src="assets/video.mp4">
 </video>
 
-<div class="container" fxFlex=" 1 2 calc(15em +20px)">
+<div class="container" fxFlex=" 1 2 calc(15em +20px)" *ngIf="sharedService.isOnLoginPage; else registerPage">
   <mat-card class="card">
     <img src='assets/zeroonelogo.png'>
     <mat-card-header>
@@ -38,6 +38,12 @@
         Sign in
       </button>
     </mat-card-actions>
-    <p id="createaccount">> Do you have an account? Sign up.</p>
+      <p (click)="register()" id="createaccount"> Do you have an account? Sign up.</p>
   </mat-card>
 </div>
+
+<ng-template #registerPage>
+  <app-register></app-register>
+</ng-template>
+
+

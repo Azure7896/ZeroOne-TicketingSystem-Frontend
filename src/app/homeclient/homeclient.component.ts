@@ -10,6 +10,11 @@ export class HomeclientComponent {
 
 
   constructor(public router: Router) {
+
   }
 
+  goToPage(): void {
+    this.router.navigate([`addticket`]);
+
+  }
 }

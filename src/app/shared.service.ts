@@ -13,4 +13,6 @@ export class SharedService {
 
   public error;
 
+  isOnLoginPage = true;
+
 }
