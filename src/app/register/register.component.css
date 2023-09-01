@@ -62,18 +62,6 @@ mat-icon {
   color: #4ECCA3;
 }
 
-#createaccount {
-  color: #4ECCA3;
-  margin-bottom: 10px;
-  transition-duration: 0.5s;
-}
-
-#createaccount:hover {
-  transition-duration: 0.5s;
-  color: #EEEEEE;
-  cursor: pointer;
-}
-
 #you {
   color: #4ECCA3;
 }

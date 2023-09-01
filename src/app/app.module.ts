@@ -38,6 +38,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { SortComponent } from './sort/sort.component';
 import {MatChipsModule} from "@angular/material/chips";
 import { LoadingFailedComponent } from './loading-failed/loading-failed.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { LoadingFailedComponent } from './loading-failed/loading-failed.componen
     HomeclientComponent,
     ClientmenuComponent,
     SortComponent,
-    LoadingFailedComponent
+    LoadingFailedComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,

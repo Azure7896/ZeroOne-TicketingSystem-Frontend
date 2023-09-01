@@ -1,23 +1,20 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, Validators} from "@angular/forms";
-import {SharedService} from "../shared.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent {
-  constructor(private router:Router, public sharedService: SharedService) {
+export class RegisterComponent {
+
+  constructor(private router:Router) {
 
   }
   goToPage(pageName:string):void {
     this.router.navigate([`${pageName}`]);
   }
-  register(): void {
-      this.sharedService.isOnLoginPage = !this.sharedService.isOnLoginPage;
-    }
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required]);
