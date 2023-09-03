@@ -15,11 +15,10 @@ export class LoginComponent {
   goToPage(pageName:string):void {
     this.router.navigate([`${pageName}`]);
   }
-  register(): void {
+  goToRegisterPage(): void {
       this.sharedService.isOnLoginPage = !this.sharedService.isOnLoginPage;
     }
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required]);
-
 }

@@ -39,6 +39,7 @@ import { SortComponent } from './sort/sort.component';
 import {MatChipsModule} from "@angular/material/chips";
 import { LoadingFailedComponent } from './loading-failed/loading-failed.component';
 import { RegisterComponent } from './register/register.component';
+import { GeneralFailureComponent } from './general-failure/general-failure.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { RegisterComponent } from './register/register.component';
     ClientmenuComponent,
     SortComponent,
     LoadingFailedComponent,
-    RegisterComponent
+    RegisterComponent,
+    GeneralFailureComponent
   ],
     imports: [
         BrowserModule,

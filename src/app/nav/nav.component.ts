@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {debounceTime, distinctUntilChanged, map, Observable, startWith, switchMap} from "rxjs";
+import {debounceTime, distinctUntilChanged, map, Observable, share, startWith, switchMap} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {TicketService} from "../tickets/ticketservice/ticket.service";
 import {SharedService} from "../shared.service";
@@ -20,7 +20,7 @@ export class NavComponent {
 
   search = new FormControl();
 
-  constructor(private router: Router, private ticketService: TicketService, public service: SharedService) {
+  constructor(private router: Router, private ticketService: TicketService, public sharedService: SharedService) {
 
     this.filteredOptions = this.search.valueChanges.pipe(
       startWith(''),
@@ -33,11 +33,11 @@ export class NavComponent {
   }
 
   openMenu() :void {
-    this.service.isMenuOpen = !this.service.isMenuOpen;
+    this.sharedService.isMenuOpen = !this.sharedService.isMenuOpen;
   }
 
   toggle(): void {
-    this.service.refresh = !this.service.refresh;
+    this.sharedService.refresh = !this.sharedService.refresh;
   }
 
   filter(val: string): Observable<any[]> {
@@ -55,4 +55,5 @@ export class NavComponent {
   }
 
 
+  protected readonly share = share;
 }

@@ -5,12 +5,20 @@
 
 <div *ngIf="loadingFailed && !showLoading">
 <app-loading-failed></app-loading-failed>
-  <p>{{errorInfo}}</p>
 </div>
 
 <div *ngIf="showLoading == false && loadingFailed == false">
   <app-charts></app-charts>
-  <app-sort></app-sort>
+
+  <div class="sort-menu">
+    <mat-chip-listbox aria-label="Fish selection">
+      <mat-chip-option selected (click)="getTicketsByNewest()">By newest</mat-chip-option>
+      <mat-chip-option (click)="getTicketsByOldest()">By oldest</mat-chip-option>
+      <mat-chip-option >By user</mat-chip-option>
+      <!--    <mat-chip-option color="warn"></mat-chip-option>-->
+    </mat-chip-listbox>
+  </div>
+
   <div class="container" >
     <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table style="overflow-x:auto">
 
@@ -82,7 +90,6 @@
   <mat-paginator [pageSize]="10"
                  [pageSizeOptions]="[5, 10, 25, 100]"
                  aria-label="Select page">
-    aria-label="Select page of tickets">
   </mat-paginator>
 <div class="timer" [hidden]="showLoading || !sharedService.refresh" >
 <div *ngIf="wasRefreshed == true; else addticketform">
