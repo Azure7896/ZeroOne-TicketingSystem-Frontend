@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ThemePalette} from "@angular/material/core";
+import {SharedService} from "../shared.service";
 
 export interface ChipColor {
   name: string;
@@ -15,10 +16,13 @@ export interface ChipColor {
 
 export class SortComponent {
 
-  availableColors: ChipColor[] = [
-    {name: 'none', color: undefined},
-    {name: 'Primary', color: 'primary'},
-    {name: 'Accent', color: 'accent'},
-    {name: 'Warn', color: 'warn'},
-  ];
+
+
+
+  constructor(public sharedService: SharedService) {
+
+  }
+  sortByOldest() {
+
+  }
 }

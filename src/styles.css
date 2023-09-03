@@ -8,6 +8,47 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   min-height: 500px;
 }
 
-.not-empty-select.mat-selected {
-  color: green !important;
+
+/* Mat-Paginator */
+
+.mat-mdc-paginator-icon, .mat-mdc-select-value {
+  fill: #4ECCA3;
+  color: #4ECCA3;
+}
+
+.mdc-menu-surface {
+  background-color: #232931;
+}
+
+.mdc-list-item--selected .mdc-list-item__primary-text {
+  color: #4ECCA3;
+}
+.mdc-list-item__primary-text {
+  color: #EEEEEE;
+}
+
+/* Search input */
+
+.mat-mdc-form-field {
+  color: #232931;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #232931;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4ECCA3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3ca476;
 }

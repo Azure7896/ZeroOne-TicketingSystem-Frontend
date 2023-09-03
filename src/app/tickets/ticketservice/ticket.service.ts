@@ -18,6 +18,10 @@ export class TicketService {
     return this.http.get<Ticket[]>('http://localhost:8080/tickets');
   }
 
+  getAllTicketsByOldest(): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>('http://localhost:8080/tickets/byoldest')
+  }
+
   saveTicket(form: FormGroup)  {
     return this.http.post("http://localhost:8080/tickets", form.value, {observe: 'response'})
   }
@@ -25,5 +29,7 @@ export class TicketService {
   getTicketsToSearch(): Observable<TicketSearchDto[]> {
     return this.http.get<TicketSearchDto[]>('http://localhost:8080/search');
   }
+
+
 
 }

@@ -52,3 +52,7 @@ mat-icon {
 .b5{
   grid-column: 2/4;
 }
+
+.failure {
+  margin: 3px;
+}

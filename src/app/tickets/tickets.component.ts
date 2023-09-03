@@ -5,7 +5,6 @@ import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../classes/ticket";
 import {TicketService} from "./ticketservice/ticket.service";
 import {SharedService} from "../shared.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-tickets',
@@ -24,7 +23,6 @@ export class TicketsComponent {
 
   loadingFailed = false;
 
-
   interval;
 
   wasRefreshed = false;
@@ -32,20 +30,35 @@ export class TicketsComponent {
 
   displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
   selection = new SelectionModel<Ticket>(true, []);
+
   @ViewChild(MatPaginator, {static: false})
   set paginator(value: MatPaginator) {
-    if (this.dataSource){
+    if (this.dataSource) {
       this.dataSource.paginator = value;
     }
   }
+
   constructor(private ticketService: TicketService, public sharedService: SharedService) {
 
+  }
+
+  getTicketsByOldest() {
+    this.ticketService.getAllTicketsByOldest().subscribe(data => {
+      this.dataSource.data = data;
+    }, error => {
+      this.showError()
+    })
+  }
+
+  getTicketsByNewest() {
+    this.refreshTickets();
   }
 
   ngOnInit() {
     this.fetchTickets()
     this.timer()
   }
+
 
   fetchTickets() {
       this.ticketService.getAllTickets().subscribe(data => {
