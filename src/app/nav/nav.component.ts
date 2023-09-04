@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {debounceTime, distinctUntilChanged, map, Observable, share, startWith, switchMap} from "rxjs";
 import {FormControl} from "@angular/forms";
-import {TicketService} from "../tickets/ticketservice/ticket.service";
-import {SharedService} from "../shared.service";
+import {TicketService} from "../services/ticket.service";
+import {SharedService} from "../services/shared.service";
 
 @Component({
   selector: 'app-nav',
@@ -20,7 +20,7 @@ export class NavComponent {
 
   search = new FormControl();
 
-  constructor(private router: Router, private ticketService: TicketService, public sharedService: SharedService) {
+  constructor(public router: Router, private ticketService: TicketService, public sharedService: SharedService) {
 
     this.filteredOptions = this.search.valueChanges.pipe(
       startWith(''),
@@ -49,9 +49,8 @@ export class NavComponent {
       )
   }
 
-  goToPage(pageName: string): void {
+  goToPage(pageName:string): void {
     this.router.navigate([`${pageName}`]);
-
   }
 
 

@@ -40,6 +40,9 @@ import {MatChipsModule} from "@angular/material/chips";
 import { LoadingFailedComponent } from './loading-failed/loading-failed.component';
 import { RegisterComponent } from './register/register.component';
 import { GeneralFailureComponent } from './general-failure/general-failure.component';
+import { TicketComponent } from './ticket/ticket.component';
+import { TicketWindowComponent } from './ticket/ticket-window/ticket-window.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -59,34 +62,37 @@ import { GeneralFailureComponent } from './general-failure/general-failure.compo
     SortComponent,
     LoadingFailedComponent,
     RegisterComponent,
-    GeneralFailureComponent
+    GeneralFailureComponent,
+    TicketComponent,
+    TicketWindowComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatButtonModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatTableModule,
-        MatCheckboxModule,
-        MatPaginatorModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        FormsModule,
-        CKEditorModule,
-        MatMenuModule,
-        HttpClientModule,
-        MatBadgeModule,
-        NgChartsModule,
-        MatSliderModule,
-        MatSlideToggleModule,
-        MatAutocompleteModule,
-        MatChipsModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    FormsModule,
+    CKEditorModule,
+    MatMenuModule,
+    HttpClientModule,
+    MatBadgeModule,
+    NgChartsModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    MatSelectModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

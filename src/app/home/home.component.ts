@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
-import {SharedService} from "../shared.service";
+import {SharedService} from "../services/shared.service";
 
 @Component({
   selector: 'app-home',

@@ -1,8 +1,7 @@
 <app-nav></app-nav>
 
-<div *ngIf="router.url == '/home'">
-  <app-tickets *ngIf="!sharedService.isMenuOpen"></app-tickets>
-</div>
+<app-tickets *ngIf="!sharedService.isMenuOpen"></app-tickets>
 
-<app-menu *ngIf="sharedService.isMenuOpen" ></app-menu>
+<app-menu *ngIf="sharedService.isMenuOpen"></app-menu>
+
 <app-footer></app-footer>

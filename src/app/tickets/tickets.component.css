@@ -13,15 +13,16 @@ th, td {
   text-align: center;
 }
 
-a {
+p {
   text-decoration: none;
   color: #EEEEEE;
   transition-duration: 500ms;
 }
 
-a:hover {
+p:hover {
   color: #4ECCA3;
   transition-duration: 500ms;
+  cursor: pointer;
 }
 
 mat-paginator {

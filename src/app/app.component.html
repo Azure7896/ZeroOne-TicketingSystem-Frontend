@@ -1,27 +1,12 @@
-<div *ngIf="router.url == '/'">
-<app-login></app-login>
-</div>
 
-<div *ngIf="router.url == '/home'">
-  <app-home></app-home>
-</div>
+<app-login *ngIf="router.url == '/'"></app-login>
 
-<!--<div *ngIf="router.url == '/addticket';">-->
-<!--  <app-addticketbyuserform></app-addticketbyuserform>-->
-<!--</div>-->
+<app-home *ngIf="router.url == '/home'"></app-home>
 
-<div *ngIf="router.url == '/client';">
-  <app-homeclient></app-homeclient>
-</div>
+<app-homeclient *ngIf="router.url == '/client'"></app-homeclient>
 
-<div *ngIf="router.url == '/addticket';">
-  <app-addticketform></app-addticketform>
-</div>
+<app-addticketform *ngIf="router.url == '/addticket'"></app-addticketform>
 
-<div *ngIf="router.url.match('/ticketcreated/zo-[0-9]+');">
-  <app-ticketcreated></app-ticketcreated>
-</div>
+<app-ticket *ngIf="router.url.includes('ZO-')"></app-ticket>
 
-<div *ngIf="router.url.match('/zo-[0-9]+');">
-<!--  <app-ticketcreated></app-ticketcreated>-->
-</div>
+

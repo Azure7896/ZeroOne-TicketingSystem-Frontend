@@ -3,7 +3,7 @@
     <button aria-label="Open menu" class="menu-button" mat-icon-button (click)="openMenu()">
       <mat-icon>menu</mat-icon>
     </button>
-    <img (click)="goToPage('home'); sharedService.isMenuOpen=false" src="assets/smallerlogo.png"/>
+    <img (click)="goToPage('home'); sharedService.isMenuOpen=false" src="../../assets/smallerlogo.png"/>
     <p [hidden]="!isOnLive">ON LIVE</p>
     <span [hidden]="!isOnLive" class="dot"></span>
     <mat-slide-toggle (ngModelChange)="toggle()" [(ngModel)]="isOnLive" class="toggle"
