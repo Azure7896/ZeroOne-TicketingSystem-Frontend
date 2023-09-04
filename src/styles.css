@@ -33,22 +33,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #232931;
 }
 
-/* width */
+/* Global scrollbar */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #232931;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #4ECCA3;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #3ca476;
 }

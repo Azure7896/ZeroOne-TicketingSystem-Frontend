@@ -1,4 +1,4 @@
-import { Ticket } from './classes/ticket';
+import { Ticket } from './ticket';
 
 describe('Ticket', () => {
   it('should create an instance', () => {

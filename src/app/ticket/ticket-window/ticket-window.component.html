@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>
+
+    <mat-card-title class="ticketname"><mat-icon>note</mat-icon>{{ticket.name}}</mat-card-title>
+    <div class="spacer"></div>
+    <p class="ticketnumber">{{ticket.ticketNumber}}</p>
+  </mat-card-header>
+  <mat-card-content>Created by: {{ticket.user.email}}</mat-card-content>
+  <mat-card-content>Attendant: {{ticket.attendant}}</mat-card-content>
+  <mat-card-header>
+    <div class="spacer"></div>
+    <p class="timeremaining" [ngStyle]="ticket.timeToEnd === 'Pick-up time exceeded' ? { color:'#EE4B2B' } : {}">{{ticket.timeToEnd}}</p>
+  </mat-card-header>
+  <mat-card-header>
+    <div class="spacer"></div>\
+    <p class="ticketstatus" [ngStyle]="ticket.ticketStatus === 'New' ? { color:'#FFA500' } : ticket.ticketStatus === 'In progress' ?
+     {color: '#00D8FF'} : ticket.ticketStatus === 'Closed' ? {color: '#4ECCA3'} : {color: ''}">{{ticket.ticketStatus}}</p>
+  </mat-card-header>
+    <div class="textbody" [innerHTML]="ticket.ticketBody.ticketBody"></div>
+  <mat-card-actions>
+    <div class="matoption">
+    <mat-form-field>
+      <mat-label>Choose an option</mat-label>
+      <mat-select value="1">
+        <mat-option value="1">
+          New
+        </mat-option>
+
+        <mat-option>
+          In progress
+        </mat-option>
+
+        <mat-option>
+          Closed
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+    </div>
+  </mat-card-actions>
+</mat-card>

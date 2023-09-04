@@ -1,4 +1,5 @@
 import {User} from "./user";
+import {TicketBody} from "./ticket-body";
 
 
 export class Ticket {
@@ -10,6 +11,8 @@ export class Ticket {
   private _createdDate: string;
   private _attendant: User;
   private _timeToEnd: string;
+  private _ticketBody: TicketBody;
+
 
   get ticketNumber(): string {
     return this._ticketNumber;
@@ -65,5 +68,13 @@ export class Ticket {
 
   set timeToEnd(value: string) {
     this._timeToEnd = value;
+  }
+
+  get ticketBody(): TicketBody {
+    return this._ticketBody;
+  }
+
+  set ticketBody(value: TicketBody) {
+    this._ticketBody = value;
   }
 }

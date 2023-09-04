@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, Validators} from "@angular/forms";
-import {SharedService} from "../shared.service";
+import {SharedService} from "../services/shared.service";
 
 @Component({
   selector: 'app-login',

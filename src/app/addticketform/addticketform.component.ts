@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {tick} from "@angular/core/testing";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {config} from "rxjs";
-import {TicketService} from "../tickets/ticketservice/ticket.service";
+import {TicketService} from "../services/ticket.service";
 @Component({
   selector: 'app-addticketform',
   templateUrl: './addticketform.component.html',

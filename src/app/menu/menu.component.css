@@ -26,7 +26,7 @@
   padding: 10px;
 }
 main {
-  background:url('/assets/statistics.jpg') no-repeat #232931;
+  background:url('/src/assets/statistics.jpg') no-repeat #232931;
   background-size: cover;
   filter: grayscale(80%);
   transition-duration: 1s;
@@ -40,7 +40,7 @@ main:hover {
 }
 
 #sidebar {
-  background:url('/assets/admin.jpg') no-repeat #232931;
+  background:url('/src/assets/admin.jpg') no-repeat #232931;
   background-size: cover;
   filter: grayscale(80%);
   transition-duration: 1s;

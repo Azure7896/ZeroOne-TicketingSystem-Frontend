@@ -3,8 +3,9 @@ import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {MatPaginator} from "@angular/material/paginator";
 import {Ticket} from "../classes/ticket";
-import {TicketService} from "./ticketservice/ticket.service";
-import {SharedService} from "../shared.service";
+import {TicketService} from "../services/ticket.service";
+import {SharedService} from "../services/shared.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tickets',
@@ -38,7 +39,12 @@ export class TicketsComponent {
     }
   }
 
-  constructor(private ticketService: TicketService, public sharedService: SharedService) {
+
+  goToPage(pageName:string):void {
+    this.router.navigate([`${pageName}`]);
+  }
+
+  constructor(private ticketService: TicketService, public sharedService: SharedService, public router: Router) {
 
   }
 

@@ -50,8 +50,7 @@
 
       <ng-container matColumnDef="name">
         <th *matHeaderCellDef mat-header-cell>Ticket name</th>
-        <td *matCellDef="let element" class="name" mat-cell><a
-          href="http://localhost:4200/{{element.ticketNumber}}">{{element.name}}</a></td>
+        <td *matCellDef="let element" class="name" mat-cell><p (click)="goToPage(element.ticketNumber)">{{element.name}}</p></td>
       </ng-container>
 
       <ng-container matColumnDef="ticketStatus">
@@ -78,7 +77,7 @@
 
       <ng-container matColumnDef="timeToEnd">
         <th *matHeaderCellDef mat-header-cell>Time remaining</th>
-        <td *matCellDef="let element" mat-cell [ngStyle]="element.timeToEnd === 'Pick-up time exceeded' ? { color:'#EE4B2B' } : {}"> {{element.timeToEnd}}</td>
+        <td *matCellDef="let element" mat-cell [ngStyle]="element.timeToEnd === 'Pick-up time exceeded' ? { color:'#FF6969' } : {}"> {{element.timeToEnd}}</td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>

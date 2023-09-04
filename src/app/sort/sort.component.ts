@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ThemePalette} from "@angular/material/core";
-import {SharedService} from "../shared.service";
+import {SharedService} from "../services/shared.service";
 
 export interface ChipColor {
   name: string;
