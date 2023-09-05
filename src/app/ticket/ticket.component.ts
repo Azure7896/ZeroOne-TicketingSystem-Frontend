@@ -12,4 +12,8 @@ export class TicketComponent {
   constructor(public router: Router) {
   }
 
+  showLoading: boolean = true;
+
+  loadingFailed = false;
+
 }

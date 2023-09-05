@@ -18,9 +18,9 @@ export class TicketsComponent {
 
   dataSource: any;
 
-  showLoading: boolean = true;
-
   timeLeft: number = 30;
+
+  showLoading: boolean = true;
 
   loadingFailed = false;
 

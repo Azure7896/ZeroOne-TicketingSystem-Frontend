@@ -13,8 +13,8 @@ export class TicketService {
   constructor(private http: HttpClient) {
   }
 
-  getTicket(ticketNumber): Observable<Ticket> {
-  return this.http.get<Ticket>('http://localhost:8080/tickets/ticket?ticketnumber=' + ticketNumber);
+  getTicket(ticketNumber): Observable<any> {
+  return this.http.get<any>('http://localhost:8080/tickets/ticket?ticketnumber=' + ticketNumber);
   }
 
   getAllTickets(): Observable<Ticket[]> {
@@ -32,6 +32,10 @@ export class TicketService {
   getTicketsToSearch(): Observable<TicketSearchDto[]> {
     return this.http.get<TicketSearchDto[]>('http://localhost:8080/search');
   }
+  postCreatedDateAndGetTimeRemaining(createdDate): Observable<string> {
+    return this.http.post<string>('http://localhost:8080/search', createdDate);
+  }
+
 
 
 

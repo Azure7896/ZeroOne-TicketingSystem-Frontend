@@ -1,83 +1,59 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 
-mat-card {
-  left: 50%;
-  width: 50%;
-  transform: translate(-50%, 0%);
-  margin-top: 1%;
+.ticket-card {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2%;
   background-color: #232931;
-  padding: 15px;
-}
-
-.spacer {
-  flex: 1 1 auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .ticketname {
-  font-size: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  color: #4ECCA3;
 }
 
-.ticketstatus {
-  font-size: 30px;
+.ticketname mat-icon {
+  margin-right: 10px;
+  color: #4ECCA3;
 }
 
 .ticketnumber {
+  font-size: 25px;
   color: #4ECCA3;
-  font-size: 45px;
 }
 
-.timeremaining {
-  font-size: 20px;
+.createdby,
+.attendant,
+.timeremaining,
+.ticketstatus,
+.createddate {
+  font-size: 25px;
   color: #EEEEEE;
 }
-
-mat-icon {
-  margin-right: 10px;
-}
-
-.ticketnumber, .ticketname {
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: #4edca8;
-  font-family: "Source Sans Pro", sans-serif;
-  animation: reveal 1250ms ease-in-out forwards 150ms,
-  glow 5000ms linear infinite 4000ms;
-}
-
-@keyframes reveal {
-  80%{
-    letter-spacing: 4px;
-  }
-  100% {
-    background-size: 300% 300%;
-  }
-}
-@keyframes glow {
-  40% {
-    text-shadow: 0 0 4px #eeeeee;
-  }
-}
-
 
 .textbody {
-  border: #4ECCA3 2px solid;
-  border-radius: 10px;
-  margin: 10px;
+  font-size: 18px;
+  margin-top: 20px;
+  flex-basis: 100%;
   color: #EEEEEE;
-  padding: 10px;
-  overflow-wrap: break-word;
   text-align: justify;
-  margin-top: 30px;
+  padding: 0% 2% 2% 2%;
 }
 
-mat-card-content {
-  font-size: 20px;
-  color: #EEEEEE;
+.mat-form-field {
+  flex-basis: 100%;
 }
 
-.mdc-card__actions {
-  flex-direction: column;
+.mat-select {
+  width: 100%;
+}
+
+span {
+  font-size: 15px;
+  color: deepskyblue;
 }
