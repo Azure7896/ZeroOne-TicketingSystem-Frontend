@@ -50,3 +50,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 ::-webkit-scrollbar-thumb:hover {
   background: #3ca476;
 }
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #EEEEEE;
+  border-radius: 10px;
+}
