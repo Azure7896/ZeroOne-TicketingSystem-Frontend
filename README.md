@@ -29,13 +29,11 @@ Preview (from 22.08.2023):
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/9aefc387-a720-4648-accb-838e83ee387e)
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/13633d37-7d92-407d-a045-78b508bf2c8a)
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/31d9dd7e-2ce6-4709-b497-87fa2f652190)
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/844b9c8b-b4b3-4623-8fa9-2ee6937a94be)
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/1c7bc2ba-b9c5-44f1-a536-1e2c13697074)
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/ca61aa79-0bdf-4975-9462-76e1586d31c2)
-
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/631111aa-5641-41b1-966d-5ee2eeee3c59)
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/5fa776f2-745d-434e-8c29-6b00ba751ab9)
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/82d1e9e8-ad30-40ea-b8ba-68a73611f152)
 
