@@ -23,7 +23,7 @@ Used applications:
 
 Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend layer created in Java 17 with Spring Boot framework.
 
-Preview (from 22.08.2023):
+Preview (from 11.09.2023):
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/ca5e73bb-db01-43c3-b5c0-f48f0b94a28c)
 
