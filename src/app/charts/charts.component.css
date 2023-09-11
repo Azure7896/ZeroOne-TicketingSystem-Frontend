@@ -4,6 +4,8 @@ mat-card {
   transform: translate(-50%, 0%);
   margin-top: 2%;
   background-color: #232931;
+  text-transform: uppercase;
+  position: relative;
 }
 
 mat-card-title, mat-card-content {

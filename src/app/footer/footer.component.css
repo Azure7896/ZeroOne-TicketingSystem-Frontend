@@ -1,12 +1,13 @@
-mat-toolbar {
-  position: fixed;
+.footer {
+  right: 0;
   bottom: 0;
-  width: 100vw;
+  left: 0;
   height: 50px;
   background-color: #232931;
-  justify-content: center;
+  text-align: center;
+  position: fixed;
 }
 
-mat-toolbar p {
-  color: #EEEEEE;
+.footer p {
+  color: #4ECCA3;
 }

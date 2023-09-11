@@ -1,59 +1,80 @@
-
 .ticket-card {
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 2%;
+  width: 50%;
+  margin: 1% auto;
   background-color: #232931;
-  padding: 10px;
+}
+
+
+.container {
+  margin: 1% auto;
+  width: 50%;
+  height: auto;
+  background-color: #232931;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  text-align: center;
 }
 
-.ticketname {
-  display: flex;
-  align-items: center;
-  font-size: 25px;
+
+.container p {
   color: #4ECCA3;
 }
 
-.ticketname mat-icon {
-  margin-right: 10px;
-  color: #4ECCA3;
-}
-
-.ticketnumber {
-  font-size: 25px;
-  color: #4ECCA3;
-}
-
-.createdby,
-.attendant,
-.timeremaining,
-.ticketstatus,
-.createddate {
-  font-size: 25px;
+.container span {
   color: #EEEEEE;
 }
 
-.textbody {
-  font-size: 18px;
-  margin-top: 20px;
-  flex-basis: 100%;
-  color: #EEEEEE;
+
+.ticket-card mat-card-content {
   text-align: justify;
-  padding: 0% 2% 2% 2%;
+  color: #EEEEEE;
 }
 
-.mat-form-field {
-  flex-basis: 100%;
+mat-card-header {
+  font-size: 18px;
+  color: #EEEEEE;
 }
 
-.mat-select {
-  width: 100%;
+.progress {
+  cursor: pointer;
 }
 
-span {
-  font-size: 15px;
-  color: deepskyblue;
+.info {
+  color: #4ECCA3;
+  font-size: 13px;
 }
+
+.name {
+  color: #4ECCA3;
+}
+
+.showmore {
+  color: #4ECCA3;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+}
+
+.reply-card {
+  width: 50%;
+  background-color: #232931;
+  margin: 1% auto;
+}
+
+.reply-card mat-card-title {
+  color: #4ECCA3;
+  margin-bottom: 10px;
+}
+
+.button {
+  color: #4ECCA3;
+  text-transform: uppercase;
+  border: 1px solid #4ECCA3;
+  margin-right: 5px;
+}
+
+.spacer {
+  height: 200px;
+}
+

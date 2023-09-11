@@ -43,6 +43,7 @@ import { GeneralFailureComponent } from './general-failure/general-failure.compo
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketWindowComponent } from './ticket/ticket-window/ticket-window.component';
 import {MatSelectModule} from "@angular/material/select";
+import { TicketWindowTextEditorComponent } from './ticket-window-text-editor/ticket-window-text-editor.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {MatSelectModule} from "@angular/material/select";
     RegisterComponent,
     GeneralFailureComponent,
     TicketComponent,
-    TicketWindowComponent
+    TicketWindowComponent,
+    TicketWindowTextEditorComponent
   ],
   imports: [
     BrowserModule,
