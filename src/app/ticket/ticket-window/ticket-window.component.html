@@ -1,4 +1,3 @@
-
 <div *ngIf="showLoading">
   <app-loading></app-loading>
 </div>
@@ -9,30 +8,90 @@
 
 <div *ngIf="showLoading == false && loadingFailed == false">
 
-<div class="ticket-card" [ngStyle]="ticket.ticketStatus === 'New' ? { 'box-shadow': '-1px 8px 24px 0px #FFA500' } : ticket.ticketStatus === 'In progress' ? {'box-shadow': '-1px 8px 24px 0px #00D8FF' } : ticket.ticketStatus === 'Closed' ? {'box-shadow': '-1px 8px 24px 0px #4ECCA3'} : {color: ''}">
-  <div class="ticketname">
-    <mat-icon>note</mat-icon>
-    {{ticket.name}}
+  <div class="container">
+    <p>
+      Ticket number: <span>{{ticket.ticketNumber}}</span>
+    </p>
+    <p>
+      Status: <span [matMenuTriggerFor]="menu" [ngStyle]="ticket.ticketStatus === 'New' ? { color:'#FFA500' } : ticket.ticketStatus === 'In progress' ?{color: '#00D8FF'} : ticket.ticketStatus === 'Closed' ?
+   {color: '#4ECCA3'} : ticket.ticketStatus === 'Suspended' ? {color: '#D2D79F'} : {color: ''}" class="progress">{{ticket.ticketStatus}}</span>
+    </p>
+    <p>
+      Created date: <span>{{ticket.createdDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+    </p>
+
+    <p>
+      Time remaining: <span
+      [ngStyle]="ticket.timeToEnd === 'Pick-up time exceeded' ? { color:'#EE4B2B' } : {}">{{ticket.timeToEnd}}</span>
+    </p>
   </div>
-  <p class="ticketnumber"><span>Ticket number: </span>{{ticket.ticketNumber}}</p>
-  <div class="spacer"></div>
-  <p class="createdby"><span>Created by: </span>  Szymon Napora</p>
-  <p class="attendant"><span>Attendant: </span>  Szymon Napora</p>
-  <p class="createddate"><span>Created date: </span> {{ticket.createdDate | date: 'dd.MM.yyyy HH:mm '}}</p>
-  <p class="timeremaining" [ngStyle]="ticket.timeToEnd === 'Pick-up time exceeded' ? { color:'#EE4B2B' } : {}"><span>Time remaining:  </span>{{ticket.timeToEnd}}</p>
-  <p class="ticketstatus" [ngStyle]="ticket.ticketStatus === 'New' ? { color:'#FFA500' } : ticket.ticketStatus === 'In progress' ? {color: '#00D8FF'} : ticket.ticketStatus === 'Closed' ? {color: '#4ECCA3'} : {color: ''}"><span>Ticket status:  </span>{{ticket.ticketStatus}}</p>
-<!--  <div class="matoption">-->
-<!--    <mat-form-field>-->
-<!--      <mat-label>Choose an option</mat-label>-->
-<!--      <mat-select value="1">-->
-<!--        <mat-option value="1">New</mat-option>-->
-<!--        <mat-option>In progress</mat-option>-->
-<!--        <mat-option>Closed</mat-option>-->
-<!--      </mat-select>-->
-<!--    </mat-form-field>-->
-<!--  </div>-->
-  <div class="textbody" [innerHTML]="ticket.ticketBody.ticketBody"></div>
-  <mat-card-actions>
-  </mat-card-actions>
+
+  <mat-card class="ticket-card">
+    <mat-card-header>
+      <mat-card-subtitle class="info">Author: {{ticket.user.email}}</mat-card-subtitle>
+      <mat-card-title class="name">{{ticket.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngIf="isShowMoreClicked == false" [innerHTML]="ticket.ticketBody.ticketBody.substring(0, 500)"></p>
+      <p *ngIf="isShowMoreClicked" [innerHTML]="ticket.ticketBody.ticketBody"></p>
+      <span (click)="changeTextLength()" [hidden]="isShowMoreClicked || ticket.ticketBody.ticketBody.length <= 500"
+            class="showmore">Show more...</span>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [matMenuTriggerFor]="menu" class="button" mat-button>CHANGE STATUS</button>
+      <mat-menu #menu="matMenu">
+        <button (click)="updateTicketStatus(ticket.ticketNumber, 1)" [disabled]="ticket.ticketStatus == 'In progress'"
+                mat-menu-item>In progress
+        </button>
+        <button (click)="updateTicketStatus(ticket.ticketNumber, 2)" [disabled]="ticket.ticketStatus == 'Closed'"
+                mat-menu-item>Closed
+        </button>
+        <button (click)="updateTicketStatus(ticket.ticketNumber, 3)" [disabled]="ticket.ticketStatus == 'Suspended'"
+                mat-menu-item>Suspended
+        </button>
+      </mat-menu>
+      <button class="button" mat-button>CONTENT</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+
+
+  <div *ngFor="let ticketReply of ticketReplyList">
+    <mat-card class="ticket-card">
+      <mat-card-header>
+        <mat-card-subtitle class="info">Date: {{ticketReply.replyDate | date: 'dd.MM.yyyy HH:mm'}}</mat-card-subtitle>
+        <mat-card-title class="name">Replied: {{ticketReply.user.email}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p *ngIf="isShowMoreClicked == false" [innerHTML]="ticketReply.ticketReply.substring(0, 500)"></p>
+        <p *ngIf="isShowMoreClicked" [innerHTML]="ticketReply.ticketReply"></p>
+        <!--    <span (click)="changeTextLength()" [hidden]="isShowMoreClicked || ticket.ticketBody.ticketBody.length <= 500"-->
+        <!--          class="showmore">Show more...</span>-->
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-card class="reply-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>reply</mat-icon>
+        Reply ticket
+      </mat-card-title>
+      <!--    <mat-card-subtitle>Reply</mat-card-subtitle>-->
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="replyForm">
+        <ckeditor [config]="{placeholder: 'Write here... (Max 2000 characters)'}" [editor]="editor"
+                  formControlName="replyBody"></ckeditor>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="replyTicket()" class="button" mat-button>REPLY</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
-</div>
+<div class="spacer"></div>
+

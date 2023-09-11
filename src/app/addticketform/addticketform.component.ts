@@ -33,7 +33,6 @@ ticketForm = new FormGroup({
   createNewTicket(): void {
     this.ticketService.saveTicket(this.ticketForm).subscribe(response => {
       this.responseStatus = response.status;
-      console.warn(this.responseStatus);
     });
   }
 

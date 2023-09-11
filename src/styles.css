@@ -5,7 +5,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /*CKEditor*/
 .ck-editor__editable_inline {
-  min-height: 500px;
+  min-height: 200px;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background: #4ECCA3;
+  border-radius: 0;
 }
 
 
@@ -54,4 +59,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: #EEEEEE;
   border-radius: 10px;
+}
+
+/* buttons */
+
+.mat-mdc-button:not(:disabled) {
+  color: #4ECCA3;
 }
