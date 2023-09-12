@@ -66,3 +66,37 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-mdc-button:not(:disabled) {
   color: #4ECCA3;
 }
+
+.mat-mdc-card-content a:link {
+  color: #4ECCA3;
+}
+
+.mat-mdc-card-content a:visited {
+  color: #2a7258;
+}
+
+.mat-mdc-select-panel {
+  background-color: #232931 !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+  color: #4ECCA3 !important;
+}
+
+div.mat-mdc-autocomplete-panel {
+  background-color: #232931 !important;
+}
+
+.mat-mdc-button:not(:disabled) {
+  color: #4ECCA3 !important;
+  border: #4ECCA3 1px solid;
+}
+
+.mat-mdc-menu-panel {
+  background-color: #232931 !important;
+}
+
+.mat-mdc-menu-item, .mat-mdc-menu-item:visited, .mat-mdc-menu-item:link {
+  color: #4ECCA3 !important;
+}
+

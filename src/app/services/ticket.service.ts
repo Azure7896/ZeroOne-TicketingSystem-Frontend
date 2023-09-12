@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Ticket} from "../classes/ticket";
-import {TicketsComponent} from "../tickets/tickets.component";
 import {FormGroup} from "@angular/forms";
 import {TicketSearchDto} from "../classes/ticket-search-dto";
 import {TicketReply} from "../classes/ticket-reply";
@@ -15,11 +14,15 @@ export class TicketService {
   }
 
   getTicket(ticketNumber): Observable<any> {
-  return this.http.get<any>('http://localhost:8080/tickets/ticket?ticketnumber=' + ticketNumber);
+    return this.http.get<any>('http://localhost:8080/tickets/ticket?ticketnumber=' + ticketNumber);
   }
 
   getAllTickets(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>('http://localhost:8080/tickets');
+  }
+
+  searchTickets(ticketName: String): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>('http://localhost:8080/search?ticketname=' + ticketName);
   }
 
   getAllReplies(ticketNumber): Observable<TicketReply[]> {
@@ -30,13 +33,14 @@ export class TicketService {
     return this.http.get<Ticket[]>('http://localhost:8080/tickets/byoldest')
   }
 
-  saveTicket(form: FormGroup)  {
-    return this.http.post("http://localhost:8080/tickets", form.value, {observe: 'response'})
+  saveTicket(form: FormGroup): Observable<Ticket> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Ticket>("http://localhost:8080/tickets", JSON.stringify(form.value), { headers });
   }
-
-  replyTicket(ticketNumber, form: FormGroup)  {
+  replyTicket(ticketNumber, form: FormGroup) {
     return this.http.post("http://localhost:8080/tickets/ticket/reply?ticketnumber=" + ticketNumber, form.value, {observe: 'response'})
   }
+
   updateTicketStatus(ticketNumber, status) {
     return this.http.put("http://localhost:8080/tickets/ticket?ticketnumber=" + ticketNumber + "&status=" + status, {observe: 'response'}).subscribe()
   }
@@ -44,11 +48,10 @@ export class TicketService {
   getTicketsToSearch(): Observable<TicketSearchDto[]> {
     return this.http.get<TicketSearchDto[]>('http://localhost:8080/search');
   }
+
   postCreatedDateAndGetTimeRemaining(createdDate): Observable<string> {
     return this.http.post<string>('http://localhost:8080/search', createdDate);
   }
-
-
 
 
 }

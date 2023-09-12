@@ -1,0 +1,49 @@
+<app-background-video></app-background-video>
+
+<div *ngIf="sharedService.isOnLoginPage; else registerPage" class="container" fxFlex=" 1 2 calc(15em +20px)">
+  <mat-card class="card">
+    <img src='../../../assets/zeroonelogo.png'>
+    <mat-card-header>
+      <mat-card-title><span id="arrow"> > </span>Welcome! ZeroOne is a modern ticketing system for the IT
+        department.<span id="you"> And for you</span>.
+      </mat-card-title>
+    </mat-card-header>
+    <form class="login">
+      <mat-form-field class="email">
+        <mat-label>Email</mat-label>
+        <input [formControl]="emailFormControl" matInput placeholder="Ex. pat@example.com"
+               type="email">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="passwsord">
+        <mat-label>Password</mat-label>
+        <input [formControl]="emailFormControl" matInput type="password">
+        <mat-error *ngIf="passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <mat-card-actions>
+      <button (click)="routingManager.goToPage('home')" mat-button>
+        <mat-icon>work</mat-icon>
+        Sign in
+      </button>
+    </mat-card-actions>
+    <p (click)="goToRegisterWindow()" id="createaccount"> Do you have an account? Sign up.</p>
+  </mat-card>
+</div>
+
+<ng-template #registerPage>
+  <app-register></app-register>
+</ng-template>
+
+<router-outlet></router-outlet>

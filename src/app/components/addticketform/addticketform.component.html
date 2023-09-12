@@ -1,0 +1,44 @@
+<div class="container">
+  <img class="img" src='assets/logowithoutbackground.png'>
+</div>
+
+<mat-card class="ticket-form-container">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="text-with-icon">
+        <mat-icon class="icon">note_add</mat-icon>
+        <span class="text">Add new ticket</span></div>
+    </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="ticketForm">
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Ticket's name</mat-label>
+        <input formControlName="name" matInput placeholder="Nazwa zgłoszenia" required>
+        <mat-error>{{getErrorMessage(ticketForm.get('name'))}}</mat-error>
+      </mat-form-field>
+      <ckeditor [config]="{placeholder: 'Write here... (Max 2000 characters)'}" [editor]="editor"
+                formControlName="ticketBody"></ckeditor>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="replyTicket()" class="button" mat-button>REPLY</button>
+
+      <p *ngIf="replyTicketStatus == 'succesful'" class="sendsuccesful">Ticket sent, redirecting</p>
+      <div *ngIf="replyTicketStatus == 'succesful'" class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p *ngIf="replyTicketStatus == 'fail'" class="sendfailed">Something went wrong, try again</p>
+
+    </mat-card-actions>
+  </form>
+</mat-card>
+
+
+<div class="back-to-client-page">
+  <div class="text-with-icon">
+    <mat-icon class="icon">arrow_back</mat-icon>
+    <span class="text">Back to client page</span></div>
+</div>
