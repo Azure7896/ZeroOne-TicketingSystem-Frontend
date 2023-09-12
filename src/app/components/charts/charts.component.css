@@ -1,0 +1,33 @@
+mat-card {
+  width: 80%;
+  background-color: #232931;
+  margin: 2% auto;
+}
+
+mat-card-title, mat-card-content {
+  color: #EEEEEE;
+}
+
+mat-card mat-card-title {
+  font-size: 30px;
+}
+
+button {
+  margin: 0 3px 5px auto;
+  padding: 3px;
+  transition-duration: 1000ms;
+  border-radius: 5px;
+}
+
+button:hover {
+  transition-duration: 1000ms;
+  margin-right: 10px;
+}
+
+button * {
+  color: #4ECCA3;
+}
+
+mat-icon, mat-card-content {
+  color: #4ECCA3;
+}

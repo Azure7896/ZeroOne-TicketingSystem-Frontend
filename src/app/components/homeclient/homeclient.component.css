@@ -1,0 +1,51 @@
+.container, app-addticketform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  margin-bottom: -80px;
+}
+
+
+.card {
+  width: 60vh;
+  padding: 2%;
+  background-color: #232931;
+}
+
+p {
+  color: #EEEEEE;
+}
+
+button {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+mat-icon {
+  color: black;
+}
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+}
+
+.grid-item {
+  border: 2px solid black;
+  display: grid;
+  place-items: center;
+}
+
+.b5 {
+  grid-column: 2/4;
+}
+
+.failure {
+  margin: 3px;
+}

@@ -1,0 +1,116 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  display: grid;
+  height: 80vh;
+  width: 80vw;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+  grid-template-areas:
+    "nav nav nav nav"
+    "sidebar main main main"
+    "sidebar content1 content2 content3"
+    "sidebar footer footer footer";
+  grid-gap: 1rem;
+  font-weight: 800;
+  font-size: 25px;
+  color: #EEEEEE;
+}
+
+.container * {
+  border-radius: 10px;
+  border: 1px black solid;
+  padding: 10px;
+}
+main {
+  background:url('src/assets/statistics.jpg') no-repeat #232931;
+  background-size: cover;
+  filter: grayscale(80%);
+  transition-duration: 1s;
+  grid-area: main;
+}
+
+main:hover {
+  transition-duration: 1s;
+  filter: grayscale(25%);
+  color: #4ECCA3;
+}
+
+#sidebar {
+  background:url('src/assets/admin.jpg') no-repeat #232931;
+  background-size: cover;
+  filter: grayscale(80%);
+  transition-duration: 1s;
+  grid-area: sidebar;
+}
+
+#sidebar:hover {
+  transition-duration: 1s;
+  filter: grayscale(25%);
+  color: #4ECCA3;
+}
+
+#content1 {
+  background: #232931;
+  grid-area: content1;
+}
+
+#content2 {
+  background: #232931;
+  grid-area: content2;
+}
+
+#content3 {
+  background: #232931;
+  grid-area: content3;
+}
+
+footer {
+  background: #232931;
+  grid-area: footer;
+}
+
+a {
+  text-align: center;
+  display: block;
+  font-family: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas:
+      "sidebar"
+      "main"
+      "content1"
+      "content2"
+      "content3"
+      "footer";
+  }
+}
+
+h1, p {
+  text-align: center;
+  color: #4ECCA3;
+}
+
+.loading::after {
+  display: inline-block;
+  animation: dotty steps(1,end) 1s infinite;
+  content: '';
+}
+
+@keyframes dotty {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}

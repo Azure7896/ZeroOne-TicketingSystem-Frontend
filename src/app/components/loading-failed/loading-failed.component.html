@@ -1,0 +1,8 @@
+<div class="error">
+  <p>Something went wrong. <span class="again"><a (click)="reloadCurrentPage()">Try again.</a></span></p>
+  <p [hidden]="details" class="details"><a (click)="details = true">Show more details
+    <mat-icon>error</mat-icon>
+  </a></p>
+  <p [hidden]="!details" class="errormessage">{{sharedService.error.message}}</p>
+  <span>😕</span>
+</div>

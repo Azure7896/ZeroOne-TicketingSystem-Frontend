@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  background-color: #232931;
+}
+
+
+th, td {
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 17px;
+}
+
+p {
+  text-decoration: none;
+  color: #EEEEEE;
+  transition-duration: 500ms;
+}
+
+p:hover {
+  color: #4ECCA3;
+  transition-duration: 500ms;
+  cursor: pointer;
+}
+
+mat-paginator {
+  background-color: #232931;
+  color: #EEEEEE;
+}
+
+p {
+  text-align: center;
+  margin: 5px;
+  color: #EEEEEE;
+}
+
+.refreshed {
+  color: #4ECCA3;
+}
+
+.sort-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+mat-card {
+  background-color: #232931;
+  align-items: center;
+}
+
+.sort-menu button {
+  background-color: #4ECCA3;
+  color: black;
+  margin-right: 15px;
+}
+
+.spacer {
+  height: 100px;
+}

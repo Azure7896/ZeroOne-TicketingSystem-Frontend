@@ -1,9 +1,12 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
+
+  ngOnInit() {
+  }
 
   //Show menu
 
@@ -25,4 +28,6 @@ export class SharedService {
   loadingFailed: boolean;
 
   showLoading: boolean;
+
 }
+

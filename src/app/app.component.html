@@ -1,12 +1,14 @@
 
-<app-login *ngIf="router.url == '/'"></app-login>
+<!--<app-login *ngIf="router.url == '/'"></app-login>-->
 
-<app-home *ngIf="router.url == '/home'"></app-home>
+<!--<app-home *ngIf="router.url == '/home'"></app-home>-->
 
-<app-homeclient *ngIf="router.url == '/client'"></app-homeclient>
+<!--<app-homeclient *ngIf="router.url == '/client'"></app-homeclient>-->
 
-<app-addticketform *ngIf="router.url == '/addticket'"></app-addticketform>
+<!--<app-addticketform *ngIf="router.url == '/addticket'"></app-addticketform>-->
 
-<app-ticket *ngIf="router.url.includes('ZO-')"></app-ticket>
+<!--<app-ticket *ngIf="router.url.includes('ZO-')"></app-ticket>-->
 
+<!--<app-ticket-client *ngIf="router.url.includes('client/ZO-')"></app-ticket-client>-->
 
+<router-outlet></router-outlet>
