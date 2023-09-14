@@ -40,18 +40,15 @@ export class TicketService {
   replyTicket(ticketNumber, form: FormGroup) {
     return this.http.post("http://localhost:8080/tickets/ticket/reply?ticketnumber=" + ticketNumber, form.value, {observe: 'response'})
   }
-
   updateTicketStatus(ticketNumber, status) {
     return this.http.put("http://localhost:8080/tickets/ticket?ticketnumber=" + ticketNumber + "&status=" + status, {observe: 'response'}).subscribe()
   }
 
-  getTicketsToSearch(): Observable<TicketSearchDto[]> {
-    return this.http.get<TicketSearchDto[]>('http://localhost:8080/search');
-  }
+getAllTicketsByStatus(ticketStatus): Observable<Ticket[]> {
+  return this.http.get<Ticket[]>('http://localhost:8080/tickets/status?ticketstatus=' + ticketStatus)
+}
 
-  postCreatedDateAndGetTimeRemaining(createdDate): Observable<string> {
-    return this.http.post<string>('http://localhost:8080/search', createdDate);
-  }
+
 
 
 }

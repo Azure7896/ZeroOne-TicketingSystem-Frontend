@@ -13,20 +13,21 @@ video {
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.responsive-card {
+  width: 100%;
+  max-width: 650px;
+  background-color: #232931;
+  margin: 20px;
 }
 
 img {
   margin-bottom: -40px;
-}
-
-
-.card {
-  width: 45vh;
-  background-color: #232931;
 }
 
 mat-card-header {
@@ -42,15 +43,11 @@ mat-form-field {
 }
 
 button {
-  background-color: #EEEEEE;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 10px;
+margin: auto;
 }
 
 mat-icon {
-  color: black;
+  color: #EEEEEE;
 }
 
 .login {

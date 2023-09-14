@@ -12,5 +12,4 @@ export class HomeclientComponent {
   constructor(public routingService: RoutingService) {
 
   }
-
 }

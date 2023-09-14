@@ -1,19 +1,20 @@
-.container, app-addticketform {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
-img {
-  margin-bottom: -80px;
-}
-
-
-.card {
-  width: 60vh;
-  padding: 2%;
+.responsive-card {
+  width: 100%;
+  max-width: 750px;
   background-color: #232931;
+  padding: 10px;
+}
+
+.logo {
+  margin-bottom: -40px;
 }
 
 p {
@@ -37,15 +38,12 @@ mat-icon {
 }
 
 .grid-item {
-  border: 2px solid black;
   display: grid;
   place-items: center;
+  margin: 3px;
 }
 
 .b5 {
   grid-column: 2/4;
 }
 
-.failure {
-  margin: 3px;
-}

@@ -16,7 +16,7 @@ button {
   margin: 0 3px 5px auto;
   padding: 3px;
   transition-duration: 1000ms;
-  border-radius: 5px;
+  border: 0 !important;
 }
 
 button:hover {
@@ -24,10 +24,3 @@ button:hover {
   margin-right: 10px;
 }
 
-button * {
-  color: #4ECCA3;
-}
-
-mat-icon, mat-card-content {
-  color: #4ECCA3;
-}

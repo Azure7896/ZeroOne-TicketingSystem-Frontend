@@ -1,51 +1,46 @@
-<!--<app-addticketform></app-addticketform>-->
 <app-background-video></app-background-video>
-<!--<div class="container" fxFlex=" 1 2 calc(15em +20px)">-->
-<!--  <mat-card class="card">-->
-<!--    <img src='assets/zeroonelogo.png'>-->
-<!--    <mat-card-header>-->
-<!--      <p>Welcome Jan Kowalski, in the ZeroOne Ticketing System. Choose an interesting option: </p>-->
-<!--    </mat-card-header>-->
+<div class="container">
+  <mat-card class="responsive-card">
+    <img src='assets/zeroonelogo.png' class="logo">
+    <mat-card-header>
+      <p>Welcome Jan Kowalski, in the ZeroOne Ticketing System. Choose an interesting option: </p>
+    </mat-card-header>
 
-<!--    <div class="grid-container">-->
-<!--      <div class="grid-item">-->
-<!--        <button class="small_btn" id="b1" mat-flat-button type="button">-->
-<!--          ADD TICKET-->
-<!--          <mat-icon>work</mat-icon>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="grid-item">-->
-<!--        <button class="small_btn" id="b2" mat-flat-button type="button">-->
-<!--          ADD TICKET-->
-<!--          <mat-icon>work</mat-icon>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="grid-item">-->
-<!--        <button class="small_btn" id="b3" mat-flat-button type="button">-->
-<!--          YOUR SETTINGS-->
-<!--          <mat-icon>settings</mat-icon>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="grid-item">-->
-<!--        <button class="small_btn" id="b4" mat-flat-button type="button">-->
-<!--          BROWSE YOUR TICKETS-->
-<!--          <mat-icon>search</mat-icon>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="grid-item b5">-->
-<!--        <button (click)="routingService.goToPage('addticket')" class="small_btn" id="b5" mat-flat-button type="button">-->
-<!--          ADD A NEW TICKET-->
-<!--          <mat-icon>note_add</mat-icon>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </mat-card>-->
+    <div class="grid-container">
+      <div class="grid-item">
+        <button class="small_btn" id="b1" mat-flat-button type="button" disabled [disabled]="true">
+          SOON
+        </button>
+      </div>
+      <div class="grid-item">
+        <button class="small_btn" id="b2" mat-flat-button type="button" [disabled]="true">
+          SOON
+        </button>
+      </div>
+      <div class="grid-item">
+        <button class="small_btn" id="b3" mat-flat-button type="button">
+          YOUR SETTINGS
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+      <div class="grid-item">
+        <button (click)="routingService.goToPage('client/tickets') "class="small_btn" id="b4" mat-flat-button type="button">
+          BROWSE TICKETS
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+      <div class="grid-item b5">
+        <button (click)="routingService.goToPage('addticket')" class="small_btn" id="b5" mat-flat-button type="button">
+          ADD A NEW TICKET
+          <mat-icon>note_add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card>
 
-<!--<app-general-failure class="failure"></app-general-failure>-->
+  <app-general-failure class="failure"></app-general-failure>
 
-<!--  -->
-<!--</div>-->
+</div>
 
-<app-addticketform></app-addticketform>
 
 <router-outlet></router-outlet>

@@ -4,6 +4,7 @@ export class TicketReply {
   private _ticketReply: string;
   private _user: User;
   private _replyDate: string;
+  private _isShowMoreClicked = false;
 
 
   get ticketReply(): string {
@@ -28,5 +29,13 @@ export class TicketReply {
 
   set replyDate(value: string) {
     this._replyDate = value;
+  }
+
+  get isShowMoreClicked(): boolean {
+    return this._isShowMoreClicked;
+  }
+
+  set isShowMoreClicked(value: boolean) {
+    this._isShowMoreClicked = value;
   }
 }

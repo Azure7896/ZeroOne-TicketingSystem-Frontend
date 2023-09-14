@@ -54,7 +54,7 @@ export class AddticketformComponent {
   }
 
 
-  replyTicket(): void {
+  createNewTicket(): void {
     this.ticketService.saveTicket(this.ticketForm).subscribe(response => {
         this.ticketName = response;
         this.redirectToTicket(this.ticketName.ticketNumber);
