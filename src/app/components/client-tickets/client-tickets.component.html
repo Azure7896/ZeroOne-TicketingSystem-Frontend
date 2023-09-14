@@ -1,0 +1,80 @@
+<p>client-tickets works!</p>
+<app-background-video></app-background-video>
+
+<div *ngIf="showLoading">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="loadingFailed && !showLoading">
+  <app-loading-failed></app-loading-failed>
+</div>
+
+<div class="container" *ngIf="showLoading == false && loadingFailed == false">
+
+  <div>
+    <img class="img" src='../../../assets/logowithoutbackground.png'>
+  </div>
+  <mat-card class="responsive-card">
+    <mat-card-header>
+      <mat-card-title>
+        <div class="text-with-icon">
+          <mat-icon>list</mat-icon>
+          <span class="text">Your tickets</span></div>
+      </mat-card-title>
+    </mat-card-header>
+      <mat-card-content>
+          <mat-label>Ticket's name</mat-label>
+        <div class="tickets">
+        <mat-list>
+          <div id="inProgress" mat-subheader>In progresss</div>
+          <div *ngFor="let ticket of inProgress">
+          <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
+            <mat-icon>note</mat-icon>
+            <div matListItemTitle class="inProgressName">{{ticket.name}}</div>
+            <div matListItemLine>{{ticket.createdDate| date}}</div>
+          </mat-list-item>
+          </div>
+          <mat-divider></mat-divider>
+          <div id="new"imat-subheader>New</div>
+          <div *ngFor="let ticket of inProgress">
+            <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
+            <mat-icon>note</mat-icon>
+            <div matListItemTitle class="newName">{{ticket.name}}</div>
+            <div matListItemLine>{{ticket.createdDate| date}}</div>
+          </mat-list-item>
+          </div>
+          <mat-divider></mat-divider>
+          <div id="suspended" mat-subheader>Suspended</div>
+          <div *ngFor="let ticket of inProgress">
+            <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
+            <mat-icon>note</mat-icon>
+            <div matListItemTitle class="suspendedName">{{ticket.name}}</div>
+            <div matListItemLine>{{ticket.createdDate| date}}</div>
+          </mat-list-item>
+          </div>
+          <mat-divider></mat-divider>
+          <div id="closed" mat-subheader>Closed</div>
+          <div *ngFor="let ticket of inProgress">
+          <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
+            <mat-icon>note</mat-icon>
+            <div matListItemTitle class="closedName">{{ticket.name}}</div>
+            <div matListItemLine>{{ticket.createdDate| date}}</div>
+          </mat-list-item>
+        </div>
+        </mat-list>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+
+      </mat-card-actions>
+  </mat-card>
+
+
+  <div class="back-to-client-page" (click)="routingService.goToPage('/client')">
+    <div class="text-with-icon">
+      <mat-icon class="icon">arrow_back</mat-icon>
+      <span class="text">Back to client page</span></div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

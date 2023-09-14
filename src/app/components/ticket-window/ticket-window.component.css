@@ -1,28 +1,38 @@
-.ticket-card {
-  width: 50%;
-  margin: 1% auto;
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.ticket-card, .reply-form {
+  width: 100%;
+  max-width: 1200px;
   background-color: #232931;
+  padding: 10px;
+  margin: 20px;
 }
 
 
-.container {
-  margin: 1% auto;
-  width: 50%;
-  height: auto;
+.ticket-general-info {
+  margin-top: 20px;
   background-color: #232931;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   text-align: center;
   position: relative;
+  width: 100%;
+  max-width: 1200px;
 }
 
 
-.container p {
+.ticket-general-info p {
   color: #4ECCA3;
 }
 
-.container span {
+.ticket-general-info span {
   color: #EEEEEE;
 }
 
@@ -60,7 +70,6 @@ mat-card-header {
 .reply-card {
   width: 50%;
   background-color: #232931;
-  margin: 1% auto;
 }
 
 .reply-card mat-card-title {
@@ -75,9 +84,6 @@ mat-card-header {
   margin-right: 5px;
 }
 
-.spacer {
-  height: 200px;
-}
 
 .sendsuccesful {
   color: #4ECCA3;
@@ -153,4 +159,13 @@ mat-card-header {
   100% {
     transform: translate(12px, 0);
   }
+}
+
+.ticketisclosed {
+  color: #4ECCA3;
+  font-size: 13px;
+}
+
+.reply-form {
+  margin-bottom: 20px;
 }

@@ -6,15 +6,15 @@
   <app-loading-failed></app-loading-failed>
 </div>
 
-<div *ngIf="showLoading == false && loadingFailed == false">
+<div *ngIf="showLoading == false && loadingFailed == false" class="container">
 
-  <div class="container">
+  <div class="ticket-general-info">
     <p>
       Ticket number: <span>{{ticket.ticketNumber}}</span>
     </p>
     <p>
       Status: <span [matMenuTriggerFor]="menu" [ngStyle]="ticket.ticketStatus === 'New' ? { color:'#FFA500' } : ticket.ticketStatus === 'In progress' ?{color: '#00D8FF'} : ticket.ticketStatus === 'Closed' ?
-   {color: '#4ECCA3'} : ticket.ticketStatus === 'Suspended' ? {color: '#D2D79F'} : {color: ''}"
+   {color: '#4ECCA3'} : ticket.ticketStatus === 'Suspended' ? {color: '#B4B4B3'} : {color: ''}"
                     class="progress">{{ticket.ticketStatus}}</span>
     </p>
     <p>
@@ -59,22 +59,25 @@
   </mat-card>
 
 
-  <div *ngFor="let ticketReply of ticketReplyList">
-    <mat-card class="ticket-card">
+    <mat-card class="ticket-card"*ngFor="let ticketReply of ticketReplyList;">
       <mat-card-header>
         <mat-card-subtitle class="info">Date: {{ticketReply.replyDate | date: 'dd.MM.yyyy HH:mm'}}</mat-card-subtitle>
         <mat-card-title class="name">Replied: {{ticketReply.user.email}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p *ngIf="isShowMoreClicked == false" [innerHTML]="ticketReply.ticketReply.substring(0, 500)"></p>
-        <p *ngIf="isShowMoreClicked" [innerHTML]="ticketReply.ticketReply"></p>
-        <!--    <span (click)="changeTextLength()" [hidden]="isShowMoreClicked || ticket.ticketBody.ticketBody.length <= 500"-->
-        <!--          class="showmore">Show more...</span>-->
+        <p [innerHTML]="ticketReply.ticketReply.substring(0, 500)"></p>
+        <p *ngIf="ticketReply.isShowMoreClicked" [innerHTML]="ticketReply.ticketReply"></p>
+        <span (click)="ticketReply.isShowMoreClicked = true" [hidden]="ticketReply.isShowMoreClicked || ticketReply.ticketReply.length <= 500"
+              class="showmore">Show more...</span>
       </mat-card-content>
+      <mat-card-actions>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </mat-card-footer>
     </mat-card>
-  </div>
 
-  <mat-card class="reply-card">
+  <mat-card class="reply-form">
     <mat-card-header>
       <mat-card-title>
         <mat-icon>reply</mat-icon>
@@ -88,8 +91,12 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
+      <div class="disable-button" *ngIf="ticket.ticketStatus != 'Closed'; else closed" >
       <button (click)="replyTicket()"  class="button" mat-button>REPLY</button>
-
+      </div>
+      <ng-template #closed>
+        <p class="ticketisclosed"> To reply, ticket must be reopened</p>
+      </ng-template>
       <p *ngIf="replyTicketStatus == 'succesful'" class="sendsuccesful">Reply sent, reloading page</p>
       <div *ngIf="replyTicketStatus == 'succesful'" class="lds-ellipsis">
         <div></div>
@@ -102,5 +109,4 @@
     </mat-card-actions>
   </mat-card>
 </div>
-<div class="spacer"></div>
 

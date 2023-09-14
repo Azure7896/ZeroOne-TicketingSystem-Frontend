@@ -1,8 +1,8 @@
 <app-background-video></app-background-video>
-<div class="back" >
-  <div class="text-with-icon">
+<div class="back">
+  <div class="text-with-icon" (click)="routingService.goToPage('/client')">
     <mat-icon class="icon">arrow_back</mat-icon>
-    <span class="text">Back to the tickets list</span>
+    <span class="text">Back to the client page</span>
   </div>
 </div>
 <app-ticket-window></app-ticket-window>

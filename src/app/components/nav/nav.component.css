@@ -57,10 +57,6 @@ p {
   }
 }
 
-.logout-button {
-  background-color: #4ECCA3;
-  text-transform: uppercase;
-}
 
 .search_form {
   min-width: 150px;
@@ -79,7 +75,7 @@ input[type="text"] {
 }
 
 @media screen and (max-width: 1200px) {
-  .search_form {
+  .search_form, .today, .logout-button, .toggle, p, span {
     visibility: hidden;
   }
 }

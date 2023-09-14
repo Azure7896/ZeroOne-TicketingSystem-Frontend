@@ -43,8 +43,10 @@ import { TicketWindowComponent } from './components/ticket-window/ticket-window.
 import {MatSelectModule} from "@angular/material/select";
 import { TicketClientComponent } from './components/ticket-client/ticket-client.component';
 import {RouterOutlet} from "@angular/router";
-import {AppRoutingModule} from "./app-routing.module";
-import { BackgroundVideoComponent } from './background-video/background-video.component';
+import {AppRoutingModule} from "./routes/app-routing.module";
+import { BackgroundVideoComponent } from './services/background-video/background-video.component';
+import { ClientTicketsComponent } from './components/client-tickets/client-tickets.component';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -68,35 +70,37 @@ import { BackgroundVideoComponent } from './background-video/background-video.co
     TicketWindowComponent,
     TicketClientComponent,
     BackgroundVideoComponent,
+    ClientTicketsComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatCheckboxModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    FormsModule,
-    CKEditorModule,
-    MatMenuModule,
-    HttpClientModule,
-    MatBadgeModule,
-    NgChartsModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatAutocompleteModule,
-    MatChipsModule,
-    MatSelectModule,
-    RouterOutlet,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatCheckboxModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        FormsModule,
+        CKEditorModule,
+        MatMenuModule,
+        HttpClientModule,
+        MatBadgeModule,
+        NgChartsModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        MatAutocompleteModule,
+        MatChipsModule,
+        MatSelectModule,
+        RouterOutlet,
+        AppRoutingModule,
+        MatListModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

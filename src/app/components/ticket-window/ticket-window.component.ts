@@ -7,6 +7,7 @@ import {interval} from "rxjs";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TicketReply} from "../../classes/ticket-reply";
+import {tick} from "@angular/core/testing";
 
 @Component({
   selector: 'app-ticket-window',
@@ -38,6 +39,10 @@ export class TicketWindowComponent {
 
   ticketNumberFromRoute: string;
 
+  protected readonly closed = closed;
+
+  timeToEndCopy;
+
   replyForm = new FormGroup({
     replyBody: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
   })
@@ -55,8 +60,8 @@ export class TicketWindowComponent {
     this.getTicketFromAPI();
     // this.refreshTicket();
     this.fetchReplies();
+    // this.pushToBooleanList()
   }
-
   changeTextLength() {
     this.isShowMoreClicked = true;
   }
@@ -66,6 +71,7 @@ export class TicketWindowComponent {
         setTimeout(() => {
             this.ticket = data;
             this.showLoading = false;
+            this.timeToEndCopy = this.ticket.timeToEnd;
             this.ticketBody = this.ticketBody = this.ticket.ticketBody.ticketBody.substring(0, 500);
           },
           1000);
@@ -81,12 +87,15 @@ export class TicketWindowComponent {
     switch (status) {
       case 1:
         this.ticket.ticketStatus = 'In progress';
+        this.ticket.timeToEnd = this.timeToEndCopy;
         break;
       case 2:
         this.ticket.ticketStatus = 'Closed';
+        this.ticket.timeToEnd = '-';
         break;
       case 3:
         this.ticket.ticketStatus = 'Suspended';
+        this.ticket.timeToEnd = '-';
         break;
     }
     this.ticketService.updateTicketStatus(ticketnumber, status);
@@ -145,5 +154,7 @@ export class TicketWindowComponent {
         this.sharedService.error = err;
       })
   }
+
+  protected readonly tick = tick;
 }
 
