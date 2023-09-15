@@ -23,13 +23,15 @@ Used applications:
 
 Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend layer created in Java 17 with Spring Boot framework.
 
-Preview (from 11.09.2023):
+Preview (from 15.09.2023):
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/ca5e73bb-db01-43c3-b5c0-f48f0b94a28c)
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/9aefc387-a720-4648-accb-838e83ee387e)
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/31d9dd7e-2ce6-4709-b497-87fa2f652190)
+<p align="center">Admin view:</b></p>
+
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/aff2f9a8-a898-4860-a918-092431f06bbe)
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/1c7bc2ba-b9c5-44f1-a536-1e2c13697074)
 
@@ -37,18 +39,18 @@ Preview (from 11.09.2023):
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/82d1e9e8-ad30-40ea-b8ba-68a73611f152)
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/0f9f5a99-117c-46b9-b1ac-80b4dbd1a47a)
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/3d8cd144-3bd4-4887-bb84-15b8da5db12e)
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/6f8732c1-738d-4575-a225-51dba675c8d6)
+<p align="center">Client view:</b></p>
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/3ab1568d-0467-4fc6-a81e-355049dcddad)
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/2e755bff-dcd1-43e4-a129-002f1c450fcf)
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/67b3f2f1-514f-426f-8f27-8134a0c498bf)
-
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/77705d31-264e-447f-b64c-f692a1efa18b)
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/fc2a0a2a-419a-415b-ab27-e563139899f7)
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/1c006cf0-5199-4ed6-ac9d-2bf5cfda6657)
 
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/75c7ece6-79ad-4397-8764-d9596f136d70)
 
 Preview video (from 19.04.2023): 
 
