@@ -5,8 +5,6 @@ import {Injectable} from '@angular/core';
 })
 export class SharedService {
 
-  ngOnInit() {
-  }
 
   //Show menu
 
@@ -16,8 +14,7 @@ export class SharedService {
 
   public refresh = true;
 
-
-  public isOptionOpen = false;
+  public blockOnLiveButton = false;
 
   public error;
 
@@ -25,9 +22,6 @@ export class SharedService {
 
   isOnLoginPage = true;
 
-  loadingFailed: boolean;
-
-  showLoading: boolean;
 
 }
 

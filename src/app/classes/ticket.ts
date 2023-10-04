@@ -1,5 +1,6 @@
 import {User} from "./user";
 import {TicketBody} from "./ticket-body";
+import {TicketReply} from "./ticket-reply";
 
 
 export class Ticket {
@@ -10,8 +11,9 @@ export class Ticket {
   private _user: User;
   private _createdDate: string;
   private _attendant: User;
-  private _timeToEnd: string;
+  private _ticketTimeRemaining: string;
   private _ticketBody: TicketBody;
+  private _ticketReplies: TicketReply[];
 
 
   get ticketNumber(): string {
@@ -62,12 +64,12 @@ export class Ticket {
     this._attendant = value;
   }
 
-  get timeToEnd(): string {
-    return this._timeToEnd;
+  get ticketTimeRemaining(): string {
+    return this._ticketTimeRemaining;
   }
 
-  set timeToEnd(value: string) {
-    this._timeToEnd = value;
+  set ticketTimeRemaining(value: string) {
+    this._ticketTimeRemaining = value;
   }
 
   get ticketBody(): TicketBody {
@@ -76,5 +78,13 @@ export class Ticket {
 
   set ticketBody(value: TicketBody) {
     this._ticketBody = value;
+  }
+
+  get ticketReplies(): TicketReply[] {
+    return this._ticketReplies;
+  }
+
+  set ticketReplies(value: TicketReply[]) {
+    this._ticketReplies = value;
   }
 }

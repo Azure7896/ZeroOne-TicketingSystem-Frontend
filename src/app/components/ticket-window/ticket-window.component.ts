@@ -8,6 +8,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TicketReply} from "../../classes/ticket-reply";
 import {tick} from "@angular/core/testing";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-ticket-window',
@@ -19,19 +20,22 @@ import {tick} from "@angular/core/testing";
 export class TicketWindowComponent {
 
   ticket: Ticket;
+
   showLoading: boolean = true;
 
   loadingFailed = false;
 
   isShowMoreClicked = false;
 
-  ticketBody: string;
-
-  ticketReplyList: TicketReply[];
-
   public editor = ClassicEditor;
 
-  public readonly: boolean = true;
+  refreshed = false;
+
+  progressBarValue = 100;
+
+  timeToRefresh: number = 15;
+
+  private refreshInterval: any;
 
   replyTicketStatus: string;
 
@@ -47,7 +51,7 @@ export class TicketWindowComponent {
     replyBody: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
   })
 
-  constructor(public ticketService: TicketService, public sharedService: SharedService, public router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(public ticketService: TicketService, public sharedService: SharedService, public router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
   }
 
   ngOnInit() {
@@ -56,11 +60,14 @@ export class TicketWindowComponent {
     } else {
       this.ticketNumberFromRoute= this.activatedRoute.snapshot.paramMap.get('ticketnumber');
     }
-    console.warn(this.ticketNumberFromRoute);
+
+    this.titleService.setTitle(this.ticketNumberFromRoute.toUpperCase() + " - ZeroOne");
     this.getTicketFromAPI();
-    // this.refreshTicket();
-    this.fetchReplies();
-    // this.pushToBooleanList()
+    this.startRefreshTimer();
+  }
+
+  mgOnDestroy() {
+    this.stopRefreshTimer()
   }
   changeTextLength() {
     this.isShowMoreClicked = true;
@@ -71,8 +78,7 @@ export class TicketWindowComponent {
         setTimeout(() => {
             this.ticket = data;
             this.showLoading = false;
-            this.timeToEndCopy = this.ticket.timeToEnd;
-            this.ticketBody = this.ticketBody = this.ticket.ticketBody.ticketBody.substring(0, 500);
+            this.timeToEndCopy = this.ticket.ticketTimeRemaining;
           },
           1000);
       },
@@ -87,30 +93,18 @@ export class TicketWindowComponent {
     switch (status) {
       case 1:
         this.ticket.ticketStatus = 'In progress';
-        this.ticket.timeToEnd = this.timeToEndCopy;
+          this.ticket.ticketTimeRemaining = this.timeToEndCopy;
         break;
       case 2:
         this.ticket.ticketStatus = 'Closed';
-        this.ticket.timeToEnd = '-';
+        this.ticket.ticketTimeRemaining = '-';
         break;
       case 3:
         this.ticket.ticketStatus = 'Suspended';
-        this.ticket.timeToEnd = '-';
+        this.ticket.ticketTimeRemaining = '-';
         break;
     }
     this.ticketService.updateTicketStatus(ticketnumber, status);
-  }
-
-  refreshTicket() {
-    interval(10000).subscribe(value => {
-      this.ticketService.getTicket(this.ticketNumberFromRoute).subscribe(data => {
-          this.ticket = data;
-        },
-        err => {
-          this.showError()
-          this.sharedService.error = err;
-        })
-    })
   }
 
   showError() {
@@ -123,7 +117,7 @@ export class TicketWindowComponent {
   }
 
   showReplyInfo() {
-    this.replyTicketStatus = "succesful";
+    this.replyTicketStatus = "successful";
     const interval = setInterval(() => {
       if (this.time === 0) {
         this.reloadTicket();
@@ -139,21 +133,52 @@ export class TicketWindowComponent {
   replyTicket(): void {
     this.ticketService.replyTicket(this.ticket.ticketNumber, this.replyForm).subscribe(response => {
         this.showReplyInfo();
+        this.stopRefreshTimer()
       },
       err => {
         this.replyTicketStatus = "fail"
       })
   }
 
-  fetchReplies() {
-    this.ticketService.getAllReplies(this.ticketNumberFromRoute).subscribe(data => {
-        this.ticketReplyList = data;
-      },
-      err => {
-        this.showError()
-        this.sharedService.error = err;
-      })
+  refreshTicket() {
+    this.ticketService.getTicket(this.ticketNumberFromRoute).subscribe(data => {
+      this.ticket = data;
+      this.timeToRefresh = 15;
+      this.refreshed = true;
+      this.progressBarValue = 100;
+      setTimeout(() => {
+        this.refreshed = false;
+      }, 1000);
+    }, error => {
+      this.showError();
+    })}
+
+  refreshTicketManually() {
+    this.refreshTicket();
+    this.sharedService.refresh = true;
+    this.sharedService.blockOnLiveButton = false;
   }
+
+  private stopRefreshTimer() {
+    if (this.refreshInterval) {
+      clearInterval(this.refreshInterval);
+    }
+  }
+
+  private startRefreshTimer() {
+    this.refreshInterval = setInterval(() => {
+      if (this.sharedService.refresh) {
+        if (this.timeToRefresh > 0) {
+          this.timeToRefresh--;
+          this.progressBarValue-= 6.66;
+        } else {
+          this.refreshTicket();
+          this.progressBarValue = 100;
+        }
+      }
+    }, 1000);
+  }
+
 
   protected readonly tick = tick;
 }

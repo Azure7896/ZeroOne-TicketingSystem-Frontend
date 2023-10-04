@@ -14,16 +14,9 @@ export class NavComponent {
 
   curDate = new Date().toDateString();
 
-  isOnLive = true;
-
   filteredOptions: Observable<any[]>;
 
-  navigationExtras: NavigationExtras = {
-    replaceUrl: true // Ustaw replaceUrl na true, aby wymusić ponowne załadowanie
-  };
-
   search = new FormControl();
-  protected readonly share = share;
 
   constructor(public router: Router, private ticketService: TicketService, public sharedService: SharedService) {
 
@@ -36,18 +29,21 @@ export class NavComponent {
       })
     );
   }
-    getTicketsToSearch(query: string): Observable<any[]> {
-      return this.ticketService.searchTickets(query).pipe(
-        map(response => response.filter(option => {
-          return option.name.toLowerCase().indexOf(query.toLowerCase()) === 0;
-        }))
-      );
-    }
 
-    ngOnInit(){}
+  getTicketsToSearch(query: string): Observable<any[]> {
+    return this.ticketService.searchTickets(query).pipe(
+      map(response => response.filter(option => {
+        return option.name.toLowerCase().indexOf(query.toLowerCase()) === 0;
+      }))
+    );
+  }
 
   openMenu(): void {
     this.sharedService.isMenuOpen = !this.sharedService.isMenuOpen;
+    if (this.sharedService.blockOnLiveButton == true && this.sharedService.refresh == false) {
+      this.sharedService.blockOnLiveButton = false;
+      this.sharedService.refresh = true;
+    }
   }
 
   toggle(): void {

@@ -1,18 +1,18 @@
 import {User} from "./user";
 
 export class TicketReply {
-  private _ticketReply: string;
+  private _ticketReplyBody: string;
   private _user: User;
   private _replyDate: string;
   private _isShowMoreClicked = false;
 
 
-  get ticketReply(): string {
-    return this._ticketReply;
+  get ticketReplyBody(): string {
+    return this._ticketReplyBody;
   }
 
-  set ticketReply(value: string) {
-    this._ticketReply = value;
+  set ticketReplyBody(value: string) {
+    this._ticketReplyBody = value;
   }
 
   get user(): User {

@@ -6,6 +6,8 @@ import {Ticket} from "../../classes/ticket";
 import {TicketService} from "../../services/ticket.service";
 import {SharedService} from "../../services/shared.service";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
 
 @Component({
   selector: 'app-tickets',
@@ -14,23 +16,40 @@ import {Router} from "@angular/router";
 })
 export class TicketsComponent {
 
-  ticketList: Ticket[];
+  ticketsList: Ticket[];
 
   dataSource: any;
 
-  timeLeft: number = 30;
+  timeToRefresh: number = 30;
 
   showLoading: boolean = true;
 
   loadingFailed = false;
 
-  interval;
+  private refreshInterval: any;
 
-  wasRefreshed = false;
+  refreshed = false;
 
+  displayedColumns: string[] = ['ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "ticketTimeRemaining" ];
 
-  displayedColumns: string[] = ['select', 'ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "timeToEnd"];
   selection = new SelectionModel<Ticket>(true, []);
+
+  progressBarValue = 100;
+
+  constructor(private ticketService: TicketService, public sharedService: SharedService, public router: Router, public matsnackbar: MatSnackBar) {
+
+  }
+  // openSnackBar() {
+  //   this.matSnackBar.openFromComponent(PopupComponent, {
+  //     duration: 500,
+  //   });
+  // }
+
+  showSnackBar() {
+    this.matsnackbar.open('To jest przykładowy Snackbar', 'Zamknij', {
+      duration: 3000, // czas wyświetlania w milisekundach
+    });
+  }
 
   @ViewChild(MatPaginator, {static: false})
   set paginator(value: MatPaginator) {
@@ -39,40 +58,44 @@ export class TicketsComponent {
     }
   }
 
+  ngOnInit() {
+    this.fetchTicketsOnInit()
+    this.startRefreshTimer()
+  }
+
+  ngOnDestroy() {
+    this.stopRefreshTimer();
+  }
+
 
   goToPage(pageName:string):void {
     this.router.navigate([`${pageName}`]);
   }
 
-  constructor(private ticketService: TicketService, public sharedService: SharedService, public router: Router) {
-
-  }
-
-  getTicketsByOldest() {
+  sortTicketsByOldest() {
     this.ticketService.getAllTicketsByOldest().subscribe(data => {
       this.dataSource.data = data;
+      this.sharedService.refresh = false;
+      this.sharedService.blockOnLiveButton = true;
     }, error => {
       this.showError()
     })
   }
 
-  getTicketsByNewest() {
-    this.refreshTickets();
-  }
-
-  ngOnInit() {
-    this.fetchTickets()
-    this.timer()
+  sortTicketsByNewest() {
+    this.fetchTicketsAgain();
+    this.sharedService.refresh = true;
+    this.sharedService.blockOnLiveButton = false;
   }
 
 
-  fetchTickets() {
+  fetchTicketsOnInit() {
       this.ticketService.getAllTickets().subscribe(data => {
         setTimeout(() =>
           {
             this.showLoading = false;
-            this.ticketList = data
-            this.dataSource = new MatTableDataSource(this.ticketList);
+            this.ticketsList = data
+            this.dataSource = new MatTableDataSource(this.ticketsList);
           },
           1000);
       },
@@ -82,36 +105,63 @@ export class TicketsComponent {
         })
   }
 
+  fetchTicketsAgain() {
+    this.ticketService.getAllTickets().subscribe(tickets => {
+      this.dataSource.data = tickets;
+    }, error => {
+      this.showError();
+    })
+  }
+
   showError() {
     this.loadingFailed = true;
     this.showLoading = false;
   }
+
   refreshTickets() {
-    this.ticketService.getAllTickets().subscribe(data => {
-      this.dataSource.data = data;
+    this.ticketService.getAllTickets().subscribe(tickets => {
+      this.dataSource.data = tickets;
+      this.timeToRefresh = 30;
+      this.refreshed = true;
+      this.progressBarValue = 100;
+      setTimeout(() => {
+        this.refreshed = false;
+      }, 1000);
     }, error => {
-      this.showError()
+      this.showError();
     })}
+
+  refreshTicketsManually() {
+    this.refreshTickets();
+    this.sharedService.refresh = true;
+    this.sharedService.blockOnLiveButton = false;
+  }
+
+
+  private stopRefreshTimer() {
+    if (this.refreshInterval) {
+      clearInterval(this.refreshInterval);
+    }
+  }
+
+  private startRefreshTimer() {
+    this.refreshInterval = setInterval(() => {
+      if (this.sharedService.refresh) {
+        if (this.timeToRefresh > 0) {
+          this.timeToRefresh--;
+          this.progressBarValue-= 3.33;
+        } else {
+          this.refreshTickets();
+          this.progressBarValue = 100;
+        }
+      }
+    }, 1000);
+  }
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
-  }
-
-  timer(): void {
-    this.interval = setInterval(() => {
-      if(this.timeLeft > 1 && this.sharedService.refresh) {
-        this.timeLeft--;
-      } else {
-        this.wasRefreshed = true;
-        this.refreshTickets()
-        setTimeout( () => {
-          this.wasRefreshed = false;
-        }, 2000)
-        this.timeLeft = 32;
-      }
-    },1000)
   }
 
   toggleAllRows() {

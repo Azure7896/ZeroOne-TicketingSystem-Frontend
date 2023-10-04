@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {ChartService} from "../../services/chart.service";
+import {ChartsData} from "../../classes/charts-data";
 
 @Component({
   selector: 'app-charts',
@@ -7,58 +8,44 @@ import {ChartService} from "../../services/chart.service";
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent {
-
   constructor(private chartService: ChartService) {
-    this.addTicketCountToChart()
   }
 
-  lineChartLabels;
-  lineChartType = 'line';
-  ticketCount;
-  lineChartData;
+  doughnutChartLabels = ['New', 'Open', 'Closed'];
+  doughnutChartData = [
+    { data: [12, 5, 42], label: 'Number of tickets',
+      backgroundColor: ['#FFA500', '#00D8FF','#4ECCA3'],
+      borderColor: '#232931' },
+  ];
+  doughnutChartType = 'doughnut';
+
+  chartsData: ChartsData;
+
+  barChartLabels: any[] = [];
+  barChartType = 'bar';
+  barChartData: any[] = [];
 
   ngOnInit() {
-    this.addDaysListToChart();
+    this.getChartsData();
   }
 
-  addDaysListToChart() {
-    this.chartService.getSortedDaysList().subscribe(data => {
-      this.lineChartLabels = data;
-    })
+  getChartsData() {
+    this.chartService.getChartsData().subscribe(charts => {
+      this.chartsData = charts;
+      this.barChartLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      this.barChartData = [
+        {
+          data: this.chartsData.ticketCountByMonth,
+          label: 'Number of tickets per month',
+          backgroundColor: '#FFA500', // Kolor tła słupków
+          borderColor: '#FFA500', // Kolor obramowania słupków
+        }
+      ];
+    });
   }
 
-  addTicketCountToChart() {
-    this.chartService.getTicketsCount().subscribe(data => {
-      this.lineChartData = [
-        { data: data,
-          label: 'Number of tickets per day',
-          backgroundColor: '#FFFFFF',
-          borderColor: "rgba(10,150,132,1)",
-          pointBackgroundColor: '#FFFFFF'}];
-    })
-    this.ticketCount;
-  }
-
-
-  // doughnutChartLabels = ['New', 'Open', 'Closed'];
-  // doughnutChartData = [
-  //   { data: [12, 5, 42], label: 'Number of tickets',
-  //     backgroundColor: ['#FFA500', '#00D8FF','#4ECCA3'],
-  //     borderColor: '#232931' },
-  // ];
-  // doughnutChartType = 'doughnut';
-  //
-  //
   options = {
-    "responsive": true,
-    "maintainAspectRatio": false,
-  }
-  //
-  // barChartLabels= ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  // barChartType= 'bar';
-  // barChartData= [
-  //   { data: [45, 37, 60, 70, 46, 33, 45, 37, 60, 70, 46, 33],
-  //     label: 'Number of tickets per month',
-  //     backgroundColor: '#6495ED'}
-  // ];
+    responsive: true,
+    maintainAspectRatio: false,
+  };
 }

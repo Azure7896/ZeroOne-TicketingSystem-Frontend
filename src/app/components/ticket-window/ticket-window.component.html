@@ -8,6 +8,19 @@
 
 <div *ngIf="showLoading == false && loadingFailed == false" class="container">
 
+  <div class="timer">
+    <div *ngIf="refreshed == true; else addticketform">
+      <p class="refreshed">Refreshed</p>
+    </div>
+    <ng-template #addticketform>
+      <p (click)="!sharedService.blockOnLiveButton && refreshTicketManually()"> Refresh in {{timeToRefresh}} seconds...</p>
+      <div *ngIf="sharedService.blockOnLiveButton == true || sharedService.refresh == false">
+        <p><span>WARNING! REFRESH STOPPED</span></p>
+      </div>
+    </ng-template>
+    <mat-progress-bar mode="determinate" [value]="progressBarValue"></mat-progress-bar>
+  </div>
+
   <div class="ticket-general-info">
     <p>
       Ticket number: <span>{{ticket.ticketNumber}}</span>
@@ -23,7 +36,7 @@
 
     <p>
       Time remaining: <span
-      [ngStyle]="ticket.timeToEnd === 'Pick-up time exceeded' ? { color:'#EE4B2B' } : {}">{{ticket.timeToEnd}}</span>
+      [ngStyle]="ticket.ticketTimeRemaining === 'Resolve time exceeded' ? { color:'#EE4B2B' } : {}">{{ticket.ticketTimeRemaining}}</span>
     </p>
   </div>
 
@@ -36,7 +49,7 @@
       <p *ngIf="isShowMoreClicked == false" [innerHTML]="ticket.ticketBody.ticketBody.substring(0, 500)"></p>
       <p *ngIf="isShowMoreClicked" [innerHTML]="ticket.ticketBody.ticketBody"></p>
       <span (click)="changeTextLength()" [hidden]="isShowMoreClicked || ticket.ticketBody.ticketBody.length <= 500"
-            class="showmore">Show more...</span>
+            class="more">Show more...</span>
       <mat-divider></mat-divider>
     </mat-card-content>
     <mat-card-actions>
@@ -54,26 +67,22 @@
       </mat-menu>
     </mat-card-actions>
     <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
 
 
-    <mat-card class="ticket-card"*ngFor="let ticketReply of ticketReplyList;">
+    <mat-card class="ticket-card" *ngFor="let reply of ticket.ticketReplies">
       <mat-card-header>
-        <mat-card-subtitle class="info">Date: {{ticketReply.replyDate | date: 'dd.MM.yyyy HH:mm'}}</mat-card-subtitle>
-        <mat-card-title class="name">Replied: {{ticketReply.user.email}}</mat-card-title>
+        <mat-card-subtitle class="info">Date: {{reply.replyDate | date: 'dd.MM.yyyy HH:mm'}}</mat-card-subtitle>
+        <mat-card-title class="name">Replied: {{reply.user.email}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p [innerHTML]="ticketReply.ticketReply.substring(0, 500)"></p>
-        <p *ngIf="ticketReply.isShowMoreClicked" [innerHTML]="ticketReply.ticketReply"></p>
-        <span (click)="ticketReply.isShowMoreClicked = true" [hidden]="ticketReply.isShowMoreClicked || ticketReply.ticketReply.length <= 500"
-              class="showmore">Show more...</span>
+        <p [innerHTML]="reply.ticketReplyBody.substring(0, 500)"></p>
+        <p *ngIf="reply.isShowMoreClicked" [innerHTML]="reply.ticketReplyBody"></p>
+        <span (click)="reply.isShowMoreClicked = true" [hidden]="reply.isShowMoreClicked || reply.ticketReplyBody.length <= 500"
+              class="more">Show more...</span>
       </mat-card-content>
-      <mat-card-actions>
-      </mat-card-actions>
       <mat-card-footer>
-        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       </mat-card-footer>
     </mat-card>
 
@@ -97,16 +106,22 @@
       <ng-template #closed>
         <p class="ticketisclosed"> To reply, ticket must be reopened</p>
       </ng-template>
-      <p *ngIf="replyTicketStatus == 'succesful'" class="sendsuccesful">Reply sent, reloading page</p>
-      <div *ngIf="replyTicketStatus == 'succesful'" class="lds-ellipsis">
+      <p *ngIf="replyTicketStatus == 'successful'" class="sent">Reply sent, reloading page</p>
+      <div *ngIf="replyTicketStatus == 'successful'" class="lds-ellipsis">
         <div></div>
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <p *ngIf="replyTicketStatus == 'fail'" class="sendfailed">Something went wrong, try again</p>
+      <p *ngIf="replyTicketStatus == 'fail'" class="failed">Something went wrong, try again</p>
 
     </mat-card-actions>
   </mat-card>
+
+  <div class="attendant">
+    <p><span>Attendant: </span>Szymon Napora | <span>Author: </span> Jan Kowalski</p>
+  </div>
+
 </div>
+<!--<app-footer></app-footer>-->
 

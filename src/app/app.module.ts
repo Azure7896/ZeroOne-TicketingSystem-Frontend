@@ -10,7 +10,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { ChartsComponent } from './components/charts/charts.component';
+import { ChartComponent } from './components/chart/chart.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { TicketsComponent } from './components/tickets/tickets.component';
 import {MatTableModule} from "@angular/material/table";
@@ -27,7 +27,6 @@ import {HttpClientModule} from "@angular/common/http";
 import { LoadingComponent } from './components/loading/loading.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {NgChartsModule} from "ng2-charts";
-import { TicketcreatedComponent } from './components/ticketcreated/ticketcreated.component';
 import { MenuComponent } from './components/menu/menu.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -47,6 +46,9 @@ import {AppRoutingModule} from "./routes/app-routing.module";
 import { BackgroundVideoComponent } from './services/background-video/background-video.component';
 import { ClientTicketsComponent } from './components/client-tickets/client-tickets.component';
 import {MatListModule} from "@angular/material/list";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -54,12 +56,11 @@ import {MatListModule} from "@angular/material/list";
     LoginComponent,
     HomeComponent,
     NavComponent,
-    ChartsComponent,
+    ChartComponent,
     TicketsComponent,
     FooterComponent,
     AddticketformComponent,
     LoadingComponent,
-    TicketcreatedComponent,
     MenuComponent,
     HomeclientComponent,
     SortComponent,
@@ -71,6 +72,7 @@ import {MatListModule} from "@angular/material/list";
     TicketClientComponent,
     BackgroundVideoComponent,
     ClientTicketsComponent,
+    ChartsComponent,
   ],
     imports: [
         BrowserModule,
@@ -99,7 +101,9 @@ import {MatListModule} from "@angular/material/list";
         MatSelectModule,
         RouterOutlet,
         AppRoutingModule,
-        MatListModule
+        MatListModule,
+        MatProgressBarModule,
+        MatSnackBarModule
     ],
   providers: [],
   bootstrap: [AppComponent]

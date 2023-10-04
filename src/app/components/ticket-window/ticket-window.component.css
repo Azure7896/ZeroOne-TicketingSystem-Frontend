@@ -25,8 +25,9 @@
   position: relative;
   width: 100%;
   max-width: 1200px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
-
 
 .ticket-general-info p {
   color: #4ECCA3;
@@ -35,7 +36,6 @@
 .ticket-general-info span {
   color: #EEEEEE;
 }
-
 
 .ticket-card mat-card-content {
   text-align: justify;
@@ -60,7 +60,7 @@ mat-card-header {
   color: #4ECCA3;
 }
 
-.showmore {
+.more {
   color: #4ECCA3;
   font-weight: bold;
   cursor: pointer;
@@ -85,13 +85,13 @@ mat-card-header {
 }
 
 
-.sendsuccesful {
+.sent {
   color: #4ECCA3;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.sendfailed {
+.failed {
   color: #FF6969;
   margin-left: 10px;
   margin-right: 10px;
@@ -168,4 +168,56 @@ mat-card-header {
 
 .reply-form {
   margin-bottom: 20px;
+}
+
+.attendant {
+  background-color: #232931;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  color: #EEEEEE;
+}
+
+.attendant span {
+  color: #60D2A7;
+}
+
+.timer {
+  margin-top: 20px;
+  position: relative;
+}
+
+mat-progress-bar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+
+.timer p {
+  text-align: center;
+  margin: 5px;
+  color: #EEEEEE;
+  text-transform: uppercase;
+}
+
+.timer p:hover:not(.refreshed) {
+  cursor: pointer;
+  color: #4ECCA3;
+  transition-duration: 500ms;
+}
+
+.refreshed {
+  color: #379470 !important;
+  font-size: 24px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  outline: none;
 }

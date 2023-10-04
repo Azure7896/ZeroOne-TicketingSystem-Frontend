@@ -4,9 +4,9 @@
       <mat-icon>menu</mat-icon>
     </button>
     <img (click)="goToPage('home'); sharedService.isMenuOpen=false" src="../../../assets/smallerlogo.png"/>
-    <p [hidden]="!isOnLive">ON LIVE</p>
-    <span [hidden]="!isOnLive" class="dot"></span>
-    <mat-slide-toggle (ngModelChange)="toggle()" [(ngModel)]="isOnLive" class="toggle"
+    <p *ngIf="sharedService.refresh">ON LIVE</p>
+    <span *ngIf="sharedService.refresh" class="dot"></span>
+    <mat-slide-toggle (ngModelChange)="toggle()" [(ngModel)]="sharedService.refresh" disabled="{{sharedService.blockOnLiveButton}}" class="toggle"
                       color="primary"></mat-slide-toggle>
     <form class="search_form">
       <mat-form-field class="input">

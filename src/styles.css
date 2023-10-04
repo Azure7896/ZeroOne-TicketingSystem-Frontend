@@ -100,3 +100,7 @@ div.mat-mdc-autocomplete-panel {
   color: #4ECCA3 !important;
 }
 
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color: #4ECCA3 !important;
+  --mdc-linear-progress-track-color: #379470 !important
+}

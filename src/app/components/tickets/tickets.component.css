@@ -1,6 +1,8 @@
+
 .container {
   width: 100%;
   overflow-x: auto;
+  caret-color: transparent;
 }
 
 table {
@@ -20,10 +22,10 @@ p {
   transition-duration: 500ms;
 }
 
-p:hover {
+p:hover:not(.refreshed) {
+  cursor: pointer;
   color: #4ECCA3;
   transition-duration: 500ms;
-  cursor: pointer;
 }
 
 mat-paginator {
@@ -35,10 +37,15 @@ p {
   text-align: center;
   margin: 5px;
   color: #EEEEEE;
+  text-transform: uppercase;
 }
 
 .refreshed {
-  color: #4ECCA3;
+  color: #379470;
+  font-size: 24px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  outline: none;
 }
 
 .sort-menu {
@@ -61,4 +68,35 @@ mat-card {
 
 .spacer {
   height: 100px;
+}
+
+.mytickets * {
+  background-color: #4ECCA3;
+}
+
+mat-progress-bar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+span {
+  color: #FF6969;
+}
+
+span {
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

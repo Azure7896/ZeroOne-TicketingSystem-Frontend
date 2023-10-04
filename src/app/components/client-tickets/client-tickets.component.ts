@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {Ticket} from "../../classes/ticket";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TicketService} from "../../services/ticket.service";
 import {RoutingService} from "../../services/routing.service";
-import {MatTableDataSource} from "@angular/material/table";
 import {SharedService} from "../../services/shared.service";
+import {Title} from "@angular/platform-browser";
 
 export interface Section {
   name: string;
@@ -31,41 +29,17 @@ export class ClientTicketsComponent {
 
 
 
-constructor(private ticketService: TicketService, public routingService: RoutingService, private sharedService: SharedService) {
+constructor(private ticketService: TicketService, public routingService: RoutingService, private sharedService: SharedService, private titleService: Title) {
 
   }
 
   ngOnInit() {
+    this.titleService.setTitle("My tickets - ZeroOne");
     this.fetchTickets('New');
     this.fetchTickets('In progress');
     this.fetchTickets('Closed');
     this.fetchTickets('Suspended');
   }
-
-  folders: Section[] = [
-{
-  name: 'Photos',
-  updated: new Date('1/1/16'),
-},
-{
-  name: 'Recipes',
-    updated: new Date('1/17/16'),
-},
-{
-  name: 'Work',
-    updated: new Date('1/28/16'),
-},
-];
-notes: Section[] = [
-  {
-    name: 'Vacation Itinerary',
-    updated: new Date('2/20/16'),
-  },
-  {
-    name: 'Kitchen Remodel',
-    updated: new Date('1/18/16'),
-  },
-];
 
   showError() {
     this.loadingFailed = true;
