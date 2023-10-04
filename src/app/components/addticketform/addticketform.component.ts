@@ -7,6 +7,7 @@ import {RoutingService} from "../../services/routing.service";
 import {Ticket} from "../../classes/ticket";
 import {Observable} from "rxjs";
 import {HttpResponse} from "@angular/common/http";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-addticketform',
@@ -29,7 +30,8 @@ export class AddticketformComponent {
   })
   protected readonly tick = tick;
 
-  constructor(private ticketService: TicketService, public routingService: RoutingService) {
+  constructor(private ticketService: TicketService, public routingService: RoutingService, private titleService: Title) {
+    this.titleService.setTitle("Add ticket - ZeroOne");
   }
 
   getErrorMessage(field): string {

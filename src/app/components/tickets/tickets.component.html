@@ -7,13 +7,16 @@
 </div>
 
 <div *ngIf="showLoading == false && loadingFailed == false">
-  <app-charts></app-charts>
+  <app-chart></app-chart>
 
   <div class="sort-menu">
     <mat-chip-listbox aria-label="Fish selection">
-      <mat-chip-option (click)="getTicketsByNewest()" selected>By newest</mat-chip-option>
-      <mat-chip-option (click)="getTicketsByOldest()">By oldest</mat-chip-option>
+      <mat-chip-option (click)="sortTicketsByNewest()" selected>By newest</mat-chip-option>
+      <mat-chip-option (click)="sortTicketsByOldest()">By oldest</mat-chip-option>
       <mat-chip-option>By user</mat-chip-option>
+      <div class="mytickets">
+        <mat-chip-option>MY TICKETS</mat-chip-option>
+      </div>
       <!--    <mat-chip-option color="warn"></mat-chip-option>-->
     </mat-chip-listbox>
   </div>
@@ -75,10 +78,10 @@
         <td *matCellDef="let ticket" mat-cell> {{ticket.user.email}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="timeToEnd">
+      <ng-container matColumnDef="ticketTimeRemaining">
         <th *matHeaderCellDef mat-header-cell>Time remaining</th>
-        <td *matCellDef="let ticket" [ngStyle]="ticket.timeToEnd === 'Pick-up time exceeded' ? { color:'#FF6969' } : ticket.timeToEnd === '-' ?
-          {color: '#4ECCA3'}: {}" mat-cell> {{ticket.timeToEnd}}</td>
+        <td *matCellDef="let ticket" [ngStyle]="ticket.ticketTimeRemaining === 'Resolve time exceeded' ? { color:'#FF6969' } : ticket.ticketTimeRemaining === '-' ?
+          {color: '#4ECCA3'}: {}" mat-cell> {{ticket.ticketTimeRemaining}}</td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
@@ -91,13 +94,23 @@
                  [pageSize]="10"
                  aria-label="Select page">
   </mat-paginator>
-  <div [hidden]="showLoading || !sharedService.refresh" class="timer">
-    <div *ngIf="wasRefreshed == true; else addticketform">
-      <p class="refreshed">Refreshed!</p>
+
+<!--  [hidden]="!sharedService.refresh"-->
+  <div class="timer">
+    <div *ngIf="refreshed == true; else addticketform">
+      <p class="refreshed">Refreshed</p>
     </div>
     <ng-template #addticketform>
-      <p>Refresh in {{timeLeft}} seconds...</p>
-    </ng-template>
+      <p (click)="!sharedService.blockOnLiveButton && refreshTicketsManually()"> Refresh in {{timeToRefresh}} seconds...</p>
+      <div *ngIf="sharedService.blockOnLiveButton == true || sharedService.refresh == false">
+        <p><span>WARNING! REFRESH STOPPED</span></p>
+      </div>
+      </ng-template>
+    <mat-progress-bar mode="determinate" [value]="progressBarValue"></mat-progress-bar>
   </div>
 </div>
+<!--<button mat-button (click)="showSnackBar()" aria-label="Show an example snack-bar">-->
+<!--  Pizza party-->
+<!--</button>-->
+
 <div class="spacer"></div>

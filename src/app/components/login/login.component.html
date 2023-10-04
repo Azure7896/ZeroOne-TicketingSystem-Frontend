@@ -1,5 +1,4 @@
 <app-background-video></app-background-video>
-
 <div class='container' *ngIf="sharedService.isOnLoginPage; else registerPage">
   <mat-card class="responsive-card">
     <img src='../../../assets/zeroonelogo.png'>
@@ -39,9 +38,14 @@
       </button>
     </mat-card-actions>
     <p (click)="goToRegisterWindow()" id="createaccount"> Do you have an account? Sign up.</p>
-  </mat-card>
-</div>
 
+  </mat-card>>
+
+  <div class="text-with-icon">
+  <span class="text" [ngStyle]="serverWorking ? { color:'#4ECCA3' } : {color: '#EE4B2B' }"><mat-icon class="icon">dvr</mat-icon> {{serverStatus}}</span>
+  <span class="text" [ngStyle]="databaseWorking ? { color:'#4ECCA3' } : {color: '#EE4B2B' }"><mat-icon class="icon">storage</mat-icon> {{databaseStatus}}</span>
+  </div>
+</div>
 <ng-template #registerPage>
   <app-register></app-register>
 </ng-template>

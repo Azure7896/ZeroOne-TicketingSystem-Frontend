@@ -17,6 +17,7 @@ video {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
 }
 
 .responsive-card {
@@ -44,6 +45,7 @@ mat-form-field {
 
 button {
 margin: auto;
+  padding: 10px;
 }
 
 mat-icon {
@@ -72,4 +74,22 @@ mat-icon {
 
 #you {
   color: #4ECCA3;
+}
+
+p {
+  position: relative;
+  color: #EEEEEE;
+}
+
+.text-with-icon {
+  display: flex;
+  font-size: 20px;
+  vertical-align: middle;
+  color: #4ECCA3;
+  position: relative;
+}
+
+.icon {
+  font-size: 28px;
+  margin-left: 10px;
 }
