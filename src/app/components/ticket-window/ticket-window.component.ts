@@ -66,7 +66,7 @@ export class TicketWindowComponent {
     this.startRefreshTimer();
   }
 
-  mgOnDestroy() {
+  ngOnDestroy() {
     this.stopRefreshTimer()
   }
   changeTextLength() {

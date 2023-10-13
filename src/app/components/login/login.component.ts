@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormControl, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {SharedService} from "../../services/shared.service";
 import {RoutingService} from "../../services/routing.service";
 import {StatusService} from "../../services/status.service";
-import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-login',
@@ -12,8 +11,11 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordFormControl = new FormControl('', [Validators.required]);
+
+  loginForm = new FormGroup({
+  email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(64)], ),
+  password: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(320)])
+  });
 
   databaseWorking = false;
 
@@ -23,7 +25,7 @@ export class LoginComponent {
 
   serverStatus = "Server status: Inactive";
 
-  constructor(private router: Router, public sharedService: SharedService, public routingManager: RoutingService, private statusService: StatusService) {
+  constructor(private router: Router, public sharedService: SharedService, public routingService: RoutingService, private statusService: StatusService) {
 
   }
 
