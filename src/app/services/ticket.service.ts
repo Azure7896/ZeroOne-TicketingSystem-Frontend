@@ -26,14 +26,13 @@ export class TicketService {
     return this.http.get<Ticket[]>(this.apiService.api + '/search?ticketname=' + ticketName);
   }
 
-
   getAllTicketsByOldest(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(this.apiService.api + '/tickets/byoldest')
   }
 
   saveTicket(form: FormGroup): Observable<Ticket> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Ticket>(this.apiService.api + "/tickets", JSON.stringify(form.value), { headers });
+    return this.http.post<Ticket>(this.apiService.api + "/tickets/saveTicket", JSON.stringify(form.value), { headers });
   }
   replyTicket(ticketNumber, form: FormGroup) {
     return this.http.post(this.apiService.api + "/tickets/ticket/reply?ticketnumber=" + ticketNumber, form.value, {observe: 'response'})

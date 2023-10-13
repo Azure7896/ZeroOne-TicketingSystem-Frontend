@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -35,7 +39,7 @@ button {
 mat-icon {
   color: #EEEEEE;
 }
-.login {
+.register {
   margin-top: 10px;
 }
 
@@ -57,4 +61,8 @@ mat-icon {
 
 #you {
   color: #4ECCA3;
+}
+
+#registerInfo {
+  color: #00D8FF;
 }

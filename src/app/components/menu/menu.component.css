@@ -24,6 +24,7 @@
   border-radius: 10px;
   border: 1px black solid;
   padding: 10px;
+  cursor: pointer;
 }
 main {
   background:url('src/assets/statistics.jpg') no-repeat #232931;

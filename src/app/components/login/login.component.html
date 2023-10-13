@@ -2,38 +2,51 @@
 <div class='container' *ngIf="sharedService.isOnLoginPage; else registerPage">
   <mat-card class="responsive-card">
     <img src='../../../assets/zeroonelogo.png'>
+
     <mat-card-header>
       <mat-card-title><span id="arrow"> > </span>Welcome! ZeroOne is a modern ticketing system for the IT
         department.<span id="you"> And for you</span>.
       </mat-card-title>
     </mat-card-header>
-    <form class="login">
+
+      <form [formGroup]="loginForm" class="login">
       <mat-form-field class="email">
         <mat-label>Email</mat-label>
-        <input [formControl]="emailFormControl" matInput placeholder="Ex. pat@example.com"
-               type="email">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        <input formControlName="email" matInput placeholder="You e-mail address" required type="email">
+        <mat-error *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').hasError('required')">
           Please enter a valid email address
         </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
+        <mat-error *ngIf="loginForm.get('email').hasError('required')">
           Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email').hasError('maxlength')">
+          Email is <strong>too long</strong>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="passwsord">
         <mat-label>Password</mat-label>
-        <input [formControl]="emailFormControl" matInput type="password">
-        <mat-error *ngIf="passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')">
+        <input formControlName="password" matInput required type="password">
+        <mat-error *ngIf="loginForm.get('password').hasError('email') && !loginForm.get('password').hasError('required')">
           Please enter a valid email address
         </mat-error>
-        <mat-error *ngIf="passwordFormControl.hasError('required')">
+        <mat-error *ngIf="loginForm.get('password').hasError('required')">
           Password is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="loginForm.get('password').hasError('minlength')">
+          Password is <strong>too short</strong>
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password').hasError('maxlength')">
+          Password is <strong>too long</strong>
+        </mat-error>
+
       </mat-form-field>
     </form>
     <mat-card-actions>
-      <button (click)="routingManager.goToPage('home')" mat-button>
-        <mat-icon>work</mat-icon>
+<!--      <button (click)="routingService.goToPage('home')" mat-button [disabled]="!loginForm.valid" >-->
+<!--        Sign in-->
+<!--      </button>-->
+      <button (click)="routingService.goToPage('home')" mat-button>
         Sign in
       </button>
     </mat-card-actions>

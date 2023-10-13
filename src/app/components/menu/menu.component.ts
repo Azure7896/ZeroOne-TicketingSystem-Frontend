@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RoutingService} from "../../services/routing.service";
 
 @Component({
   selector: 'app-menu',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
 export class MenuComponent {
 
 
-  constructor() {
+  constructor(public routingService: RoutingService) {
   }
+
 }

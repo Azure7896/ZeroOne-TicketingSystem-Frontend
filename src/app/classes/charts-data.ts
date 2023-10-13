@@ -1,7 +1,12 @@
 export class ChartsData {
-  private _ticketCountByMonth: number;
+  private _ticketsCountByMonth: number[];
+  private _ticketsCountByStatus: number[];
 
-  get ticketCountByMonth(): number {
-    return this._ticketCountByMonth;
+  get ticketsCountByMonth(): number[] {
+    return this._ticketsCountByMonth;
   }
+  get ticketsCountByStatus(): number[] {
+    return this._ticketsCountByStatus;
+  }
+
 }

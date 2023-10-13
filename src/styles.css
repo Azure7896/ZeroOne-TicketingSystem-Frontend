@@ -104,3 +104,8 @@ div.mat-mdc-autocomplete-panel {
   --mdc-linear-progress-active-indicator-color: #4ECCA3 !important;
   --mdc-linear-progress-track-color: #379470 !important
 }
+
+.mat-mdc-button[disabled][disabled] {
+  --mdc-text-button-disabled-label-text-color: rgb(255 255 255 / 38%);
+  --mdc-text-button-label-text-color: rgb(255 255 255 / 38%);
+}
