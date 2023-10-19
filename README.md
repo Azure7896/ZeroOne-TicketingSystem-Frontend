@@ -21,7 +21,7 @@ Used applications:
 - Adobe Photoshop
 - Docker
 
-Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend layer created in Java 17 with Spring Boot framework.
+Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend REST API layer created in Java 17 with Spring Boot framework.
 
 Preview (02.10.2023):
 
