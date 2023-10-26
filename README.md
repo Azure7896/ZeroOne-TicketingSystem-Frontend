@@ -10,16 +10,16 @@
 Used technologies:
 
   - Angular
-    - Material UI
-    - CKEditor
-    - ng2-charts/Chart.js
+  - Material UI
+  - CKEditor
+  - ng2-charts/Chart.js
 
 Used applications:
 
-- WebStorm
-- Google Chrome
-- Adobe Photoshop
-- Docker
+  - WebStorm
+  - Google Chrome
+  - Adobe Photoshop
+  - Docker
 
 Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend REST API layer created in Java 17 with Spring Boot framework.
 
