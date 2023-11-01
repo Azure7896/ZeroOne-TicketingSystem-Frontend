@@ -30,7 +30,7 @@ export class TicketsComponent {
 
   refreshed = false;
 
-  displayedColumns: string[] = ['ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "ticketTimeRemaining" ];
+  displayedColumns: string[] = ['ticketNumber', 'name', 'ticketStatus', 'user', 'createdDate', "attendant", "category", "ticketTimeRemaining" ];
 
   selection = new SelectionModel<Ticket>(true, []);
 
@@ -47,7 +47,7 @@ export class TicketsComponent {
 
   showSnackBar() {
     this.matsnackbar.open('To jest przykładowy Snackbar', 'Zamknij', {
-      duration: 3000, // czas wyświetlania w milisekundach
+      duration: 3000,
     });
   }
 

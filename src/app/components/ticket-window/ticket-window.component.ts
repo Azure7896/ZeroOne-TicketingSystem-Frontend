@@ -140,6 +140,7 @@ export class TicketWindowComponent {
       })
   }
 
+
   refreshTicket() {
     this.ticketService.getTicket(this.ticketNumberFromRoute).subscribe(data => {
       this.ticket = data;

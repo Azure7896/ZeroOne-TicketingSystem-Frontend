@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: '', component: LoginComponent },
   {path: 'home', component: HomeComponent},
   {path: 'charts', component: ChartsComponent},
-  {path: 'addticket', component: AddticketformComponent},
+  {path: 'client/addticket', component: AddticketformComponent},
   {path: 'client', component: HomeclientComponent},
   {path: 'client/tickets', component: ClientTicketsComponent},
   {path: 'client/:clientsideticketnumber', component: TicketClientComponent},

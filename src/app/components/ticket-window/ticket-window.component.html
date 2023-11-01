@@ -113,15 +113,19 @@
         <div></div>
         <div></div>
       </div>
-      <p *ngIf="replyTicketStatus == 'fail'" class="failed">Something went wrong, try again</p>
+      <p *ngIf="replyTicketStatus == 'fail'" class="failed">Something went wrong, try again.</p>
 
     </mat-card-actions>
   </mat-card>
 
   <div class="attendant">
-    <p><span>Attendant: </span>Szymon Napora | <span>Author: </span> Jan Kowalski</p>
-  </div>
-
+    <p *ngIf="ticket.attendant != null; else attendant"><span>Attendant: </span>{{ticket.attendant.firstName}} {{ticket.attendant.lastName}} | <span>Author:
+    </span> {{ticket.user.firstName}} {{ticket.user.lastName}} | <span>Category: </span> {{ticket.category.categoryName}}</p>
+    <ng-template #attendant>
+      <p><span>Attendant:</span> <span [ngStyle]="{ color:'#B4B4B3FF' }"> Empty attendant</span> | <span>Author:
+    </span> {{ticket.user.firstName}} {{ticket.user.lastName}} | <span>Category: </span> {{ticket.category.categoryName}}</p>
+    </ng-template>
+</div>
 </div>
 <!--<app-footer></app-footer>-->
 

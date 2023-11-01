@@ -78,6 +78,11 @@
         <td *matCellDef="let ticket" mat-cell> {{ticket.user.email}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="category">
+        <th *matHeaderCellDef mat-header-cell>Category</th>
+        <td *matCellDef="let ticket" mat-cell> {{ticket.category.categoryName}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="ticketTimeRemaining">
         <th *matHeaderCellDef mat-header-cell>Time remaining</th>
         <td *matCellDef="let ticket" [ngStyle]="ticket.ticketTimeRemaining === 'Resolve time exceeded' ? { color:'#FF6969' } : ticket.ticketTimeRemaining === '-' ?
