@@ -9,20 +9,6 @@
 
     <form class="register" [formGroup]="registerForm">
 
-      <mat-form-field class="email">
-        <mat-label>Email</mat-label>
-        <input formControlName="email" matInput placeholder="You e-mail address" required type="email">
-        <mat-error *ngIf="registerForm.get('email').hasError('email')">
-          Please enter a <strong>valid email address</strong>
-        </mat-error>
-        <mat-error *ngIf="registerForm.get('email').hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
-        <mat-error *ngIf="registerForm.get('email').hasError('maxlength')">
-          Email is <strong>too long</strong>
-        </mat-error>
-      </mat-form-field>
-
       <mat-form-field class="text">
         <mat-label>First name</mat-label>
         <input formControlName="firstName" matInput placeholder="Your first name" required type="text">
@@ -47,6 +33,20 @@
           Email is <strong>too short</strong>
         </mat-error>
         <mat-error *ngIf="registerForm.get('lastName').hasError('maxlength')">
+          Email is <strong>too long</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="email">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="You e-mail address" required type="email">
+        <mat-error *ngIf="registerForm.get('email').hasError('email')">
+          Please enter a <strong>valid email address</strong>
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('email').hasError('maxlength')">
           Email is <strong>too long</strong>
         </mat-error>
       </mat-form-field>

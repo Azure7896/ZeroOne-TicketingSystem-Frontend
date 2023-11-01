@@ -1,6 +1,7 @@
 import {User} from "./user";
 import {TicketBody} from "./ticket-body";
 import {TicketReply} from "./ticket-reply";
+import {Category} from "../category";
 
 
 export class Ticket {
@@ -13,7 +14,8 @@ export class Ticket {
   private _attendant: User;
   private _ticketTimeRemaining: string;
   private _ticketBody: TicketBody;
-  private _ticketReplies: TicketReply[];
+  private _ticketReplies: TicketReply[]
+  private _category: Category;
 
 
   get ticketNumber(): string {
@@ -86,5 +88,13 @@ export class Ticket {
 
   set ticketReplies(value: TicketReply[]) {
     this._ticketReplies = value;
+  }
+
+  get category(): Category {
+    return this._category;
+  }
+
+  set category(value: Category) {
+    this._category = value;
   }
 }

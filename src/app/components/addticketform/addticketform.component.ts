@@ -8,6 +8,8 @@ import {Ticket} from "../../classes/ticket";
 import {Observable} from "rxjs";
 import {HttpResponse} from "@angular/common/http";
 import {Title} from "@angular/platform-browser";
+import {Category} from "../../category";
+import {CategoryService} from "../../category.service";
 
 @Component({
   selector: 'app-addticketform',
@@ -24,14 +26,25 @@ export class AddticketformComponent {
 
   ticketName: Ticket;
 
+  categories: Category[];
+
+  category: string = "Category: Not selected";
+
   ticketForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
     ticketBody: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
+    category: new FormControl(),
   })
+
+
   protected readonly tick = tick;
 
-  constructor(private ticketService: TicketService, public routingService: RoutingService, private titleService: Title) {
+  constructor(private ticketService: TicketService, public routingService: RoutingService, private titleService: Title, private categoryService: CategoryService) {
     this.titleService.setTitle("Add ticket - ZeroOne");
+  }
+
+  ngOnInit() {
+    this.getCategoriesFromAPI();
   }
 
   getErrorMessage(field): string {
@@ -53,6 +66,20 @@ export class AddticketformComponent {
       }
       this.time--;
     }, 1000);
+  }
+
+  getCategoriesFromAPI() {
+    this.categoryService.getAllCategories().subscribe(data => {
+            this.categories = data;
+      },
+      err => {
+
+      })
+  }
+
+  setCategory(category: string) {
+    this.category = category;
+    this.ticketForm.get('category').setValue(this.category)
   }
 
 

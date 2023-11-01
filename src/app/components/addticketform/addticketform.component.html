@@ -6,11 +6,9 @@
 </div>
 <mat-card class="responsive-card">
   <mat-card-header>
-    <mat-card-title>
       <div class="text-with-icon">
         <mat-icon class="icon">note_add</mat-icon>
         <span class="text">Add new ticket</span></div>
-    </mat-card-title>
   </mat-card-header>
   <form [formGroup]="ticketForm">
     <mat-card-content>
@@ -21,6 +19,26 @@
       </mat-form-field>
       <ckeditor [config]="{placeholder: 'Write here... (Max 2000 characters)'}" [editor]="editor"
                 formControlName="ticketBody"></ckeditor>
+    </mat-card-content>
+    <mat-card-content>
+
+      <div class="text-with-icon">
+        <mat-icon class="icon">category</mat-icon>
+        <span class="category" [matMenuTriggerFor]="menu">{{category}}</span></div>
+      <mat-menu #menu="matMenu">
+        <div *ngFor="let category of categories">
+          <button (click)="setCategory(category.categoryName) "
+            mat-menu-item>{{category.categoryName}}
+          </button>
+        </div>
+
+<!--        <button (click)="updateTicketStatus(ticket.ticketNumber, 2)" [disabled]="ticket.ticketStatus == 'Closed'"-->
+<!--                mat-menu-item>Closed-->
+<!--        </button>-->
+<!--        <button (click)="updateTicketStatus(ticket.ticketNumber, 3)" [disabled]="ticket.ticketStatus == 'Suspended'"-->
+<!--                mat-menu-item>Suspended-->
+<!--        </button>-->
+      </mat-menu>
     </mat-card-content>
     <mat-card-actions>
       <button (click)="createNewTicket()" class="button" mat-button>ADD NEW TICKET</button>
