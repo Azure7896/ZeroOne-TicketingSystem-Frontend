@@ -1,3 +1,4 @@
+
 #Pobranie obrazu node.js w najnowszej wersji
 FROM node:latest as builder
 
@@ -24,3 +25,4 @@ RUN npm run build
 
 #Uruchomienie aplikacji po starcie kontenera na wszystkich interfejsach sieciowych kontenera
 CMD ["ng", "serve", "--host=0.0.0.0"]
+
