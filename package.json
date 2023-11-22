@@ -25,6 +25,7 @@
     "@ckeditor/ckeditor5-build-classic": "^37.0.1",
     "chart.js": "^4.3.0",
     "ng2-charts": "^4.1.1",
+    "ngx-logger": "^5.0.12",
     "rxjs": "~7.8.0",
     "simple-ng-loader": "^2.0.0",
     "tslib": "^2.3.0",

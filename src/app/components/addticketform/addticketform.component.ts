@@ -8,8 +8,8 @@ import {Ticket} from "../../classes/ticket";
 import {Observable} from "rxjs";
 import {HttpResponse} from "@angular/common/http";
 import {Title} from "@angular/platform-browser";
-import {Category} from "../../category";
-import {CategoryService} from "../../category.service";
+import {Category} from "../../classes/category";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
   selector: 'app-addticketform',

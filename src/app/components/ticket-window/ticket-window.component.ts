@@ -60,8 +60,7 @@ export class TicketWindowComponent {
     } else {
       this.ticketNumberFromRoute= this.activatedRoute.snapshot.paramMap.get('ticketnumber');
     }
-
-    this.titleService.setTitle(this.ticketNumberFromRoute.toUpperCase() + " - ZeroOne");
+    this.titleService.setTitle(this.ticketNumberFromRoute.toUpperCase() + " - ZeroOne Ticketing System");
     this.getTicketFromAPI();
     this.startRefreshTimer();
   }

@@ -13,7 +13,6 @@
     <mat-chip-listbox aria-label="Fish selection">
       <mat-chip-option (click)="sortTicketsByNewest()" selected>By newest</mat-chip-option>
       <mat-chip-option (click)="sortTicketsByOldest()">By oldest</mat-chip-option>
-      <mat-chip-option>By user</mat-chip-option>
       <div class="mytickets">
         <mat-chip-option>MY TICKETS</mat-chip-option>
       </div>
@@ -60,33 +59,33 @@
         <th *matHeaderCellDef mat-header-cell>Status</th>
         <td *matCellDef="let ticket" [ngStyle]="ticket.ticketStatus === 'New' ? { color:'#FFA500' } : ticket.ticketStatus === 'In progress' ?
      {color: '#00D8FF'} : ticket.ticketStatus === 'Closed' ? {color: '#4ECCA3'} : ticket.ticketStatus === 'Suspended' ? {color: '#B4B4B3'} : {color: ''}"
-            mat-cell> {{ticket.ticketStatus}} </td>
+            mat-cell>{{ticket.ticketStatus}}</td>
       </ng-container>
 
       <ng-container matColumnDef="user">
         <th *matHeaderCellDef mat-header-cell>User</th>
-        <td *matCellDef="let ticket" mat-cell> {{ticket.user.email}} </td>
+        <td *matCellDef="let ticket" mat-cell>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
       </ng-container>
 
       <ng-container matColumnDef="createdDate">
         <th *matHeaderCellDef mat-header-cell>Created</th>
-        <td *matCellDef="let ticket" mat-cell> {{ticket.createdDate | date: 'dd.MM.yyyy HH:mm '}} </td>
+        <td *matCellDef="let ticket" mat-cell>{{ticket.createdDate | date: 'dd.MM.yyyy HH:mm '}}</td>
       </ng-container>
 
       <ng-container matColumnDef="attendant">
         <th *matHeaderCellDef mat-header-cell>Attendant</th>
-        <td *matCellDef="let ticket" mat-cell> {{ticket.user.email}} </td>
+        <td *matCellDef="let ticket" mat-cell>Example Example</td>
       </ng-container>
 
       <ng-container matColumnDef="category">
         <th *matHeaderCellDef mat-header-cell>Category</th>
-        <td *matCellDef="let ticket" mat-cell> {{ticket.category.categoryName}} </td>
+        <td *matCellDef="let ticket" mat-cell>{{ticket.category.categoryName}}</td>
       </ng-container>
 
       <ng-container matColumnDef="ticketTimeRemaining">
         <th *matHeaderCellDef mat-header-cell>Time remaining</th>
         <td *matCellDef="let ticket" [ngStyle]="ticket.ticketTimeRemaining === 'Resolve time exceeded' ? { color:'#FF6969' } : ticket.ticketTimeRemaining === '-' ?
-          {color: '#4ECCA3'}: {}" mat-cell> {{ticket.ticketTimeRemaining}}</td>
+          {color: '#4ECCA3'}: {}" mat-cell>{{ticket.ticketTimeRemaining}}</td>
       </ng-container>
 
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>

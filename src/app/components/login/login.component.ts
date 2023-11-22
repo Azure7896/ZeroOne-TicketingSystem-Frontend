@@ -26,21 +26,23 @@ export class LoginComponent {
   serverStatus = "Server status: Inactive";
 
   constructor(private router: Router, public sharedService: SharedService, public routingService: RoutingService, private statusService: StatusService) {
-
   }
 
   ngOnInit() {
     this.getDatabaseStatus();
+    this.logToServerConsole();
   }
 
   goToRegisterWindow(): void {
     this.sharedService.isOnLoginPage = !this.sharedService.isOnLoginPage;
   }
 
+  private logToServerConsole() {
+
+  }
+
   getDatabaseStatus() {
     this.statusService.getDatabaseStatus().subscribe(data => {
-        setTimeout(() =>
-          {
             this.serverWorking = true;
             this.serverStatus = "Server status: Active";
 
@@ -48,8 +50,6 @@ export class LoginComponent {
             if (this.databaseWorking) {
               this.databaseStatus = "Database status: Active";
             }
-          },
-          1750);
       },
       err => {
 

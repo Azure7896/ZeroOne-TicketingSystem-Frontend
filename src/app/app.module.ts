@@ -43,12 +43,16 @@ import {MatSelectModule} from "@angular/material/select";
 import { TicketClientComponent } from './components/ticket-client/ticket-client.component';
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./routes/app-routing.module";
-import { BackgroundVideoComponent } from './services/background-video/background-video.component';
+import { BackgroundVideoComponent } from './components/background-video/background-video.component';
 import { ClientTicketsComponent } from './components/client-tickets/client-tickets.component';
 import {MatListModule} from "@angular/material/list";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ChartsComponent } from './components/charts/charts.component';
+import { FailureSettingComponent } from './components/failure-setting/failure-setting.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -73,6 +77,7 @@ import { ChartsComponent } from './components/charts/charts.component';
     BackgroundVideoComponent,
     ClientTicketsComponent,
     ChartsComponent,
+    FailureSettingComponent,
   ],
     imports: [
         BrowserModule,
@@ -103,7 +108,10 @@ import { ChartsComponent } from './components/charts/charts.component';
         AppRoutingModule,
         MatListModule,
         MatProgressBarModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatDatepickerModule,
+        MatDialogModule,
+        MatNativeDateModule
     ],
   providers: [],
   bootstrap: [AppComponent]
