@@ -1,0 +1,96 @@
+<app-nav></app-nav>
+<div *ngIf="showLoading">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="loadingFailed && !showLoading">
+  <app-loading-failed></app-loading-failed>
+</div>
+
+<div *ngIf="showLoading == false && loadingFailed == false" class="container">
+
+  <div *ngIf="sharedService.isMenuOpen; else failureSetting">
+    <app-menu></app-menu>
+  </div>
+  <ng-template #failureSetting>
+    <mat-card class="responsive-card">
+      <mat-card-header>
+        <div class="text-with-icon">
+          <mat-icon class="icon">warning</mat-icon>
+          <span class="text">Add new failure</span></div>
+      </mat-card-header>
+      <form [formGroup]="failureForm">
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>Failure title</mat-label>
+            <input formControlName="failureTitle" matInput placeholder="Failure title" required>
+            <mat-error>{{getErrorMessage(failureForm.get('failureTitle'))}}</mat-error>
+          </mat-form-field>
+          <ckeditor [config]="{placeholder: 'Write here... (Max 150 characters)'}" [editor]="editor"
+                    formControlName="additionalInfo"></ckeditor>
+        </mat-card-content>
+
+        <mat-form-field appearance="fill" class="datepicker">
+          <mat-label>Start date</mat-label>
+
+          <input [matDatepicker]="startDatePicker" formControlName="failureStart" matInput
+                 readonly required>
+          <mat-hint>DD.MM.YYYY</mat-hint>
+          <mat-datepicker-toggle [for]="startDatePicker" matIconSuffix></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+          <mat-error>{{getDatePickerErrorMessage(failureForm.get('failureStart'))}}</mat-error>
+        </mat-form-field>
+          <mat-form-field appearance="fill" class="datepicker">
+            <mat-label>End date</mat-label>
+            <input [matDatepicker]="endDatePicker" formControlName="failureEnd" matInput
+                   readonly required>
+            <mat-hint>DD.MM.YYYY</mat-hint>
+            <mat-datepicker-toggle [for]="endDatePicker" matIconSuffix></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+            <mat-error>{{getDatePickerErrorMessage(failureForm.get('failureEnd'))}}</mat-error>
+          </mat-form-field>
+
+          <mat-card-actions>
+            <button (click)="createNewFailure()"  class="button" mat-button>ADD NEW FAILURE</button>
+
+                    <p *ngIf="failureCreatedStatus == 'successful'" class="sentsuccesful">Failure added</p>
+
+                    <p *ngIf="failureCreatedStatus == 'fail'" class="sentfailed">Something went wrong, try again</p>
+
+          </mat-card-actions>
+      </form>
+    </mat-card>
+  <mat-card class="failures-responsive-card">
+    <mat-card-header>
+      <mat-card-title>
+        <div class="text-with-icon">
+          <mat-icon>list</mat-icon>
+          <span class="text">All failures</span></div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="failures">
+        <mat-list>
+          <div *ngFor="let failure of failuresList">
+            <mat-list-item class="custom-list-item" (click)="updateFailure(failure.id)">
+              <div matListItemLine><span class="selector">FAILURE ID: </span>{{failure.id}}</div>
+              <div matListItemLine><span class="selector">ADDITIONAL INFO: </span>{{failure.failureTitle}}</div>
+              <div matListItemLine><span class="selector">FAILURE START/END: </span>{{failure.failureStart | date}} - {{failure.failureEnd | date}}</div>
+              <div matListItemLine><span class="selector">IS ACTIVE: </span>
+                <span class="failureactive" *ngIf="failure.active === true">ACTIVE</span>
+                <span class="failureinactive" *ngIf="failure.active === false">INACTIVE</span>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>
+  </ng-template>
+</div>
+
+
+

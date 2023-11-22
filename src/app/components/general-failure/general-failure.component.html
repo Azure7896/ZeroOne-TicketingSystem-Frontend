@@ -1,9 +1,9 @@
-<mat-card class="responsive-card">
+<mat-card class="responsive-card" *ngFor="let failure of failuresList">
   <mat-card-header>
     <mat-card-title>WARNING! KNOWN FAILURE</mat-card-title>
-    <mat-card-subtitle>Potential failure time: 22.08.2023 - 22.08.2023</mat-card-subtitle>
+    <mat-card-subtitle>Potential failure time: {{failure.failureStart | date}} - {{failure.failureEnd | date}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>Problem with the company website, error 403. Fix in progress.</p>
+    <p><b>{{failure.failureTitle}}</b><span [innerHTML]="failure.additionalInfo"></span></p>
   </mat-card-content>
 </mat-card>

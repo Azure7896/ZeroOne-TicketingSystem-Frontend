@@ -1,7 +1,7 @@
 import {User} from "./user";
 import {TicketBody} from "./ticket-body";
 import {TicketReply} from "./ticket-reply";
-import {Category} from "../category";
+import {Category} from "./category";
 
 
 export class Ticket {

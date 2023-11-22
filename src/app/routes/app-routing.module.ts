@@ -8,11 +8,13 @@ import {TicketClientComponent} from "../components/ticket-client/ticket-client.c
 import {LoginComponent} from "../components/login/login.component";
 import {ClientTicketsComponent} from "../components/client-tickets/client-tickets.component";
 import {ChartsComponent} from "../components/charts/charts.component";
+import {FailureSettingComponent} from "../components/failure-setting/failure-setting.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent },
   {path: 'home', component: HomeComponent},
   {path: 'charts', component: ChartsComponent},
+  {path: 'failure', component: FailureSettingComponent},
   {path: 'client/addticket', component: AddticketformComponent},
   {path: 'client', component: HomeclientComponent},
   {path: 'client/tickets', component: ClientTicketsComponent},
