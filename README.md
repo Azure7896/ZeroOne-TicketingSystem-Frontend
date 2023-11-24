@@ -23,7 +23,7 @@ Used applications:
   - 
 Main functionalities Frontend&Backend:
 
-  - Conteneraized applicaton via Dockerfile and Docker-Compose
+  - Contenerized applicaton via Dockerfile and Docker-Compose
   - Welcome ticket and pre-defined first start configuration
   - Responsive design for desktop and mobile devices
   - Reactive forms with validations 
