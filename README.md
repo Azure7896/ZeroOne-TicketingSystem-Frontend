@@ -20,6 +20,36 @@ Used applications:
   - Google Chrome
   - Adobe Photoshop
   - Docker
+  - 
+Main functionalities Frontend&Backend:
+
+  - Conteneraized applicaton via Dockerfile and Docker-Compose
+  - Welcome ticket and pre-defined first start configuration
+  - Responsive design for desktop and mobile devices
+  - Reactive forms with validations 
+  - Account registartion with e-mail conirmation
+  - Login with JSON Web Token (JWT)
+  - Application security with Spring Security (ROLES, endpoints security, passwords encryption with BCrypt and more)
+  - Globally CORS config
+  - Login page with live database and server status
+  - Non-standard error pages with error codes (and emoticon :D)
+  - Search bar with prompts (with API requests)
+  - Sorting (By: newst, oldest, my tickets)
+  - Live ticket table with automatic refreshing
+  - Live calculating times to tickets resolve
+  - Grid menu
+  - Chart and dedicated chart window (number of tickets from last 7 days per day, number of tickets per statuses, number of tickers per month, number of tickets per category)
+  - Globally refresh option ON/OFF
+  - Ticket window with replies and auto refesh
+  - Set general failures functionality (display failures on a client page)
+  - Add failure with validation
+  - Activate/deactivate failures faunctionality
+  - CLLENT: Add ticket form with validation
+  - CLIENT: Tickets list
+  - CLIENT: Ticket window with replies
+  - Change password
+  - Animations (loading, charts, bars)
+
 
 Check also ZeroOne-TicketingSystem-Backend repository for more informations about backend REST API layer created in Java 17 with Spring Boot framework.
 
