@@ -9,6 +9,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {TicketReply} from "../../classes/ticket-reply";
 import {tick} from "@angular/core/testing";
 import {Title} from "@angular/platform-browser";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-ticket-window',
@@ -49,9 +50,10 @@ export class TicketWindowComponent {
 
   replyForm = new FormGroup({
     replyBody: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
+    userEmail: new FormControl(sessionStorage.getItem('app.username'))
   })
 
-  constructor(public ticketService: TicketService, public sharedService: SharedService, public router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
+  constructor(public ticketService: TicketService, public sharedService: SharedService, public router: Router, private activatedRoute: ActivatedRoute, private titleService: Title, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -133,9 +135,15 @@ export class TicketWindowComponent {
     this.ticketService.replyTicket(this.ticket.ticketNumber, this.replyForm).subscribe(response => {
         this.showReplyInfo();
         this.stopRefreshTimer()
+        this.snackBar.open(`Reply has been added`, "OK", {
+          duration: 4000,
+        });
       },
       err => {
         this.replyTicketStatus = "fail"
+        this.snackBar.open(`Something went wrong`, "OK", {
+          duration: 4000,
+        });
       })
   }
 

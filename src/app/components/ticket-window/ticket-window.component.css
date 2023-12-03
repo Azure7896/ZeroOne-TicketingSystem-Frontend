@@ -222,11 +222,11 @@ mat-progress-bar {
   outline: none;
 }
 
-span {
+#warning {
   color: #FF6969;
 }
 
-span {
+#warning {
   animation: blink 2s infinite;
 }
 

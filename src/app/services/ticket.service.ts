@@ -7,9 +7,15 @@ import {TicketSearchDto} from "../classes/ticket-search-dto";
 import {TicketReply} from "../classes/ticket-reply";
 import {ApiService} from "./api.service";
 
+// const httpOptions = {
+//   headers: {
+//     Authorization: 'Bearer ' + sessionStorage.getItem('app.token'),
+//   },
+// };
 @Injectable({
   providedIn: 'root'
 })
+
 export class TicketService {
   constructor(private http: HttpClient, private apiService: ApiService) {
   }
@@ -41,8 +47,8 @@ export class TicketService {
     return this.http.put(this.apiService.api + "/tickets/ticket?ticketnumber=" + ticketNumber + "&status=" + status, {observe: 'response'}).subscribe()
   }
 
-getAllTicketsByStatus(ticketStatus): Observable<Ticket[]> {
-  return this.http.get<Ticket[]>(this.apiService.api + '/tickets/status?ticketstatus=' + ticketStatus)
-}
+  getAllTicketsByStatus(ticketStatus): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(this.apiService.api + '/tickets/status?ticketstatus=' + ticketStatus)
+  }
 
 }

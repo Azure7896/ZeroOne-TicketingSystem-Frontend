@@ -23,7 +23,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import {MatMenuModule} from "@angular/material/menu";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { LoadingComponent } from './components/loading/loading.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {NgChartsModule} from "ng2-charts";
@@ -53,6 +53,7 @@ import { FailureSettingComponent } from './components/failure-setting/failure-se
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatNativeDateModule} from "@angular/material/core";
+import {AuthInterceptor} from "./auth-interceptor";
 
 @NgModule({
   declarations: [
@@ -113,7 +114,11 @@ import {MatNativeDateModule} from "@angular/material/core";
         MatDialogModule,
         MatNativeDateModule
     ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
