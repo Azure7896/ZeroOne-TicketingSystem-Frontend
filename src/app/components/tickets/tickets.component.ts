@@ -37,7 +37,7 @@ export class TicketsComponent {
   progressBarValue = 100;
 
   constructor(private ticketService: TicketService, public sharedService: SharedService, public router: Router, public matsnackbar: MatSnackBar) {
-
+    console.log(sessionStorage.getItem('app.username'))
   }
   // openSnackBar() {
   //   this.matSnackBar.openFromComponent(PopupComponent, {
@@ -61,6 +61,8 @@ export class TicketsComponent {
   ngOnInit() {
     this.fetchTicketsOnInit()
     this.startRefreshTimer()
+    console.log(sessionStorage.getItem("app.username"))
+    console.log(sessionStorage.getItem("app.roles"))
   }
 
   ngOnDestroy() {

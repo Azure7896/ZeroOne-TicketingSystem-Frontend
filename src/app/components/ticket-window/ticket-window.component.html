@@ -15,7 +15,7 @@
     <ng-template #addticketform>
       <p (click)="!sharedService.blockOnLiveButton && refreshTicketManually()"> Refresh in {{timeToRefresh}} seconds...</p>
       <div *ngIf="sharedService.blockOnLiveButton == true || sharedService.refresh == false">
-        <p><span>WARNING! REFRESH STOPPED</span></p>
+        <p><span id="warning">WARNING! REFRESH STOPPED</span></p>
       </div>
     </ng-template>
     <mat-progress-bar mode="determinate" [value]="progressBarValue"></mat-progress-bar>

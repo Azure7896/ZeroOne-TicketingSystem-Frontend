@@ -12,7 +12,7 @@
       <form [formGroup]="loginForm" class="login">
       <mat-form-field class="email">
         <mat-label>Email</mat-label>
-        <input formControlName="email" matInput placeholder="You e-mail address" required type="email">
+        <input (keyup.enter)="login()" formControlName="email" matInput placeholder="You e-mail address" required type="email">
         <mat-error *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').hasError('required')">
           Please enter a valid email address
         </mat-error>
@@ -26,7 +26,7 @@
 
       <mat-form-field class="passwsord">
         <mat-label>Password</mat-label>
-        <input formControlName="password" matInput required type="password">
+        <input (keyup.enter)="login()" formControlName="password" matInput required type="password">
         <mat-error *ngIf="loginForm.get('password').hasError('email') && !loginForm.get('password').hasError('required')">
           Please enter a valid email address
         </mat-error>
@@ -46,11 +46,11 @@
 <!--      <button (click)="routingService.goToPage('home')" mat-button [disabled]="!loginForm.valid" >-->
 <!--        Sign in-->
 <!--      </button>-->
-      <button (click)="routingService.goToPage('home')" mat-button>
+      <button (click)="login()" mat-button>
         Sign in
       </button>
     </mat-card-actions>
-    <p (click)="goToRegisterWindow()" id="createaccount"> Do you have an account? Sign up.</p>
+    <p (click)="goToRegisterWindow()"  id="createaccount"> Do you have an account? Sign up.</p>
 
   </mat-card>>
 
