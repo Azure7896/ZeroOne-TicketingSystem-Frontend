@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {SharedService} from "../../services/shared.service";
-import {RoutingService} from "../../services/routing.service";
-import {UserService} from "../../services/user.service";
+import {SharedService} from "../../services/shared-service/shared.service";
+import {RoutingService} from "../../services/routing-service/routing.service";
+import {UserService} from "../../services/user-service/user.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 // export function passwordMatchValidator(): ValidatorFn {
 //   return (control: AbstractControl): ValidationErrors | null => {
@@ -27,8 +28,6 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 
 export class RegisterComponent {
 
-  registerInfo;
-
   registerForm = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
@@ -37,20 +36,23 @@ export class RegisterComponent {
     }
   );
 
-  constructor(public sharedService: SharedService, public routingService: RoutingService, private userService: UserService) {
+  constructor(public sharedService: SharedService, public routingService: RoutingService, private userService: UserService, private snackBar: MatSnackBar) {
 
   }
 
   register(): void {
     this.userService.registerUser(this.registerForm).subscribe(response => {
-        this.registerInfo = "Account registered successfully, email sent."
+
+        this.snackBar.open(`You have registered successfully`, "OK", {
+          duration: 5000,
+        });
 
         setTimeout(()=>{
           this.backToLoginPage();
         }, 3000);
       },
       err => {
-        this.registerInfo = "This email exists in the database. Try again";
+        this.snackBar.open(`User exists in the database or something went wrong.`, "OK");
       })
     this.registerForm.reset()
   }

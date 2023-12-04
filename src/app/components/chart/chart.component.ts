@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {ChartService} from "../../services/chart.service";
-import {RoutingService} from "../../services/routing.service";
+import {ChartService} from "../../services/chart-service/chart.service";
+import {RoutingService} from "../../services/routing-service/routing.service";
 
 @Component({
   selector: 'app-chart',
@@ -29,7 +29,7 @@ export class ChartComponent {
       this.lineChartData = [
         {
           data: data,
-          label: 'Number of tickets per day',
+          label: 'Number of tickets-table per day',
           backgroundColor: '#FFFFFF',
           borderColor: "rgba(10,150,132,1)",
           pointBackgroundColor: '#FFFFFF'

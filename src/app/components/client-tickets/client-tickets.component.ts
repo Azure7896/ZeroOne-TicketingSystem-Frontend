@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {Ticket} from "../../classes/ticket";
-import {TicketService} from "../../services/ticket.service";
-import {RoutingService} from "../../services/routing.service";
-import {SharedService} from "../../services/shared.service";
+import {TicketService} from "../../services/ticket-service/ticket.service";
+import {RoutingService} from "../../services/routing-service/routing.service";
+import {SharedService} from "../../services/shared-service/shared.service";
 import {Title} from "@angular/platform-browser";
 
 export interface Section {
@@ -11,7 +11,7 @@ export interface Section {
 }
 
 @Component({
-  selector: 'app-client-tickets',
+  selector: 'app-client-tickets-table',
   templateUrl: './client-tickets.component.html',
   styleUrls: ['./client-tickets.component.css']
 })
@@ -34,7 +34,7 @@ constructor(private ticketService: TicketService, public routingService: Routing
   }
 
   ngOnInit() {
-    this.titleService.setTitle("My tickets - ZeroOne");
+    this.titleService.setTitle("My tickets-table - ZeroOne");
     this.fetchTickets('New');
     this.fetchTickets('In progress');
     this.fetchTickets('Closed');

@@ -3,7 +3,7 @@ export class User {
   private _password;
   private _firstName;
   private _lastName;
-  private _sActive;
+  private _isDisabled;
 
 
   get email() {
@@ -38,11 +38,11 @@ export class User {
     this._lastName = value;
   }
 
-  get sActive() {
-    return this._sActive;
+  get isDisabled() {
+    return this._isDisabled;
   }
 
-  set sActive(value) {
-    this._sActive = value;
+  set isDisabled(value) {
+    this._isDisabled = value;
   }
 }

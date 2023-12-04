@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div>
+    <img class="img" src='assets/logowithoutbackground.png'>
+  </div>
+
+  <mat-card class="responsive-card">
+    <mat-card-header>
+      <div class="text-with-icon">Your profile:</div>
+    </mat-card-header>
+
+    <mat-card-header>
+      <div class="text-with-icon">
+        <mat-icon class="icon">settings</mat-icon>
+        <span class="text">User first name: {{user.firstName}}</span>
+      </div>
+    </mat-card-header>
+
+    <mat-card-header>
+      <div class="text-with-icon">
+        <mat-icon class="icon">settings</mat-icon>
+        <span class="text">User last name: {{user.lastName}}</span>
+      </div>
+    </mat-card-header>
+
+    <mat-card-header>
+      <div class="text-with-icon">
+        <mat-icon class="icon">settings</mat-icon>
+        <span class="text">User email: {{user.email}}</span>
+      </div>
+    </mat-card-header>
+
+    <mat-card-header>
+      <div class="text-with-icon">
+        <mat-icon class="icon">settings</mat-icon>
+        <span class="text" *ngIf="!user.isDisabled">Is account disabled: false</span>
+        <span class="text" *ngIf="user.isDisabled">Is account disabled: true</span>
+      </div>
+    </mat-card-header>
+
+    <form [formGroup]="changePasswordForm">
+      <mat-card-content>
+        <mat-form-field appearance="fill">
+          <mat-label>Change password</mat-label>
+          <input formControlName="password" matInput placeholder="Change password" required>
+          <mat-error>{{getErrorMessage(changePasswordForm.get('password'))}}</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-content>
+        <!-- Category Menu (Commented Out) -->
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button class="button" mat-button>Change password</button>
+
+        <p *ngIf="replyTicketStatus == 'succesful'" class="sendsuccesful">Ticket sent, redirecting</p>
+
+        <div *ngIf="replyTicketStatus == 'succesful'" class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <p *ngIf="replyTicketStatus == 'fail'" class="sendfailed">Something went wrong, try again</p>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
+<app-footer></app-footer>

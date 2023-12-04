@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ChartService} from "../../services/chart.service";
+import {ChartService} from "../../services/chart-service/chart.service";
 import {ChartsData} from "../../classes/charts-data";
 
 @Component({
@@ -31,7 +31,7 @@ export class ChartsComponent {
     this.barChartData = [
       {
         data: this.chartsData.ticketsCountByMonth,
-        label: 'Number of tickets per month',
+        label: 'Number of tickets-table per month',
         backgroundColor: '#0080ff', //
         borderColor: '#0080ff', //
       }
@@ -39,7 +39,7 @@ export class ChartsComponent {
     this.doughnutChartLabels = ['New', 'Open', 'Closed', 'Suspended'];
     this.doughnutChartData = [
       { data: this.chartsData.ticketsCountByStatus,
-        label: 'Number of tickets',
+        label: 'Number of tickets-table',
         backgroundColor: ['#FFA500', '#00D8FF','#4ECCA3', '#B4B4B3'],
         borderColor: '#232931' },
     ];
