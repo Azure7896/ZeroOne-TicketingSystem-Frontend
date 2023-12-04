@@ -1,0 +1,19 @@
+* {text-decoration: none}
+
+.sort-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+mat-card {
+  background-color: #232931;
+  align-items: center;
+}
+.sort-menu button {
+  background-color: #4ECCA3;
+  color: black;
+  margin-right: 15px;
+}
+

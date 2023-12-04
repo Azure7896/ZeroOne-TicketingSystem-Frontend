@@ -1,0 +1,76 @@
+<!--<mat-toolbar>-->
+<!--    <button aria-label="Open menu" class="menu-button" mat-icon-button (click)="openMenu()">-->
+<!--      <mat-icon>menu</mat-icon>-->
+<!--    </button>-->
+<!--    <img (click)="goToPage('home'); sharedService.isMenuOpen=false" src="../../../assets/smallerlogo.png"/>-->
+<!--    <p *ngIf="sharedService.refresh">ON LIVE</p>-->
+<!--    <span *ngIf="sharedService.refresh" class="dot"></span>-->
+<!--    <mat-slide-toggle (ngModelChange)="toggle()" [(ngModel)]="sharedService.refresh" disabled="{{sharedService.blockOnLiveButton}}" class="toggle"-->
+<!--                      color="primary"></mat-slide-toggle>-->
+<!--    <form class="search_form">-->
+<!--      <mat-form-field class="input">-->
+<!--        <mat-icon>search</mat-icon>-->
+<!--        <input [formControl]="search" [matAutocomplete]="auto" matInput placeholder="Search... "-->
+<!--               type="text">-->
+<!--        <mat-autocomplete #auto="matAutocomplete">-->
+<!--          <mat-option (click)="goToPage(option.ticketNumber)"-->
+<!--                      *ngFor="let option of filteredOptions | async | slice : 0 : 15 "-->
+<!--                      [value]="option.name">-->
+<!--            <div class="wrapper">-->
+<!--              <span>{{option.name}}</span>-->
+<!--              <span class="ticket">{{option.ticketNumber}}</span>-->
+<!--            </div>-->
+<!--          </mat-option>-->
+<!--        </mat-autocomplete>-->
+<!--      </mat-form-field>-->
+<!--    </form>-->
+<!--    <div class="spacer"></div>-->
+<!--    <p class="today">{{curDate}}</p>-->
+<!--    <div fxShow="true">-->
+<!--      <button class="logout-button" mat-button (click)="logout()">-->
+<!--        <mat-icon>exit_to_app</mat-icon>-->
+<!--        LOGOUT-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </mat-toolbar>-->
+
+<mat-toolbar class="mat-elevation-z10" fxLayout="row" color="primary" fxLayoutAlign="space-between center">
+
+  <mat-menu #dropMenu="matMenu">
+    <ng-container *ngFor="let item of menuItems">
+      <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
+        <button (click)="goToPage(item.route)" mat-menu-item>
+          <mat-icon class="mr">{{item.icon}}</mat-icon>
+          {{item.label}}
+        </button>
+        <mat-divider></mat-divider>
+      </div>
+    </ng-container>
+  </mat-menu>
+
+
+
+  <div fxLayout="row" fxLayoutAlign="start center" >
+    <img (click)="goToPage('home')" src="../../../assets/smallerlogo.png"/>
+    <p [fxShow]="true" [fxShow.xs]="false" *ngIf="sharedService.refresh">ON LIVE</p>
+    <span [fxShow]="true" [fxShow.xs]="false" *ngIf="sharedService.refresh" class="dot"></span>
+    <mat-slide-toggle [fxShow]="true" [fxShow.xs]="false" (ngModelChange)="toggle()" [(ngModel)]="sharedService.refresh" disabled="{{sharedService.blockOnLiveButton}}" class="toggle" color="primary"></mat-slide-toggle>
+    <p [fxShow]="true" [fxShow.xs]="false" class="loggedas">Hi! {{user.firstName}} {{user.lastName}}</p>
+  </div>
+
+
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button (click)="goToPage(item.route)" mat-button *ngFor="let item of menuItems" [fxShow]="item.showOnDesktop" [fxShow.xs]="item.showOnMobile"
+            [fxShow.sm]="item.showOnTablet">
+      <mat-icon class="mr">{{item.icon}}</mat-icon>
+      {{item.label}}
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <p class="today" [fxShow]="true" [fxShow.xs]="false">{{ currentDate | date: 'fullDate' }} {{ currentTime | date: 'HH:mm:ss' }}</p>
+
+  </div>
+</mat-toolbar>
+
+

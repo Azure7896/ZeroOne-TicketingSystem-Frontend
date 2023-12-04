@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FailureService} from "../../services/failure.service";
+import {FailureService} from "../../services/failure-service/failure.service";
 import {FailureInfo} from "../../classes/failure-info";
 
 @Component({

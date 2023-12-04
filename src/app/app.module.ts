@@ -7,17 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import { HomeComponent } from './components/home/home.component';
-import { NavComponent } from './components/nav/nav.component';
+import { HomeComponent } from './components/home-admin/home.component';
+import { NavComponent } from './components/navbar/nav.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ChartComponent } from './components/chart/chart.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import { TicketsComponent } from './components/tickets/tickets.component';
+import { TicketsComponent } from './components/tickets-table/tickets.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { FooterComponent } from './components/footer/footer.component';
-import { AddticketformComponent } from './components/addticketform/addticketform.component';
+import { TicketFormComponent } from './components/ticket-form/TicketForm.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
@@ -30,15 +30,15 @@ import {NgChartsModule} from "ng2-charts";
 import { MenuComponent } from './components/menu/menu.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import { HomeclientComponent } from './components/homeclient/homeclient.component';
+import { HomeclientComponent } from './components/home-client/homeclient.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import { SortComponent } from './components/sort/sort.component';
+import { SortComponent } from './components/sort-table/sort.component';
 import {MatChipsModule} from "@angular/material/chips";
 import { LoadingFailedComponent } from './components/loading-failed/loading-failed.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GeneralFailureComponent } from './components/general-failure/general-failure.component';
-import { TicketComponent } from './components/ticket/ticket.component';
-import { TicketWindowComponent } from './components/ticket-window/ticket-window.component';
+import { TicketComponent } from './components/specific-ticket/ticket.component';
+import { SpecificTicketWindowComponent } from './components/specific-ticket-window/specific-ticket-window.component';
 import {MatSelectModule} from "@angular/material/select";
 import { TicketClientComponent } from './components/ticket-client/ticket-client.component';
 import {RouterOutlet} from "@angular/router";
@@ -53,7 +53,9 @@ import { FailureSettingComponent } from './components/failure-setting/failure-se
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatNativeDateModule} from "@angular/material/core";
-import {AuthInterceptor} from "./auth-interceptor";
+import {AuthInterceptor} from "./auth/auth-interceptor";
+import {ExtendedModule, FlexModule} from "@angular/flex-layout";
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,7 @@ import {AuthInterceptor} from "./auth-interceptor";
     ChartComponent,
     TicketsComponent,
     FooterComponent,
-    AddticketformComponent,
+    TicketFormComponent,
     LoadingComponent,
     MenuComponent,
     HomeclientComponent,
@@ -73,47 +75,50 @@ import {AuthInterceptor} from "./auth-interceptor";
     RegisterComponent,
     GeneralFailureComponent,
     TicketComponent,
-    TicketWindowComponent,
+    SpecificTicketWindowComponent,
     TicketClientComponent,
     BackgroundVideoComponent,
     ClientTicketsComponent,
     ChartsComponent,
     FailureSettingComponent,
+    UserSettingsComponent,
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatButtonModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatTableModule,
-        MatCheckboxModule,
-        MatPaginatorModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        FormsModule,
-        CKEditorModule,
-        MatMenuModule,
-        HttpClientModule,
-        MatBadgeModule,
-        NgChartsModule,
-        MatSliderModule,
-        MatSlideToggleModule,
-        MatAutocompleteModule,
-        MatChipsModule,
-        MatSelectModule,
-        RouterOutlet,
-        AppRoutingModule,
-        MatListModule,
-        MatProgressBarModule,
-        MatSnackBarModule,
-        MatDatepickerModule,
-        MatDialogModule,
-        MatNativeDateModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    FormsModule,
+    CKEditorModule,
+    MatMenuModule,
+    HttpClientModule,
+    MatBadgeModule,
+    NgChartsModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    MatSelectModule,
+    RouterOutlet,
+    AppRoutingModule,
+    MatListModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    ExtendedModule,
+    FlexModule
+  ],
   providers: [ {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

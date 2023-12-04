@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../../services/shared.service';
+import { SharedService } from '../../services/shared-service/shared.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { FailureService } from '../../services/failure.service';
+import { FailureService } from '../../services/failure-service/failure.service';
 import { DateAdapter } from '@angular/material/core';
 import {FailureInfo} from "../../classes/failure-info";
 

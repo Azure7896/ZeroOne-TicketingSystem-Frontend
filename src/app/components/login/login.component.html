@@ -43,10 +43,7 @@
       </mat-form-field>
     </form>
     <mat-card-actions>
-<!--      <button (click)="routingService.goToPage('home')" mat-button [disabled]="!loginForm.valid" >-->
-<!--        Sign in-->
-<!--      </button>-->
-      <button (click)="login()" mat-button>
+      <button (click)="login()" mat-button [disabled]="!loginForm.valid">
         Sign in
       </button>
     </mat-card-actions>

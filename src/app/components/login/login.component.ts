@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {SharedService} from "../../services/shared.service";
-import {RoutingService} from "../../services/routing.service";
-import {StatusService} from "../../services/status.service";
-import {AuthService} from "../../auth.service";
+import {SharedService} from "../../services/shared-service/shared.service";
+import {RoutingService} from "../../services/routing-service/routing.service";
+import {StatusService} from "../../services/status-service/status.service";
+import {AuthService} from "../../auth/auth.service";
 import {jwtDecode, JwtPayload} from "jwt-decode";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
@@ -36,6 +36,14 @@ export class LoginComponent {
     this.logToServerConsole();
   }
 
+  redirectAfterLogin(role) {
+    if (role === "ROLE_ADMIN") {
+      this.router.navigateByUrl("/home")
+    } else {
+      this.router.navigateByUrl("/client")
+    }
+  }
+
 
   public login(): void {
     sessionStorage.removeItem("app.token");
@@ -54,10 +62,11 @@ export class LoginComponent {
             duration: 5000,
           });
           setTimeout(() => {
-            this.router.navigateByUrl("/home")
+            // @ts-ignore
+            this.redirectAfterLogin(decodedToken.scope)
           }, 1000);
         },
-        error: (error) => this.snackBar.open(`Login failed: ${error.status}`, "OK")
+        error: (error) => this.snackBar.open(`Wrong credentials or account is inactive`, "OK")
       });
   }
 
