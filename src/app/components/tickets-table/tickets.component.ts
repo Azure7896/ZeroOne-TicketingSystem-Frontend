@@ -77,7 +77,7 @@ export class TicketsComponent {
     })
   }
 
-  filterTicketsByUser() {
+  filterTicketsByAttendant() {
     this.ticketService.getAllTicketsByUser().subscribe(data => {
       this.dataSource.data = data;
       this.sharedService.refresh = false;

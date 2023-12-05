@@ -30,11 +30,11 @@ export class ClientTicketsComponent {
 
 
 constructor(private ticketService: TicketService, public routingService: RoutingService, private sharedService: SharedService, private titleService: Title) {
-
   }
 
   ngOnInit() {
-    this.titleService.setTitle("My tickets-table - ZeroOne");
+    console.warn(sessionStorage.getItem('username'))
+    this.titleService.setTitle("My tickets - ZeroOne");
     this.fetchTickets('New');
     this.fetchTickets('In progress');
     this.fetchTickets('Closed');
@@ -47,7 +47,7 @@ constructor(private ticketService: TicketService, public routingService: Routing
   }
 
   fetchTickets(ticketStatus) {
-    this.ticketService.getAllTicketsByStatus(ticketStatus).subscribe(data => {
+    this.ticketService.getAllTicketsByStatusAndUser(ticketStatus, sessionStorage.getItem('app.username')).subscribe(data => {
         setTimeout(() => {
             this.showLoading = false;
             switch(ticketStatus) {

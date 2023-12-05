@@ -10,7 +10,7 @@ import {SharedService} from "../../services/shared-service/shared.service";
 export class TicketComponent {
 
 
-  constructor(public router: Router, public sharedService: SharedService) {
+  constructor(public router: Router) {
 
   }
 

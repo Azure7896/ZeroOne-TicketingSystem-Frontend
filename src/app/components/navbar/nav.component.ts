@@ -17,13 +17,15 @@ import {User} from "../../classes/user";
 })
 export class NavComponent {
 
-  curDate = new Date().toDateString();
-
   filteredOptions: Observable<any[]>;
 
   search = new FormControl();
 
   user: User;
+
+  currentDate: Date;
+  currentTime: Date;
+
 
   constructor(public router: Router, private ticketService: TicketService, public sharedService: SharedService, private authService: AuthService, private snackBar: MatSnackBar, private userService: UserService) {
 
@@ -50,7 +52,7 @@ export class NavComponent {
       label: 'Charts',
       icon: 'bar_chart',
       showOnMobile: false,
-      showOnTablet: true,
+      showOnTablet: false,
       showOnDesktop: true,
       route: '/charts'
     },
@@ -103,14 +105,6 @@ export class NavComponent {
     );
   }
 
-  openMenu(): void {
-    this.sharedService.isMenuOpen = !this.sharedService.isMenuOpen;
-    if (this.sharedService.blockOnLiveButton == true && this.sharedService.refresh == false) {
-      this.sharedService.blockOnLiveButton = false;
-      this.sharedService.refresh = true;
-    }
-  }
-
   toggle(): void {
     if (this.sharedService.refresh) {
       this.snackBar.open(`Refresh option disabled`, "OK", {
@@ -123,9 +117,6 @@ export class NavComponent {
     }
     this.sharedService.refresh = !this.sharedService.refresh;
   }
-
-  currentDate: Date;
-  currentTime: Date;
 
   ngOnInit(): void {
     this.getUserFromAPI();

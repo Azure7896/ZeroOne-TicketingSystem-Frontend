@@ -27,7 +27,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { LoadingComponent } from './components/loading/loading.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {NgChartsModule} from "ng2-charts";
-import { MenuComponent } from './components/menu/menu.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { HomeclientComponent } from './components/home-client/homeclient.component';
@@ -68,7 +67,6 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
     FooterComponent,
     TicketFormComponent,
     LoadingComponent,
-    MenuComponent,
     HomeclientComponent,
     SortComponent,
     LoadingFailedComponent,

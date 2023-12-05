@@ -109,3 +109,7 @@ div.mat-mdc-autocomplete-panel {
   --mdc-text-button-disabled-label-text-color: rgb(255 255 255 / 38%);
   --mdc-text-button-label-text-color: rgb(255 255 255 / 38%);
 }
+
+.mat-mdc-menu-panel.mat-mdc-menu-panel {
+  min-width: 400px !important;
+}
