@@ -41,16 +41,30 @@
       <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
         <button (click)="goToPage(item.route)" mat-menu-item>
           <mat-icon class="mr">{{item.icon}}</mat-icon>
-          {{item.label}}
+          {{item.label}} | ZeroOne
         </button>
         <mat-divider></mat-divider>
       </div>
     </ng-container>
   </mat-menu>
+  <mat-menu #searchMenu="matMenu" class="search-menu">
+        <mat-form-field class="input" (click)="$event.stopPropagation()">
+          <input [formControl]="search" [matAutocomplete]="auto" matInput placeholder="Search..." type="text">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option (click)="goToPage(option.ticketNumber)"
+                        *ngFor="let option of filteredOptions | async | slice : 0 : 15 "
+                        [value]="option.name">
+              <div class="wrapper">
+                <span>{{option.name}}</span>
+                <span class="ticket">{{option.ticketNumber}}</span>
+              </div>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+  </mat-menu>
 
 
-
-  <div fxLayout="row" fxLayoutAlign="start center" >
+  <div fxLayout="row" fxLayoutAlign="start center">
     <img (click)="goToPage('home')" src="../../../assets/smallerlogo.png"/>
     <p [fxShow]="true" [fxShow.xs]="false" *ngIf="sharedService.refresh">ON LIVE</p>
     <span [fxShow]="true" [fxShow.xs]="false" *ngIf="sharedService.refresh" class="dot"></span>
@@ -60,6 +74,10 @@
 
 
   <div fxLayout="row" fxLayoutAlign="end center">
+    <button [matMenuTriggerFor]="searchMenu" class="search-button" mat-button [fxShow]="true" [fxShow.xs]="true"
+            [fxShow.sm]="true">
+      <mat-icon class="mr">search</mat-icon>
+    </button>
     <button (click)="goToPage(item.route)" mat-button *ngFor="let item of menuItems" [fxShow]="item.showOnDesktop" [fxShow.xs]="item.showOnMobile"
             [fxShow.sm]="item.showOnTablet">
       <mat-icon class="mr">{{item.icon}}</mat-icon>

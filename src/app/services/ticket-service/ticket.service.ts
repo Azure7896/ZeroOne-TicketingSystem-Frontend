@@ -36,6 +36,10 @@ export class TicketService {
     return this.http.get<Ticket[]>(this.apiService.api + '/tickets/byoldest')
   }
 
+  getAllTicketsByAttendant(): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(this.apiService.api + '/tickets/attendant?email=' + sessionStorage.getItem('app.username'))
+  }
+
   getAllTicketsByUser(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(this.apiService.api + '/tickets/user?email=' + sessionStorage.getItem('app.username'))
   }
@@ -51,8 +55,8 @@ export class TicketService {
     return this.http.put(this.apiService.api + "/tickets/ticket?ticketnumber=" + ticketNumber + "&status=" + status, {observe: 'response'}).subscribe()
   }
 
-  getAllTicketsByStatus(ticketStatus): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.apiService.api + '/tickets/status?ticketstatus=' + ticketStatus)
+  getAllTicketsByStatusAndUser(ticketStatus, email): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(this.apiService.api + '/tickets/status?ticketstatus=' + ticketStatus + '&email=' + email)
   }
 
 }

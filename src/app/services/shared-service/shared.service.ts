@@ -5,11 +5,6 @@ import {Injectable} from '@angular/core';
 })
 export class SharedService {
 
-
-  //Show menu
-
-  public isMenuOpen = false;
-
   //Enable refreshing
 
   public refresh = true;

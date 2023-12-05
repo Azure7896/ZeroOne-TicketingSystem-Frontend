@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import {Ticket} from "../../classes/ticket";
-import {Category} from "../../classes/category";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {TicketService} from "../../services/ticket-service/ticket.service";
 import {RoutingService} from "../../services/routing-service/routing.service";
 import {Title} from "@angular/platform-browser";
-import {CategoryService} from "../../services/category-service/category.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {UserService} from "../../services/user-service/user.service";
 import {User} from "../../classes/user";
