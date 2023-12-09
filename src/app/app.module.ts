@@ -48,13 +48,17 @@ import {MatListModule} from "@angular/material/list";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ChartsComponent } from './components/charts/charts.component';
-import { FailureSettingComponent } from './components/failure-setting/failure-setting.component';
+import { FailuresSettingsComponent } from './components/failures-settings/failures-settings.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatNativeDateModule} from "@angular/material/core";
 import {AuthInterceptor} from "./auth/auth-interceptor";
 import {ExtendedModule, FlexModule} from "@angular/flex-layout";
+import { UserSettingsWindowComponent } from './components/user-settings-window/user-settings-window.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import {AuthGuard} from "./auth/auth-guard";
+import { ClientSettingsComponent } from './components/client-settings/client-settings.component';
+import { UsersManagementComponent } from './components/users-management/users-management.component';
 
 @NgModule({
   declarations: [
@@ -78,8 +82,11 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
     BackgroundVideoComponent,
     ClientTicketsComponent,
     ChartsComponent,
-    FailureSettingComponent,
+    FailuresSettingsComponent,
+    UserSettingsWindowComponent,
     UserSettingsComponent,
+    ClientSettingsComponent,
+    UsersManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,7 +124,7 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
     ExtendedModule,
     FlexModule
   ],
-  providers: [ {
+  providers: [ AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true,

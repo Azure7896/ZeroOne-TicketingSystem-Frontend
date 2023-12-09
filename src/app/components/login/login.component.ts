@@ -16,8 +16,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class LoginComponent {
 
   loginForm = new FormGroup({
-  email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(64)], ),
-  password: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(320)])
+    email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(64)],),
+    password: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(320)])
   });
 
   databaseWorking = false;
@@ -32,6 +32,7 @@ export class LoginComponent {
   }
 
   ngOnInit() {
+    this.redirectWhenLoggedIn()
     this.getDatabaseStatus();
     this.logToServerConsole();
   }
@@ -40,6 +41,14 @@ export class LoginComponent {
     if (role === "ROLE_ADMIN") {
       this.router.navigateByUrl("/home")
     } else {
+      this.router.navigateByUrl("/client")
+    }
+  }
+
+  redirectWhenLoggedIn() {
+    if (sessionStorage.getItem("app.roles") == "ROLE_ADMIN") {
+      this.router.navigateByUrl("/home")
+    } else if ((sessionStorage.getItem("app.roles") == "ROLE_USER")){
       this.router.navigateByUrl("/client")
     }
   }
@@ -75,22 +84,22 @@ export class LoginComponent {
     this.sharedService.isOnLoginPage = !this.sharedService.isOnLoginPage;
   }
 
-  private logToServerConsole() {
-
-  }
-
   getDatabaseStatus() {
     this.statusService.getDatabaseStatus().subscribe(data => {
-            this.serverWorking = true;
-            this.serverStatus = "Server status: Active";
+        this.serverWorking = true;
+        this.serverStatus = "Server status: Active";
 
-            this.databaseWorking = data;
-            if (this.databaseWorking) {
-              this.databaseStatus = "Database status: Active";
-            }
+        this.databaseWorking = data;
+        if (this.databaseWorking) {
+          this.databaseStatus = "Database status: Active";
+        }
       },
       err => {
 
       })
+  }
+
+  private logToServerConsole() {
+
   }
 }

@@ -32,21 +32,17 @@ export class AuthService {
     sessionStorage.removeItem("app.roles");
   }
 
-  isUserInRole(roleFromRoute: string) {
+  isUserInRoles(rolesFromRoute: string[] | undefined) {
     const roles = sessionStorage.getItem("app.roles");
 
-    if (roles!.includes(",")) {
-      if (roles === roleFromRoute) {
-        return true;
-      }
-    } else {
-      const roleArray = roles!.split(",");
-      for (let role of roleArray) {
-        if (role === roleFromRoute) {
-          return true;
-        }
-      }
+    if (roles && rolesFromRoute) {
+      const userRoles = roles.split(",");
+
+      const intersection = rolesFromRoute.filter(role => userRoles.includes(role));
+
+      return intersection.length > 0;
     }
+
     return false;
   }
 

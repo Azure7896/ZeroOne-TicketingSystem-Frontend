@@ -62,7 +62,7 @@ export class NavComponent {
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: true,
-      route: 'test'
+      route: '/users-management'
     },
     {
       label: 'Failures',

@@ -1,0 +1,37 @@
+* {text-decoration: none}
+
+.container {
+  overflow-x: auto;
+  margin-top: 10%
+}
+
+table {
+  background-color: #232931;
+}
+
+
+th, td {
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 17px;
+}
+
+p {
+  text-decoration: none;
+  color: #EEEEEE;
+}
+
+mat-paginator {
+  background-color: #232931;
+  color: #EEEEEE;
+}
+
+p {
+  text-align: center;
+  margin: 5px;
+  color: #EEEEEE;
+}
+
+button {
+  margin-left: 5px;
+}

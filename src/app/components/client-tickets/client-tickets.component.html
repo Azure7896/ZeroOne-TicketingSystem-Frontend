@@ -36,7 +36,7 @@
           </div>
           <mat-divider></mat-divider>
           <div id="new"imat-subheader>New</div>
-          <div *ngFor="let ticket of inProgress">
+          <div *ngFor="let ticket of new">
             <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
             <mat-icon>note</mat-icon>
             <div matListItemTitle class="newName">{{ticket.name}}</div>
@@ -45,7 +45,7 @@
           </div>
           <mat-divider></mat-divider>
           <div id="suspended" mat-subheader>Suspended</div>
-          <div *ngFor="let ticket of inProgress">
+          <div *ngFor="let ticket of suspended">
             <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
             <mat-icon>note</mat-icon>
             <div matListItemTitle class="suspendedName">{{ticket.name}}</div>
@@ -54,7 +54,7 @@
           </div>
           <mat-divider></mat-divider>
           <div id="closed" mat-subheader>Closed</div>
-          <div *ngFor="let ticket of inProgress">
+          <div *ngFor="let ticket of closed">
           <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
             <mat-icon>note</mat-icon>
             <div matListItemTitle class="closedName">{{ticket.name}}</div>

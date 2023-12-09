@@ -1,4 +1,13 @@
+
 <app-background-video></app-background-video>
+
+<div class="back" *ngIf="roleFromSessionStorage == 'ROLE_ADMIN'">
+  <div class="text-with-icon" (click)="routingService.goToPage('/client')" (click)="routingService.goToPage('/home')">
+    <mat-icon class="icon">arrow_back</mat-icon>
+    <span class="text">Back to the admin page</span>
+  </div>
+</div>
+
 <div class="container">
   <mat-card class="responsive-card">
     <img src='assets/zeroonelogo.png' class="logo">
@@ -19,7 +28,7 @@
         </button>
       </div>
       <div class="grid-item">
-        <button class="small_btn" id="b3" mat-flat-button type="button">
+        <button (click)="routingService.goToPage('client/settings')"class="small_btn" id="b3" mat-flat-button type="button">
           SETTINGS
           <mat-icon>settings</mat-icon>
         </button>

@@ -1,0 +1,26 @@
+.text-with-icon {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  vertical-align: middle;
+  color: #4ECCA3;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.back-to-client-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ECCA3;
+  position: relative;
+  transition-duration: 1000ms;
+}
+
+.back-to-client-page .text-with-icon:hover {
+  cursor: pointer;
+  color: #EEEEEE;
+  transition-duration: 1000ms;
+}

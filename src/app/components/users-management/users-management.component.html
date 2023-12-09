@@ -1,0 +1,112 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="showLoading">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="loadingFailed && !showLoading">
+  <app-loading-failed></app-loading-failed>
+</div>
+
+<div *ngIf="showLoading == false && loadingFailed == false">
+
+<div class="container">
+  <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table style="overflow-x:auto">
+
+    <ng-container matColumnDef="select">
+      <th *matHeaderCellDef mat-header-cell>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                      [aria-label]="checkboxLabel()"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                      (click)="$event.stopPropagation()"
+                      [aria-label]="checkboxLabel(row)"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell>ID</th>
+      <td *matCellDef="let user" mat-cell>{{user.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell>Name</th>
+      <td *matCellDef="let user" mat-cell>{{user.firstName}} {{user.lastName}}</td>
+    </ng-container>>
+
+    <ng-container matColumnDef="email">
+      <th *matHeaderCellDef mat-header-cell>User email</th>
+      <td *matCellDef="let user" mat-cell>{{user.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdDate">
+      <th *matHeaderCellDef mat-header-cell>Created date</th>
+      <td *matCellDef="let user" mat-cell>{{user.createdDate | date: 'dd.MM.yyyy HH:mm '}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th *matHeaderCellDef mat-header-cell>User role</th>
+      <td *matCellDef="let user" mat-cell>{{user.role.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="isDisabled">
+      <th *matHeaderCellDef mat-header-cell>Account status</th>
+      <td *matCellDef="let user" mat-cell>
+        <span  *ngIf="!user.isDisabled">Enabled</span>
+        <span *ngIf="user.isDisabled">Disabled</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th *matHeaderCellDef mat-header-cell>Action</th>
+      <td *matCellDef="let user" mat-cell>
+        <button class="button" mat-button [matMenuTriggerFor]="dropMenu">Change role</button>
+        <button class="button" mat-button>Change account status</button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr (click)="selection.toggle(row)" *matRowDef="let row; columns: displayedColumns;"
+        mat-row>
+    </tr>
+  </table>
+</div>
+
+  <mat-menu #dropMenu="matMenu">
+    <ng-container>
+        <button  mat-menu-item>
+          <mat-icon class="mr">warning</mat-icon>
+          Set role: ADMIN | ZeroOne
+        </button>
+      <button  mat-menu-item>
+        <mat-icon class="mr">warning</mat-icon>
+        Set role: USER | ZeroOne
+      </button>
+        <mat-divider></mat-divider>
+    </ng-container>
+  </mat-menu>
+
+<!--  <mat-menu #dropMenu="matMenu">-->
+<!--    <ng-container *ngFor="let item of menuItems">-->
+<!--      <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">-->
+<!--        <button (click)="goToPage(item.route)" mat-menu-item>-->
+<!--          <mat-icon class="mr">{{item.icon}}</mat-icon>-->
+<!--          {{item.label}} | ZeroOne-->
+<!--        </button>-->
+<!--        <mat-divider></mat-divider>-->
+<!--      </div>-->
+<!--    </ng-container>-->
+<!--  </mat-menu>-->
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10"
+               aria-label="Select page"
+               class="mat-elevation-z10">
+</mat-paginator>
+</div>
+<app-footer></app-footer>
