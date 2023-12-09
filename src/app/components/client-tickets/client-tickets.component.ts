@@ -19,8 +19,11 @@ export interface Section {
 export class ClientTicketsComponent {
 
   new: Ticket[];
+
   inProgress: Ticket[];
+
   closed: Ticket[];
+
   suspended: Ticket[];
 
   showLoading: boolean = true;
@@ -30,11 +33,12 @@ export class ClientTicketsComponent {
 
 
 constructor(private ticketService: TicketService, public routingService: RoutingService, private sharedService: SharedService, private titleService: Title) {
+
   }
 
   ngOnInit() {
-    console.warn(sessionStorage.getItem('username'))
     this.titleService.setTitle("My tickets - ZeroOne");
+
     this.fetchTickets('New');
     this.fetchTickets('In progress');
     this.fetchTickets('Closed');

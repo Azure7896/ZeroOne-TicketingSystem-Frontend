@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../../services/shared-service/shared.service';
-import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {SharedService} from '../../services/shared-service/shared.service';
+import {Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { FailureService } from '../../services/failure-service/failure.service';
-import { DateAdapter } from '@angular/material/core';
+import {FailureService} from '../../services/failure-service/failure.service';
+import {DateAdapter} from '@angular/material/core';
 import {FailureInfo} from "../../classes/failure-info";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-failure-setting',
-  templateUrl: './failure-setting.component.html',
-  styleUrls: ['./failure-setting.component.css']
+  selector: 'app-failures-settings',
+  templateUrl: './failures-settings.component.html',
+  styleUrls: ['./failures-settings.component.css']
 })
-export class FailureSettingComponent {
+export class FailuresSettingsComponent {
 
   showLoading: boolean = true;
   loadingFailed = false;
@@ -30,10 +31,7 @@ export class FailureSettingComponent {
   });
 
   constructor(
-    public sharedService: SharedService,
-    public router: Router,
-    private failureInfoService: FailureService,
-    private dateAdapter: DateAdapter<Date>
+    public sharedService: SharedService, public router: Router, private snackBar: MatSnackBar, private failureInfoService: FailureService, private dateAdapter: DateAdapter<Date>
   ) {
     this.dateAdapter.setLocale('pl-PL');
   }
@@ -85,7 +83,7 @@ export class FailureSettingComponent {
   }
 
   updateFailure(failureId): void {
-
+    this.snackBar.open(`Failure status has been changed`, "OK", {duration: 4000,});
     this.failureInfoService.updateStatus(failureId).subscribe(
       (response) => {
       },
@@ -93,6 +91,7 @@ export class FailureSettingComponent {
 
       }
     );
+
     setTimeout(() => {
         this.ngOnInit();
       },
@@ -103,6 +102,7 @@ export class FailureSettingComponent {
   createNewFailure(): void {
     this.failureInfoService.saveFailure(this.failureForm).subscribe(response => {
         this.showFailureCreatedInfo()
+        this.snackBar.open(`Failure has been added`, "OK", {duration: 4000,});
       },
       err => {
         this.failureCreatedStatus = "fail"

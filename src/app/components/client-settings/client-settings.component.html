@@ -1,0 +1,13 @@
+
+<app-background-video></app-background-video>
+
+<app-user-settings-window></app-user-settings-window>
+
+<div (click)="routingService.goToPage('/client')" class="back-to-client-page">
+  <div class="text-with-icon">
+    <mat-icon class="icon">arrow_back</mat-icon>
+    <span class="text">Back to client page</span></div>
+</div>
+
+
+<router-outlet></router-outlet>

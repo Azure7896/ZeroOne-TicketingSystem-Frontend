@@ -1,9 +1,13 @@
+import {Role} from "../role";
+
 export class User {
   private _email;
   private _password;
   private _firstName;
   private _lastName;
   private _isDisabled;
+  private _createdDate;
+  private _role: Role;
 
 
   get email() {
@@ -44,5 +48,21 @@ export class User {
 
   set isDisabled(value) {
     this._isDisabled = value;
+  }
+
+  get createdDate() {
+    return this._createdDate;
+  }
+
+  set createdDate(value) {
+    this._createdDate = value;
+  }
+
+  get role(): Role {
+    return this._role;
+  }
+
+  set role(value: Role) {
+    this._role = value;
   }
 }

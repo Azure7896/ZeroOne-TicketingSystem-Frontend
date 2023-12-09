@@ -93,16 +93,27 @@ export class SpecificTicketWindowComponent {
 
     switch (status) {
       case 1:
+
         this.ticket.ticketStatus = 'In progress';
           this.ticket.ticketTimeRemaining = this.timeToEndCopy;
+
+        this.snackBar.open(`Ticket status has been changed to: ` + this.ticket.ticketStatus, "OK", {
+          duration: 4000,
+        });
         break;
       case 2:
         this.ticket.ticketStatus = 'Closed';
         this.ticket.ticketTimeRemaining = '-';
+        this.snackBar.open(`Ticket status has been changed to: ` + this.ticket.ticketStatus, "OK", {
+          duration: 4000,
+        });
         break;
       case 3:
         this.ticket.ticketStatus = 'Suspended';
         this.ticket.ticketTimeRemaining = '-';
+        this.snackBar.open(`Ticket status has been changed to: ` + this.ticket.ticketStatus, "OK", {
+          duration: 4000,
+        });
         break;
     }
     this.ticketService.updateTicketStatus(ticketnumber, status);

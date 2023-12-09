@@ -36,7 +36,7 @@ export class TicketsComponent {
 
   progressBarValue = 100;
 
-  constructor(private ticketService: TicketService, public sharedService: SharedService, public router: Router, public matsnackbar: MatSnackBar) {
+  constructor(private ticketService: TicketService, public sharedService: SharedService, public router: Router, private snackBar: MatSnackBar) {
   }
 
   @ViewChild(MatPaginator, {static: false})
@@ -72,6 +72,9 @@ export class TicketsComponent {
       this.dataSource.data = data;
       this.sharedService.refresh = false;
       this.sharedService.blockOnLiveButton = true;
+      this.snackBar.open(`Sort: by oldest`, "OK", {
+        duration: 4000,
+      });
     }, error => {
       this.showError()
     })
@@ -82,6 +85,10 @@ export class TicketsComponent {
       this.dataSource.data = data;
       this.sharedService.refresh = false;
       this.sharedService.blockOnLiveButton = true;
+
+      this.snackBar.open(`Sort: by attendant`, "OK", {
+        duration: 4000,
+      });
     }, error => {
       this.showError()
     })
@@ -91,6 +98,9 @@ export class TicketsComponent {
     this.fetchTicketsAgain();
     this.sharedService.refresh = true;
     this.sharedService.blockOnLiveButton = false;
+    this.snackBar.open(`Sort: by newest`, "OK", {
+      duration: 4000,
+    });
   }
 
   // sortTicketsByOldest() {

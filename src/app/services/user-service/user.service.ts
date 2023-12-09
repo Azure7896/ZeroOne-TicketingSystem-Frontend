@@ -3,6 +3,8 @@ import {FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "../api-service/api.service";
 import {Observable} from "rxjs";
+import {Ticket} from "../../classes/ticket";
+import {User} from "../../classes/user";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,10 @@ export class UserService {
 
   getUserData(email): Observable<any> {
     return this.http.get<any>(this.apiService.api + '/users/user?email=' + email);
+  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>( this.apiService.api + '/users');
   }
 
 }

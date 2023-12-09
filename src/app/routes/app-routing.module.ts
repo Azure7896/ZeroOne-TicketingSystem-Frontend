@@ -8,20 +8,25 @@ import {TicketClientComponent} from "../components/ticket-client/ticket-client.c
 import {LoginComponent} from "../components/login/login.component";
 import {ClientTicketsComponent} from "../components/client-tickets/client-tickets.component";
 import {ChartsComponent} from "../components/charts/charts.component";
-import {FailureSettingComponent} from "../components/failure-setting/failure-setting.component";
+import {FailuresSettingsComponent} from "../components/failures-settings/failures-settings.component";
+import {AuthGuard} from "../auth/auth-guard";
+import {ClientSettingsComponent} from "../components/client-settings/client-settings.component";
 import {UserSettingsComponent} from "../components/user-settings/user-settings.component";
+import {UsersManagementComponent} from "../components/users-management/users-management.component";
 
 const routes: Routes = [
-  {path: '', component: LoginComponent },
-  {path: 'home', component: HomeComponent},
-  {path: 'charts', component: ChartsComponent},
-  {path: 'failure', component: FailureSettingComponent},
-  {path: 'client/addticket', component: TicketFormComponent},
-  {path: 'settings', component: UserSettingsComponent},
-  {path: 'client', component: HomeclientComponent},
-  {path: 'client/tickets-table', component: ClientTicketsComponent},
-  {path: 'client/:clientsideticketnumber', component: TicketClientComponent},
-  {path: ':ticketnumber', component: TicketComponent},
+  {path: '', component: LoginComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN']}},
+  {path: 'charts', component: ChartsComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN']}},
+  {path: 'users-management', component: UsersManagementComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN']}},
+  {path: 'failure', component: FailuresSettingsComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN']}},
+  {path: 'client/addticket', component: TicketFormComponent, canActivate: [AuthGuard], data: {roles: ['ROLE_USER', 'ROLE_ADMIN']}},
+  {path: 'settings', component: UserSettingsComponent, canActivate: [AuthGuard], data: {roles: ['ROLE_ADMIN']}},
+  {path: 'client', component: HomeclientComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN', 'ROLE_USER']}},
+  {path: 'client/tickets-table', component: ClientTicketsComponent, canActivate: [AuthGuard], data: {roles: ['ROLE_USER', 'ROLE_ADMIN']}},
+  {path: 'client/settings', component: ClientSettingsComponent, canActivate: [AuthGuard], data: { roles: ['ROLE_ADMIN', 'ROLE_USER']}},
+  {path: 'client/:clientsideticketnumber', component: TicketClientComponent, canActivate: [AuthGuard], data: {roles: ['ROLE_USER', 'ROLE_ADMIN']}},
+  {path: ':ticketnumber', component: TicketComponent, canActivate: [AuthGuard], data: {roles: ['ROLE_ADMIN']}},
 ];
 
 @NgModule({

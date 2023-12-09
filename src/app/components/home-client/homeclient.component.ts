@@ -13,6 +13,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class HomeclientComponent {
 
+  roleFromSessionStorage = sessionStorage.getItem('app.roles');
+
   user: User;
   constructor(public routingService: RoutingService, private titleService: Title, private userService: UserService, private authService: AuthService, private snackBar: MatSnackBar) {
     this.titleService.setTitle("Client - ZeroOne");
