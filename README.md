@@ -115,6 +115,10 @@ Preview:
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/b3908cb3-19dd-497a-9007-3b8e18e4c634)
 
+<p align="center">Mobile view:</b></p>
+
+![zeromobile2](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/31867934-18e6-4471-9d30-d0e400dc868f)
+
 Preview video (from 19.04.2023): 
 
 https://user-images.githubusercontent.com/95986791/233039597-2f6e0e52-571b-44ac-a0c8-b0361c5fd3ae.mp4
