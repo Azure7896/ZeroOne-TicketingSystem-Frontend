@@ -115,6 +115,10 @@ Preview:
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/b3908cb3-19dd-497a-9007-3b8e18e4c634)
 
+<p align="center">Error:</b></p>
+
+![Error](https://github.com/Azure7896/ZeroOne-TicketingSystem-Backend/assets/95986791/98d0feef-8579-4a8b-b82d-1fd6bd030998)
+
 <p align="center">Mobile view:</b></p>
 
 ![zeromobile2](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/31867934-18e6-4471-9d30-d0e400dc868f)
