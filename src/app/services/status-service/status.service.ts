@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {Ticket} from "../../classes/ticket";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class StatusService {
   }
 
   getDatabaseStatus(): Observable<boolean> {
-    return this.http.get<boolean>('http://localhost:8080/databasestatus')
+    return this.http.get<boolean>(environment.apiUrl + '/databasestatus')
   }
 
 }

@@ -31,13 +31,6 @@
             mat-menu-item>{{category.categoryName}}
           </button>
         </div>
-
-<!--        <button (click)="updateTicketStatus(specific-ticket.ticketNumber, 2)" [disabled]="specific-ticket.ticketStatus == 'Closed'"-->
-<!--                mat-menu-item>Closed-->
-<!--        </button>-->
-<!--        <button (click)="updateTicketStatus(specific-ticket.ticketNumber, 3)" [disabled]="specific-ticket.ticketStatus == 'Suspended'"-->
-<!--                mat-menu-item>Suspended-->
-<!--        </button>-->
       </mat-menu>
     </mat-card-content>
     <mat-card-actions>
@@ -60,6 +53,6 @@
 <div class="back-to-client-page" (click)="routingService.goToPage('/client')">
   <div class="text-with-icon">
     <mat-icon class="icon">arrow_back</mat-icon>
-    <span class="text">Back to client page</span></div>
+    <span class="text">Back to the client page</span></div>
 </div>
 </div>

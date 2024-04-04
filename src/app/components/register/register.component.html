@@ -27,13 +27,13 @@
         <mat-label>Last name</mat-label>
         <input formControlName="lastName" matInput placeholder="Your last name" required type="text">
         <mat-error *ngIf="registerForm.get('lastName').hasError('required')">
-          Email is <strong>required</strong>
+          Last name is <strong>required</strong>
         </mat-error>
         <mat-error *ngIf="registerForm.get('lastName').hasError('minlength')">
-          Email is <strong>too short</strong>
+          Last name is <strong>too short</strong>
         </mat-error>
         <mat-error *ngIf="registerForm.get('lastName').hasError('maxlength')">
-          Email is <strong>too long</strong>
+          Last name is <strong>too long</strong>
         </mat-error>
       </mat-form-field>
 

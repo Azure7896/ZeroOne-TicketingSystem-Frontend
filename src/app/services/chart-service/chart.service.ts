@@ -1,28 +1,26 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ApiService} from "../api-service/api.service";
 import {ChartsData} from "../../classes/charts-data";
-import {ChartsComponent} from "../../components/charts/charts.component";
-
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChartService {
 
-  constructor(private http: HttpClient, private apiService: ApiService) {
+  constructor(private http: HttpClient) {
   }
 
   getSortedDaysList(): Observable<string[]> {
-    return this.http.get<string[]>(this.apiService.api + '/chart');
+    return this.http.get<string[]>(environment.apiUrl + '/chart');
   }
   getTicketsCount(): Observable<any> {
-    return this.http.get<string[]>(this.apiService.api + '/latst7days');
+    return this.http.get<string[]>(environment.apiUrl + '/latst7days');
   }
 
   getChartsData(): Observable<ChartsData> {
-    return this.http.get<ChartsData>(this.apiService.api + '/charts');
+    return this.http.get<ChartsData>(environment.apiUrl + '/charts');
   }
 }
 

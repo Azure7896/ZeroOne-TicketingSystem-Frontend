@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpRequest} from "@angular/common/http";
-import {catchError, Observable, throwError} from "rxjs";
-import {ApiService} from "../services/api-service/api.service";
-import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/router";
+import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/rout
 
 export class AuthService {
 
-  constructor(private http: HttpClient, private api: ApiService) {
+  constructor(private http: HttpClient) {
   }
 
   isLoggedIn(): boolean {
@@ -24,7 +24,7 @@ export class AuthService {
       },
       responseType: 'text' as 'text',
     };
-    return this.http.post(this.api.api + "/api/auth", null, httpOptions);
+    return this.http.post(environment.apiUrl + "/api/auth", null, httpOptions);
   }
 
   logout() {
