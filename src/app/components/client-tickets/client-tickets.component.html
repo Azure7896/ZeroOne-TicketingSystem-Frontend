@@ -35,7 +35,7 @@
           </mat-list-item>
           </div>
           <mat-divider></mat-divider>
-          <div id="new"imat-subheader>New</div>
+          <div id="new"mat-subheader>New</div>
           <div *ngFor="let ticket of new">
             <mat-list-item (click)="routingService.goToPage('client/' + ticket.ticketNumber)">
             <mat-icon>note</mat-icon>
@@ -73,7 +73,7 @@
   <div class="back-to-client-page" (click)="routingService.goToPage('/client')">
     <div class="text-with-icon">
       <mat-icon class="icon">arrow_back</mat-icon>
-      <span class="text">Back to client page</span></div>
+      <span class="text">Back to the client page</span></div>
   </div>
 </div>
 

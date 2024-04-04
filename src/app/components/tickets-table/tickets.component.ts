@@ -59,7 +59,7 @@ export class TicketsComponent {
   goToPage(pageName:string):void {
     this.router.navigate([`${pageName}`]);
   }
-
+ 
   goToSpecificTicket(pageName: string): void {
     if (this.sharedService.refresh === false) {
       this.changeRefreshSettingAfterOpenSpecificTicket();
@@ -86,7 +86,7 @@ export class TicketsComponent {
       this.sharedService.refresh = false;
       this.sharedService.blockOnLiveButton = true;
 
-      this.snackBar.open(`Sort: by attendant`, "OK", {
+      this.snackBar.open(`Filter: by my`, "OK", {
         duration: 4000,
       });
     }, error => {

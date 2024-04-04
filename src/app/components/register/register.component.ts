@@ -6,20 +6,6 @@ import {UserService} from "../../services/user-service/user.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
-// export function passwordMatchValidator(): ValidatorFn {
-//   return (control: AbstractControl): ValidationErrors | null => {
-//     const password = control.get('password');
-//     const repeatPassword = control.get('repeatPassword');
-//
-//     if (password && repeatPassword && password.value !== repeatPassword.value) {
-//       return {passwordMismatch: true};
-//     }
-//
-//     return null;
-//   };
-// }
-//
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
