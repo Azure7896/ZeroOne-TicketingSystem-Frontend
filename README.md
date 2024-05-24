@@ -111,9 +111,9 @@ Preview:
 
 ![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/07841676-c767-4eb0-bd4c-22dcefb6a981)\
 
-<p align="center">User account info:</b></p>
+<p align="center">User account info and password reset:</b></p>
 
-![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/b3908cb3-19dd-497a-9007-3b8e18e4c634)
+![image](https://github.com/Azure7896/ZeroOne-TicketingSystem-Frontend/assets/95986791/ab594f64-4786-40f7-8ac3-7dbe99e1b2cc)
 
 <p align="center">Error:</b></p>
 
